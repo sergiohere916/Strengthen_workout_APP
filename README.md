@@ -29,7 +29,7 @@ Check out a wide variety of excercises and create workout routines for yourself 
 * target date of a goal must be after today and must be valid date
 
 # Wireframe:
-![Screenshot 2023-10-24 154400](https://github.com/sergiohere916/Strengthen_workout_APP/assets/137942550/9cb36aa3-39ae-4730-82e1-87e6273a41b6)
+![Screenshot 2023-10-24 163725](https://github.com/sergiohere916/Strengthen_workout_APP/assets/137942550/1a3faf82-cd4e-467f-856a-5207a5d47086)
 
 # API Routes:
 * GET/users/<int:id>
