@@ -59,9 +59,9 @@ Create_Account
 * Post/users
   
 NavBar
-/Home
-/Excerises
-/Routines  
+* /Home
+* /Excerises
+* /Routines  
 
 Home
 * GET/routines
@@ -70,27 +70,27 @@ Home
 * POST/personal_goals
   
 All_Personal_Workouts
-*PATCH/scheduled_workouts<int:id>
-*DELETE/scheduled_workouts<int:id>
+* PATCH/scheduled_workouts<int:id>
+* DELETE/scheduled_workouts<int:id>
 
 Personal_Goals
-*DELETE/personal_goals<int:id>
-*PATCH/personal_goals<int:id>
+* DELETE/personal_goals<int:id>
+* PATCH/personal_goals<int:id>
 
 Personal_Goal_FORM
-*POST/personal_goals<int:id>
+* POST/personal_goals<int:id>
 
 Routines
-*Post/scheduled_workouts
-*PATCH/routines<int:id>
+* Post/scheduled_workouts
+* PATCH/routines<int:id>
 
 Create_Routines_Form
-*POST/routines
-*POST/scheduled_workouts
+* POST/routines
+* POST/scheduled_workouts
 
 Account
-*PATCH/user/<int:id>
-*DELETE/user/<int:id>
+* PATCH/user/<int:id>
+* DELETE/user/<int:id>
 
 # Serialize Rules:
 * ("-scheduled_workouts.user",)
