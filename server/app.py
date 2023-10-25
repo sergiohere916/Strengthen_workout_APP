@@ -3,7 +3,7 @@
 # Standard library imports
 
 # Remote library imports
-from flask import request, make_response, jsonify
+from flask import request, make_response, jsonify, session
 from flask_restful import Resource
 
 # Local imports
@@ -15,9 +15,35 @@ from models import User, Routine, PersonalGoal, ScheduledWorkout
 from datetime import date,datetime
 
 # Views go here!
+class Login(Resource):
+
+    def post(self):
+
+        username = request.get_json()['username']
+        user = User.query.filter(User.username == username)
+
+        password = request.get_json()['password']
+
+        if user.authenticate(password):
+            print("you're in!!")
+            # session['user_id'] = user.id
+            return user.to_dict(), 200
+
+        return {'error': 'Invalid username or password'}, 401
+api.add_resource(Login, "/login")
+
+class Logout(Resource):
+
+    def delete(self): # just add this line!
+        session['user_id'] = None
+        return {'message': '204: No Content'}, 204
+
+api.add_resource(Logout, '/logout')
+
+
 class Users(Resource):
     def get(self):
-        users = [user.to_dict() for user in User.query.all()]
+        users = [user.to_dict(rules=('-personal_goals', '-scheduled_workouts',)) for user in User.query.all()]
         return make_response(users, 200)
     def post(self):
         data = request.json
@@ -32,7 +58,7 @@ class Users(Resource):
             db.session.add(new_user)
             db.session.commit()
 
-            return make_response(new_user.to_dict(), 201)
+            return make_response(new_user.to_dict('-personal_goals', '-scheduled_workouts',), 201)
         except ValueError:
             return make_response({"errors": ["validation errors"]}, 400)
 api.add_resource(Users, '/users')
@@ -115,7 +141,7 @@ api.add_resource(RoutinesByID, '/routines/<int:id>')
 
 class PersonalGoals(Resource):
     def get(self):
-        personal_goals = [personal_goal.to_dict() for personal_goal in PersonalGoal.query.all()]
+        personal_goals = [personal_goal.to_dict(rules=('-user',)) for personal_goal in PersonalGoal.query.all()]
         return make_response(personal_goals, 200)
     def post(self):
         data = request.json
@@ -134,7 +160,7 @@ class PersonalGoals(Resource):
             db.session.add(new_personal_goal)
             db.session.commit()
 
-            return make_response(new_personal_goal.to_dict(), 202)
+            return make_response(new_personal_goal.to_dict(rules=('-user',)), 202)
         except:
             return make_response({"errors": ["validation errors"]}, 400)
 api.add_resource(PersonalGoals, '/personalgoals')
@@ -149,6 +175,9 @@ class PersonalGoalsByID(Resource):
     def patch(self, id):
         personal_goal = PersonalGoal.query.filter_by(id=id).first()
         data = request.json
+        if data["target_date"]:
+            target_date = data["target_date"].split("-")
+            data["target_date"] = date(int(target_date[0]), int(target_date[1]), int(target_date[2]))
         if personal_goal:
             for attr in data:
                 setattr(personal_goal, attr, data[attr])
@@ -172,7 +201,7 @@ api.add_resource(PersonalGoalsByID, '/personalgoals/<int:id>')
 
 class ScheduledWorkouts(Resource):
     def get(self):
-        scheduled_workouts = [workout.to_dict() for workout in ScheduledWorkout.query.all()]
+        scheduled_workouts = [workout.to_dict(rules=('-routine', '-user',)) for workout in ScheduledWorkout.query.all()]
         return make_response(scheduled_workouts, 200)
     def post(self):
         data = request.json
@@ -187,7 +216,7 @@ class ScheduledWorkouts(Resource):
             db.session.add(new_scheduled_workout)
             db.session.commit()
 
-            return make_response(new_scheduled_workout.to_dict(), 202)
+            return make_response(new_scheduled_workout.to_dict(rules=('-routine', '-user',)), 202)
         except ValueError:
             return make_response({"errors": ["validation errors"]}, 400)
 api.add_resource(ScheduledWorkouts, '/scheduledworkouts')
@@ -196,7 +225,7 @@ class ScheduledWorkoutsByID(Resource):
     def get(self,id):
         scheduled_workout = ScheduledWorkout.query.filter_by(id=id).first()
         if scheduled_workout:
-            return make_response(scheduled_workout.to_dict(), 200)
+            return make_response(scheduled_workout.to_dict(rules=('-user',)), 200)
         else:
             return make_response({"error": "Workout not found"}, 404)
     def patch(self,id):
@@ -210,7 +239,7 @@ class ScheduledWorkoutsByID(Resource):
                 db.session.add(scheduled_workout)
                 db.session.commit()
 
-                return make_response(scheduled_workout.to_dict(), 202)
+                return make_response(scheduled_workout.to_dict(rules=('-user',)), 202)
             except ValueError:
                 return make_response({"errors": ["validation errors"]}, 400)
         else:
