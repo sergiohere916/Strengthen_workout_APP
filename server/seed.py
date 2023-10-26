@@ -18,7 +18,7 @@ def create_users():
             name = fake.name(),
             email = fake.email(),
             account_created = fake.date_between(date(2023, 1, 1), date(2023, 10, 1)),
-            password = "password1",
+            password_hash = "password1",
         )
         users.append(user)
     return users

@@ -23,14 +23,14 @@ class Login(Resource):
         user = User.query.filter(User.email == email).first()
         password = request.json['password']
         #CODE REQUIRED FOR HASHING REVISIT LATER
-        # if user.authenticate(password):
-        #     print("you're in!!")
-        #     # session['user_id'] = user.id
-        #     return user.to_dict(), 200
-        if password == user.password:
+        if user.authenticate(password):
+            print("you're in!!")
             # session['user_id'] = user.id
-            print("session would be created")
             return user.to_dict(), 200
+        # if password == user.password:
+            # session['user_id'] = user.id
+            # print("session would be created")
+            # return user.to_dict(), 200
 
 
         return {'error': 'Invalid username or password'}, 401
@@ -56,7 +56,7 @@ class Users(Resource):
                 name = data["name"],
                 email = data["email"],
                 account_created = datetime.now().date(),
-                password = data["password"]
+                password_hash = data["password"]
             )
 
             db.session.add(new_user)
