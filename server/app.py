@@ -19,15 +19,19 @@ class Login(Resource):
 
     def post(self):
 
-        username = request.get_json()['username']
-        user = User.query.filter(User.username == username)
-
-        password = request.get_json()['password']
-
-        if user.authenticate(password):
-            print("you're in!!")
+        email = request.json['email']
+        user = User.query.filter(User.email == email).first()
+        password = request.json['password']
+        #CODE REQUIRED FOR HASHING REVISIT LATER
+        # if user.authenticate(password):
+        #     print("you're in!!")
+        #     # session['user_id'] = user.id
+        #     return user.to_dict(), 200
+        if password == user.password:
             # session['user_id'] = user.id
+            print("session would be created")
             return user.to_dict(), 200
+
 
         return {'error': 'Invalid username or password'}, 401
 api.add_resource(Login, "/login")
@@ -58,7 +62,7 @@ class Users(Resource):
             db.session.add(new_user)
             db.session.commit()
 
-            return make_response(new_user.to_dict('-personal_goals', '-scheduled_workouts',), 201)
+            return make_response(new_user.to_dict(rules=('-personal_goals', '-scheduled_workouts',)), 201)
         except ValueError:
             return make_response({"errors": ["validation errors"]}, 400)
 api.add_resource(Users, '/users')
