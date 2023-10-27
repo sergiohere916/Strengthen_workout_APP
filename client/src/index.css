@@ -5,3 +5,24 @@
   --text: hsla(0, 0%, 100%, 0.88);
 }
 
+.login {
+  background-color: rgb(226, 187, 114);
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+.page {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+}
+

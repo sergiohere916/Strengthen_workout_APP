@@ -25,7 +25,7 @@ class Login(Resource):
         #CODE REQUIRED FOR HASHING REVISIT LATER
         if user.authenticate(password):
             print("you're in!!")
-            # session['user_id'] = user.id
+            session['user_id'] = user.id
             return user.to_dict(), 200
         # if password == user.password:
             # session['user_id'] = user.id
@@ -43,6 +43,17 @@ class Logout(Resource):
         return {'message': '204: No Content'}, 204
 
 api.add_resource(Logout, '/logout')
+
+class CheckSession(Resource):
+
+    def get(self):
+        user = User.query.filter(User.id == session.get('user_id')).first()
+        if user:
+            return user.to_dict()
+        else:
+            return {'message': '401: Not Authorized'}, 401
+
+api.add_resource(CheckSession, '/check_session')
 
 
 class Users(Resource):
