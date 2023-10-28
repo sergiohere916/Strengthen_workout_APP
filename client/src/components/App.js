@@ -9,6 +9,9 @@ import UserRoutines from "./UserRoutines";
 
 function App() {
   const [user, setUser] = useState(null);
+
+  const [myWeeksRoutine, setMyWeeksRoutine] = useState([])
+  const [myRoutines, setMyRoutines] = useState([])
   const [workouts, setWorkouts] = useState([
   {
     bodyPart: "shoulders",
@@ -101,6 +104,7 @@ function App() {
     target: "pectorals"
   }])
 
+
   useEffect(() => {
     fetch("/check_session")
     .then((response) => {
@@ -109,6 +113,13 @@ function App() {
       }
     });
   }, []);
+
+  useEffect(() => {
+      fetch("/scheduledworkouts/user/7")
+      .then(r => r.json())
+      .then(myRoutines => setMyRoutines(myRoutines))
+  }, [])
+
 
   function onLogIn(currentUserLogin) {
     setUser(currentUserLogin)
@@ -157,7 +168,7 @@ function App() {
         <WorkoutsList workouts={workouts} user={user}/>
       </Route>
       <Route path = "/Home/MyRoutines">
-        <UserRoutines/>
+        <UserRoutines myRoutines={myRoutines}/>
       </Route>
       <Route path = "/Home">
         <Home/>

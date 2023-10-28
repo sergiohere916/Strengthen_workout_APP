@@ -9,14 +9,7 @@ import Button from '@mui/material/Button';
 import pic from './glossy-red-push-pin-png.webp'
 
 function Home() {
-    const [myWeeksRoutine, setMyWeeksRoutine] = useState([])
-
-    useEffect(() => {
-        fetch("/scheduledworkouts/user/7")
-        .then(r => r.json())
-        .then(myRoutines => console.log(myRoutines))
-    }, [])
-
+    
 
     const { Header, Footer, Sider, Content } = Layout;
     const headerStyle = {
@@ -89,7 +82,8 @@ function Home() {
                             <h4>Title</h4>
                         </div>
                         <div className="homeRoutineHolders">
-                            <h4>Title</h4>
+                            {/* <h4>Title</h4> */}
+                            <img src="https://dcassetcdn.com/design_img/3571610/515701/515701_19560887_3571610_166c5b12_image.jpg"></img>
                         </div>
                         <div className="homeRoutineHolders">
                             <h4>Title</h4>

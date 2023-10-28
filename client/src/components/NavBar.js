@@ -58,9 +58,9 @@ function NavBar() {
                         <NavLink to = "/Routines"><button>ROUTINES</button></NavLink> */}
                         <Stack direction="row" spacing={2}>
                           <Button color = "error" variant="contained" href="/Home">HOME</Button>
-                          <Button color = "error" variant="contained" href="/Workouts">WORKOUTS</Button>
+                          <Button color = "error" variant="contained" href="/Workouts">Excercises</Button>
                           <Button color = "error" variant="contained" href="#contained-buttons">
-                            Link
+                            Routines
                           </Button>
                         </Stack>
                     </Box>
