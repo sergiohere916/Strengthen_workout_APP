@@ -1,11 +1,14 @@
 import React from "react";
+import NavBar from "./NavBar";
 
 
 
 function Home() {
     return (
         <div>
-            hello
+            <NavBar/>
+            <h3>Hello THIS IS HOME</h3>
+            
         </div>
     )
 }

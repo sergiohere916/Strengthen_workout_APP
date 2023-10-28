@@ -1,5 +1,5 @@
 import React from "react";
-
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -33,8 +33,8 @@ function NavBar() {
 
     return (
         <ThemeProvider theme={theme}>
-        <Box sx={{ flexGrow: 1}}>
-            <AppBar position="static" color="primary" sx={{height: "200px", position: "relative;"}}>
+        <Box id="navbar" sx={{ flexGrow: 1}}>
+            <AppBar elevation={15} position="static" color="primary" sx={{height: "200px", position: "relative;"}}>
                 <Toolbar>
                     <IconButton
                     size="large"
@@ -51,9 +51,12 @@ function NavBar() {
                     
                 </Toolbar>
                     <Box sx={{bgcolor: 'secondary.main', position: "absolute;", right: "0px", bottom: "0px", width: "20%", height: "30%", justifyContent: "center"}}>
-                        <Button  color="inherit">Home</Button>
+                        <NavLink to = "/Home"><button>HOME</button></NavLink>
+                        <NavLink to = "/Workouts"><button>WORKOUTS</button></NavLink>
+                        <button onClick={handleClick}>ROUTINES</button>
+                        {/* <Button  color="inherit">Home</Button>
                         <Button  color="inherit">Workouts</Button>
-                        <Button onClick={handleClick} color="inherit">Routines</Button>
+                        <Button onClick={handleClick} color="inherit">Routines</Button> */}
                     </Box>
             </AppBar>
         </Box>

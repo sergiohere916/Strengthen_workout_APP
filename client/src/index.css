@@ -26,3 +26,40 @@
   width: 100%;
 }
 
+#navbar {
+  border-bottom: 10px solid red;
+}
+
+#mainWorkoutPage {
+  display: flex;
+  border-top: 10px solid black;
+}
+
+.workoutsContainer {
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  padding: 15px;
+  gap: 20px;
+}
+
+.routineCreaterContainer {
+  width: auto;
+  justify-content: center;
+  object-fit: contain;
+}
+
+
+#title {
+  font-weight: 900;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+}
+
+
+
+.cardContent {
+  /* background-color: rgb(201, 57, 57); */
+  /* border: 5px solid black; */
+}

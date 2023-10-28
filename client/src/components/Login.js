@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -14,9 +15,13 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-function Login({onLogIn}) {
-    const defaultTheme = createTheme();
 
+function Login({onLogIn}) {
+
+
+    const history = useHistory()
+    const defaultTheme = createTheme();
+    console.log(history)
     const handleSubmit = (event) => {
         event.preventDefault();
         const email = event.target[0].value
@@ -31,7 +36,10 @@ function Login({onLogIn}) {
       body: JSON.stringify(userLogin)
     })
     .then(r => r.json())
-    .then(verifiedUserLogin => onLogIn(verifiedUserLogin))
+    .then(verifiedUserLogin => {
+        onLogIn(verifiedUserLogin);
+        history.push("/Home")
+    })
   };
     return (
         <ThemeProvider theme={defaultTheme}>
