@@ -13,7 +13,7 @@ function WorkoutListItem({workout, onClickAddToRoutine}) {
     const workoutName = workout.name[0].toUpperCase() + workout.name.slice(1)
 
     function handleClick() {
-        onClickAddToRoutine(workoutName)
+        onClickAddToRoutine(workout.name)
     }
 
     return (
@@ -31,12 +31,13 @@ function WorkoutListItem({workout, onClickAddToRoutine}) {
               {workoutName}
             </Typography>
             {/* <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica
+              {"Target Areas: " + workout.bodyPart + ", " + workout.target}
             </Typography> */}
-            <button onClick={handleClick}>add</button>
+            <div onClick={handleClick}>add</div>
+            {/* Button is giving problems... */}
           </CardContent>
         </CardActionArea>
+        
         </Card>
     )
 }

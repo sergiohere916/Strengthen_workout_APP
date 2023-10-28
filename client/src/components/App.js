@@ -12,27 +12,27 @@ function App() {
   {
     bodyPart: "shoulders",
     equipment: "dumbell",
-    gifUrl: "https://v2.exercisedb.io/image/5Li1vB1CPk-Evx",
-    id: "1",
+    gifUrl: "https://v2.exercisedb.io/image/YIvmcwFlMFdQMg",
+    id: "2137",
     instructions: ["Sit on a bench with your feet flat on the ground and your back straight.", "Hold a dumbbell in one hand with your palm facing inwards.", "Lean forward and place your free hand on the bench for support.",
      "Keep your arm slightly bent and raise it out to the side until it is parallel to the ground.", "Pause for a moment at the top, then slowly lower your arm back down to the starting position.", "Repeat for the desired number of repetitions, then switch arms."],
-    name: "dumbbell one arm reverse fly (with support)",
+    name: "dumbbell arnold press",
     target: "delts"
   }, 
   {
     bodyPart: "chest",
     equipment: "dumbell",
-    gifUrl: "https://v2.exercisedb.io/image/NcYLP-6AZU4DyW",
-    id: "2",
+    gifUrl: "https://v2.exercisedb.io/image/JJ0bZGJiGJVXpL",
+    id: "0288",
     instructions: ["Sit on a flat bench with a dumbbell in one hand, palm facing towards your body.", "Place your feet flat on the ground and keep your back straight.", "Raise the dumbbell to shoulder height, keeping your elbow close to your body.", 
     "Press the dumbbell upwards until your arm is fully extended.", "Pause for a moment at the top, then slowly lower the dumbbell back to the starting position.", "Repeat for the desired number of repetitions, then switch to the other arm."],
-    name: "dumbbell one arm reverse grip press",
+    name: "dumbbell decline bench press",
     target: "pectorals"
   },
   {
     bodyPart: "chest",
     equipment: "dumbell",
-    gifUrl: "https://v2.exercisedb.io/image/NcYLP-6AZU4DyW",
+    gifUrl: "https://v2.exercisedb.io/image/JJ0bZGJiGJVXpL",
     id: "3",
     instructions: ["Sit on a flat bench with a dumbbell in one hand, palm facing towards your body.", "Place your feet flat on the ground and keep your back straight.", "Raise the dumbbell to shoulder height, keeping your elbow close to your body.", 
     "Press the dumbbell upwards until your arm is fully extended.", "Pause for a moment at the top, then slowly lower the dumbbell back to the starting position.", "Repeat for the desired number of repetitions, then switch to the other arm."],
@@ -42,7 +42,7 @@ function App() {
   {
     bodyPart: "chest",
     equipment: "dumbell",
-    gifUrl: "https://v2.exercisedb.io/image/NcYLP-6AZU4DyW",
+    gifUrl: "https://v2.exercisedb.io/image/JJ0bZGJiGJVXpL",
     id: "4",
     instructions: ["Sit on a flat bench with a dumbbell in one hand, palm facing towards your body.", "Place your feet flat on the ground and keep your back straight.", "Raise the dumbbell to shoulder height, keeping your elbow close to your body.", 
     "Press the dumbbell upwards until your arm is fully extended.", "Pause for a moment at the top, then slowly lower the dumbbell back to the starting position.", "Repeat for the desired number of repetitions, then switch to the other arm."],
@@ -52,7 +52,7 @@ function App() {
   {
     bodyPart: "chest",
     equipment: "dumbell",
-    gifUrl: "https://v2.exercisedb.io/image/NcYLP-6AZU4DyW",
+    gifUrl: "https://v2.exercisedb.io/image/JJ0bZGJiGJVXpL",
     id: "5",
     instructions: ["Sit on a flat bench with a dumbbell in one hand, palm facing towards your body.", "Place your feet flat on the ground and keep your back straight.", "Raise the dumbbell to shoulder height, keeping your elbow close to your body.", 
     "Press the dumbbell upwards until your arm is fully extended.", "Pause for a moment at the top, then slowly lower the dumbbell back to the starting position.", "Repeat for the desired number of repetitions, then switch to the other arm."],
@@ -62,7 +62,7 @@ function App() {
   {
     bodyPart: "chest",
     equipment: "dumbell",
-    gifUrl: "https://v2.exercisedb.io/image/NcYLP-6AZU4DyW",
+    gifUrl: "https://v2.exercisedb.io/image/JJ0bZGJiGJVXpL",
     id: "6",
     instructions: ["Sit on a flat bench with a dumbbell in one hand, palm facing towards your body.", "Place your feet flat on the ground and keep your back straight.", "Raise the dumbbell to shoulder height, keeping your elbow close to your body.", 
     "Press the dumbbell upwards until your arm is fully extended.", "Pause for a moment at the top, then slowly lower the dumbbell back to the starting position.", "Repeat for the desired number of repetitions, then switch to the other arm."],
@@ -72,7 +72,7 @@ function App() {
   {
     bodyPart: "chest",
     equipment: "dumbell",
-    gifUrl: "https://v2.exercisedb.io/image/NcYLP-6AZU4DyW",
+    gifUrl: "https://v2.exercisedb.io/image/JJ0bZGJiGJVXpL",
     id: "7",
     instructions: ["Sit on a flat bench with a dumbbell in one hand, palm facing towards your body.", "Place your feet flat on the ground and keep your back straight.", "Raise the dumbbell to shoulder height, keeping your elbow close to your body.", 
     "Press the dumbbell upwards until your arm is fully extended.", "Pause for a moment at the top, then slowly lower the dumbbell back to the starting position.", "Repeat for the desired number of repetitions, then switch to the other arm."],
@@ -82,7 +82,7 @@ function App() {
   {
     bodyPart: "chest",
     equipment: "dumbell",
-    gifUrl: "https://v2.exercisedb.io/image/NcYLP-6AZU4DyW",
+    gifUrl: "https://v2.exercisedb.io/image/JJ0bZGJiGJVXpL",
     id: "8",
     instructions: ["Sit on a flat bench with a dumbbell in one hand, palm facing towards your body.", "Place your feet flat on the ground and keep your back straight.", "Raise the dumbbell to shoulder height, keeping your elbow close to your body.", 
     "Press the dumbbell upwards until your arm is fully extended.", "Pause for a moment at the top, then slowly lower the dumbbell back to the starting position.", "Repeat for the desired number of repetitions, then switch to the other arm."],
@@ -92,7 +92,7 @@ function App() {
   {
     bodyPart: "chest",
     equipment: "dumbell",
-    gifUrl: "https://v2.exercisedb.io/image/NcYLP-6AZU4DyW",
+    gifUrl: "https://v2.exercisedb.io/image/JJ0bZGJiGJVXpL",
     id: "9",
     instructions: ["Sit on a flat bench with a dumbbell in one hand, palm facing towards your body.", "Place your feet flat on the ground and keep your back straight.", "Raise the dumbbell to shoulder height, keeping your elbow close to your body.", 
     "Press the dumbbell upwards until your arm is fully extended.", "Pause for a moment at the top, then slowly lower the dumbbell back to the starting position.", "Repeat for the desired number of repetitions, then switch to the other arm."],
@@ -120,8 +120,8 @@ function App() {
   //   fetch("https://exercisedb.p.rapidapi.com/exercises?limit=1200",{
   //     method: "GET",
   //     headers: {
-  //       'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
-  //       'X-RapidAPI-Host': process.env.REACT_APP_API_HOST
+  //       'X-RapidAPI-Key': REACT_APP_API_KEY,
+  //       'X-RapidAPI-Host': REACT_APP_API_HOST
   //   }})
   //   .then(res => res.json())
   //   .then(data => console.log(data))
@@ -153,7 +153,7 @@ function App() {
     <div>
     <Switch>
       <Route path="/workouts">
-        <WorkoutsList workouts={workouts}/>
+        <WorkoutsList workouts={workouts} user={user}/>
       </Route>
       <Route path = "/Home">
         <Home/>

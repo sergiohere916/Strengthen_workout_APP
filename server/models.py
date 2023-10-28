@@ -89,4 +89,4 @@ class ScheduledWorkout(db.Model, SerializerMixin):
     serialize_rules = ('-user.scheduled_workouts', '-routine.scheduled_workouts',)
 
     def __repr__(self):
-        return f'<Personal Scheduled Workout:  {self.name}, id: {self.id}, owner: {self.user_id} routine pulled from: {self.routine_id} >'
+        return f'<Personal Scheduled Workout: {self.id}, owner: {self.user_id} routine pulled from: {self.routine_id} >'

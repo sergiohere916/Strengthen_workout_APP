@@ -270,6 +270,15 @@ class ScheduledWorkoutsByID(Resource):
             return make_response({"error": "Workout not found"}, 404)
 api.add_resource(ScheduledWorkoutsByID, '/scheduledworkouts/<int:id>')
 
+class ScheduledWorkoutsByUserID(Resource):
+    def get(self, id):
+        scheduled_workouts = [workout.to_dict(rules=('-user', '-routine_id',)) for workout in ScheduledWorkout.query.filter_by(user_id = id).all()]
+        if scheduled_workouts:
+            return make_response(scheduled_workouts, 200)
+        else: 
+            return make_response({"error": "User was not found"}, 404)
+api.add_resource(ScheduledWorkoutsByUserID, '/scheduledworkouts/user/<int:id>')
+
 
 @app.route('/')
 def index():
