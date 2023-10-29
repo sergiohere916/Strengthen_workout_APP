@@ -1,5 +1,6 @@
 import React from "react";
-import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import { NavLink, useHistory } from "react-router-dom/cjs/react-router-dom.min";
+
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -14,6 +15,9 @@ import Stack from '@mui/material/Stack';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 function NavBar() {
+
+    const history = useHistory()
+
     const theme = createTheme({
         palette: {
           primary: {
@@ -30,7 +34,7 @@ function NavBar() {
         fetch("/logout", {
             method: "DELETE",
         })
-        .then(alert("logged out"))
+        .then(history.push("/"))
       }
 
     return (

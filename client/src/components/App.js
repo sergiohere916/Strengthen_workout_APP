@@ -5,12 +5,13 @@ import Home from "./Home";
 import NavBar from "./NavBar";
 import WorkoutsList from "./WorkoutsList";
 import UserRoutines from "./UserRoutines";
+import CurrentRoutine from "./CurrentRoutine";
 
 
 function App() {
   const [user, setUser] = useState(null);
 
-  const [myWeeksRoutine, setMyWeeksRoutine] = useState([])
+  
   const [myRoutines, setMyRoutines] = useState([])
   const [workouts, setWorkouts] = useState([
   {
@@ -117,7 +118,9 @@ function App() {
   useEffect(() => {
       fetch("/scheduledworkouts/user/7")
       .then(r => r.json())
-      .then(myRoutines => setMyRoutines(myRoutines))
+      .then(myRoutines => {
+        setMyRoutines(myRoutines)
+      })
   }, [])
 
 
@@ -125,8 +128,26 @@ function App() {
     setUser(currentUserLogin)
   }
 
-  console.log(user)
-  console.log(workouts)
+  function updateTargetUserRoutine(id, value) {
+    //USE MAP FUNCTION TO FIND TARGET ELEMENT AND ADJUST ON FRONT END STATE
+    
+    const updatedMyRoutines = myRoutines.map((scheduledRoutine) => {
+      if (scheduledRoutine.id == id) {
+        scheduledRoutine["day_of_week"] = value
+        return scheduledRoutine
+      } else {
+        return scheduledRoutine
+      }
+    })
+
+   
+    setMyRoutines(updatedMyRoutines)
+  }
+
+  const myWeeksRoutine = myRoutines.filter((routine) => routine["day_of_week"] !== "")
+
+  
+  
 
   // useEffect(() => {
   //   fetch("https://exercisedb.p.rapidapi.com/exercises?limit=1200",{
@@ -168,10 +189,10 @@ function App() {
         <WorkoutsList workouts={workouts} user={user}/>
       </Route>
       <Route path = "/Home/MyRoutines">
-        <UserRoutines myRoutines={myRoutines}/>
+        <UserRoutines myRoutines={myRoutines} myWeeksRoutine={myWeeksRoutine} updateTargetUserRoutine={updateTargetUserRoutine}/>
       </Route>
       <Route path = "/Home">
-        <Home/>
+        <Home myWeeksRoutine={myWeeksRoutine}/>
       </Route>
       <Route exact path = "/">
         <Login onLogIn={onLogIn}/>

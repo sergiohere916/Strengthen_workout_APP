@@ -1,0 +1,51 @@
+import React from "react";
+import Button from '@mui/material/Button';
+import DayRoutineItem from "./DayRoutineItem";
+
+function CurrentRoutine({myWeeksRoutine}) {
+ 
+    const Monday = myWeeksRoutine.filter((routine) => routine["day_of_week"] == "Monday")[0]
+    const Tuesday = myWeeksRoutine.filter((routine) => routine["day_of_week"] == "Tuesday")[0]
+    const Wednesday = myWeeksRoutine.filter((routine) => routine["day_of_week"] == "Wednesday")[0]
+    const Thursday = myWeeksRoutine.filter((routine) => routine["day_of_week"] == "Thursday")[0]
+    const Friday = myWeeksRoutine.filter((routine) => routine["day_of_week"] == "Friday")[0]
+    const Saturday = myWeeksRoutine.filter((routine) => routine["day_of_week"] == "Saturday")[0]
+    const Sunday = myWeeksRoutine.filter((routine) => routine["day_of_week"] == "Sunday")[0]
+    
+    
+
+
+
+    return (
+        <div id="secondContent">
+            <h1>Sergio's Current Routine: </h1>
+            <Button color = "error" variant="contained" href="/Home/MyRoutines">SHOW ALL SAVED ROUTINES</Button>
+            <div id="homeRoutineContainer">
+                <div className="homeRoutineHolders">
+                    {Monday ? <DayRoutineItem dayRoutine={Monday}/> : <>false</>}
+                </div>
+                <div className="homeRoutineHolders">
+                    {/* <img src="https://dcassetcdn.com/design_img/3571610/515701/515701_19560887_3571610_166c5b12_image.jpg"></img> */}
+                    {Tuesday ? <DayRoutineItem dayRoutine={Tuesday}/> : <>false</>}
+                </div>
+                <div className="homeRoutineHolders">
+                    {Wednesday ? <DayRoutineItem dayRoutine={Wednesday}/> : <>false</>}
+                </div>
+                <div className="homeRoutineHolders">
+                    {Thursday ? <DayRoutineItem dayRoutine={Thursday}/> : <>false</>}
+                </div>
+                <div className="homeRoutineHolders">
+                    {Friday ? <DayRoutineItem dayRoutine={Friday}/> : <>false</>}
+                </div>
+                <div className="homeRoutineHolders">
+                    {Saturday ? <DayRoutineItem dayRoutine={Saturday}/> : <>false</>}
+                </div>
+                <div className="homeRoutineHolders">
+                    {Sunday ? <DayRoutineItem dayRoutine={Sunday}/> : <>false</>}
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default CurrentRoutine

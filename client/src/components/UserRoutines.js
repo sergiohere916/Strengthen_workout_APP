@@ -1,15 +1,19 @@
 import React from "react";
 import NavBar from "./NavBar";
 import UserRoutineItem from "./UserRoutineItem";
+import CurrentRoutine from "./CurrentRoutine";
 
 
-function UserRoutines({myRoutines}) {
-    console.log(myRoutines)
+function UserRoutines({myRoutines, myWeeksRoutine, updateTargetUserRoutine}) {
+  
 
     const userRoutines = myRoutines.map((userRoutine) => {
-        return <UserRoutineItem key={userRoutine.id} userRoutine={userRoutine}/>
+        return <UserRoutineItem key={userRoutine.id} userRoutine={userRoutine} updateTargetUserRoutine={updateTargetUserRoutine} myWeeksRoutine={myWeeksRoutine}/>
     })
 
+    // const currentRoutines = myWeeksRoutine.map((weekdayRoutine) => {
+    //     return <CurrentRoutine key={weekdayRoutine.id} weekdayRoutine={weekdayRoutine}/>
+    // })
 
     return (
         <div>
@@ -19,13 +23,15 @@ function UserRoutines({myRoutines}) {
                         <img className="userPageImage" src="https://www.losangelespropertymanagementgroup.com/wp-content/uploads/2020/09/alicgym.jpeg" alt="Weight-Lifting-Equipment"/>
                     </div>
             </div>
+            <CurrentRoutine myWeeksRoutine={myWeeksRoutine}/>
             <div id="userPage">
                 <div id = "userRoutinesContainer">
                     {userRoutines}
                 </div>
                 <div id="userPageWeeklyRoutine">
                     <h5>Assign your Weekly Workout Routine</h5>
-                    
+                    <h4>Monday:</h4>
+                    <h4>Tuesday: </h4>
                 </div>
             </div>
         </div>

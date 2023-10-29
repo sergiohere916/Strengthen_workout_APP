@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
+import CurrentRoutine from "./CurrentRoutine";
 
 import { Layout, Space } from 'antd';
 
@@ -8,7 +9,8 @@ import Button from '@mui/material/Button';
 
 import pic from './glossy-red-push-pin-png.webp'
 
-function Home() {
+function Home({myWeeksRoutine}) {
+    
     
 
     const { Header, Footer, Sider, Content } = Layout;
@@ -68,40 +70,7 @@ function Home() {
                         elevation = {5}
                     /> */}
                 </div>
-                <div id="secondContent">
-                    <h1>Sergio's Current Routine: </h1>
-                    <Button color = "error" variant="contained" href="/Home/MyRoutines">SHOW ALL SAVED ROUTINES</Button>
-                    <div id="homeRoutineContainer">
-                        <div className="homeRoutineHolders">
-                            {/* <div className="titleAndPin">
-                                <div className="pinContainer">
-                                    <img src={pic}/>
-                                </div>
-                                <h4>Title</h4>
-                            </div> */}
-                            <h4>Title</h4>
-                        </div>
-                        <div className="homeRoutineHolders">
-                            {/* <h4>Title</h4> */}
-                            <img src="https://dcassetcdn.com/design_img/3571610/515701/515701_19560887_3571610_166c5b12_image.jpg"></img>
-                        </div>
-                        <div className="homeRoutineHolders">
-                            <h4>Title</h4>
-                        </div>
-                        <div className="homeRoutineHolders">
-                            <h4>Title</h4>
-                        </div>
-                        <div className="homeRoutineHolders">
-                            <h4>Title</h4>
-                        </div>
-                        <div className="homeRoutineHolders">
-                            <h4>Title</h4>
-                        </div>
-                        <div className="homeRoutineHolders">
-                            <h4>Title</h4>
-                        </div>
-                    </div>
-                </div>
+                {/* <CurrentRoutine/> */}
                 <Layout hasSider>
                     <Content style={contentStyle}>Content</Content>
                     <Sider style={siderStyle}>Sider</Sider>
