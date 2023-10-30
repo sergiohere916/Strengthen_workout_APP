@@ -4,11 +4,11 @@ import UserRoutineItem from "./UserRoutineItem";
 import CurrentRoutine from "./CurrentRoutine";
 
 
-function UserRoutines({myRoutines, myWeeksRoutine, updateTargetUserRoutine}) {
+function UserRoutines({myRoutines, myWeeksRoutine, updateTargetUserRoutine, removeUserRoutine}) {
   
 
     const userRoutines = myRoutines.map((userRoutine) => {
-        return <UserRoutineItem key={userRoutine.id} userRoutine={userRoutine} updateTargetUserRoutine={updateTargetUserRoutine} myWeeksRoutine={myWeeksRoutine}/>
+        return <UserRoutineItem key={userRoutine.id} userRoutine={userRoutine} updateTargetUserRoutine={updateTargetUserRoutine} myWeeksRoutine={myWeeksRoutine} removeUserRoutine={removeUserRoutine}/>
     })
 
     // const currentRoutines = myWeeksRoutine.map((weekdayRoutine) => {
@@ -23,7 +23,7 @@ function UserRoutines({myRoutines, myWeeksRoutine, updateTargetUserRoutine}) {
                         <img className="userPageImage" src="https://www.losangelespropertymanagementgroup.com/wp-content/uploads/2020/09/alicgym.jpeg" alt="Weight-Lifting-Equipment"/>
                     </div>
             </div>
-            <CurrentRoutine myWeeksRoutine={myWeeksRoutine}/>
+            <CurrentRoutine myWeeksRoutine={myWeeksRoutine} updateTargetUserRoutine={updateTargetUserRoutine}/>
             <div id="userPage">
                 <div id = "userRoutinesContainer">
                     {userRoutines}

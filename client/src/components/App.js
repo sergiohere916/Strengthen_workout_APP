@@ -6,6 +6,7 @@ import NavBar from "./NavBar";
 import WorkoutsList from "./WorkoutsList";
 import UserRoutines from "./UserRoutines";
 import CurrentRoutine from "./CurrentRoutine";
+import Routines from "./Routines";
 
 
 function App() {
@@ -144,8 +145,14 @@ function App() {
     setMyRoutines(updatedMyRoutines)
   }
 
-  const myWeeksRoutine = myRoutines.filter((routine) => routine["day_of_week"] !== "")
 
+  function removeUserRoutine(userRoutineId) {
+    const updatedMyRoutines = myRoutines.filter((routine) => routine.id !== userRoutineId);
+    setMyRoutines(updatedMyRoutines);
+  }
+
+  const myWeeksRoutine = myRoutines.filter((routine) => routine["day_of_week"] !== "")
+  console.log(myRoutines)
   
   
 
@@ -185,14 +192,17 @@ function App() {
   return (
     <div>
     <Switch>
+      <Route path="/routines">
+        <Routines/>
+      </Route>
       <Route path="/workouts">
         <WorkoutsList workouts={workouts} user={user}/>
       </Route>
       <Route path = "/Home/MyRoutines">
-        <UserRoutines myRoutines={myRoutines} myWeeksRoutine={myWeeksRoutine} updateTargetUserRoutine={updateTargetUserRoutine}/>
+        <UserRoutines myRoutines={myRoutines} myWeeksRoutine={myWeeksRoutine} updateTargetUserRoutine={updateTargetUserRoutine} removeUserRoutine={removeUserRoutine}/>
       </Route>
       <Route path = "/Home">
-        <Home myWeeksRoutine={myWeeksRoutine}/>
+        <Home myWeeksRoutine={myWeeksRoutine} updateTargetUserRoutine={updateTargetUserRoutine}/>
       </Route>
       <Route exact path = "/">
         <Login onLogIn={onLogIn}/>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function UserRoutineItem({userRoutine, updateTargetUserRoutine, myWeeksRoutine}) {
+function UserRoutineItem({userRoutine, updateTargetUserRoutine, myWeeksRoutine, removeUserRoutine}) {
     const {routine} = userRoutine
     const [assignedUserRoutines, setAssignedUserRoutines] = useState([])
     const [day, setDay] = useState("")
@@ -15,10 +15,27 @@ function UserRoutineItem({userRoutine, updateTargetUserRoutine, myWeeksRoutine})
 
     function handleSubmit(e) {
         e.preventDefault()
-        updateTargetUserRoutine(userRoutine.id, day)
+        fetch(`/scheduledworkouts/${userRoutine.id}`, {
+            method: "PATCH",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({day_of_week: day})
+        })
+        .then(r => r.json())
+        .then(assignedRoutine => {
+            updateTargetUserRoutine(assignedRoutine.id, assignedRoutine["day_of_week"])
+        })
+        // updateTargetUserRoutine(userRoutine.id, day)
 
     }    
     
+    function handleDelete() {
+        fetch(`/scheduledworkouts/${userRoutine.id}`, {
+            method: "DELETE"
+        })
+        .then(r => {
+            removeUserRoutine(userRoutine.id);
+        })
+    }
  
     
 
@@ -35,6 +52,7 @@ function UserRoutineItem({userRoutine, updateTargetUserRoutine, myWeeksRoutine})
 
             {userRoutine["day_of_week"]? <h4>Already Assigned</h4> :
 
+            <div>
             <form onSubmit={handleSubmit}>
             <select name="days" select={day} onChange={(e) => setDay(e.target.value)} >
                 
@@ -50,9 +68,10 @@ function UserRoutineItem({userRoutine, updateTargetUserRoutine, myWeeksRoutine})
             </select>
             <button type="submit">Assign to Weekday</button>
             </form>
-
+            <button onClick={handleDelete}>Delete Routine</button>
+            </div>
             }
-
+            
             </div>
         </div>
     )

@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 
 import pic from './glossy-red-push-pin-png.webp'
 
-function Home({myWeeksRoutine}) {
+function Home({myWeeksRoutine, updateTargetUserRoutine}) {
     
     
 
@@ -70,7 +70,7 @@ function Home({myWeeksRoutine}) {
                         elevation = {5}
                     /> */}
                 </div>
-                {/* <CurrentRoutine/> */}
+                <CurrentRoutine myWeeksRoutine={myWeeksRoutine} updateTargetUserRoutine={updateTargetUserRoutine}/>
                 <Layout hasSider>
                     <Content style={contentStyle}>Content</Content>
                     <Sider style={siderStyle}>Sider</Sider>

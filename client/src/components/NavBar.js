@@ -63,7 +63,7 @@ function NavBar() {
                         <Stack direction="row" spacing={2}>
                           <Button color = "error" variant="contained" href="/Home">HOME</Button>
                           <Button color = "error" variant="contained" href="/Workouts">Excercises</Button>
-                          <Button color = "error" variant="contained" href="#contained-buttons">
+                          <Button color = "error" variant="contained" href="/routines">
                             Routines
                           </Button>
                         </Stack>
