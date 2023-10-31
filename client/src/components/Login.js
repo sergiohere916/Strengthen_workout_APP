@@ -21,7 +21,7 @@ function Login({onLogIn}) {
 
     const history = useHistory()
     const defaultTheme = createTheme();
-    console.log(history)
+    
     const handleSubmit = (event) => {
         event.preventDefault();
         const email = event.target[0].value
@@ -100,7 +100,7 @@ function Login({onLogIn}) {
                         </Link>
                     </Grid>
                     <Grid item>
-                        <Link href="#" variant="body2">
+                        <Link href="/createAccount" variant="body2">
                         {"Don't have an account? Sign Up"}
                         </Link>
                     </Grid>

@@ -10,6 +10,7 @@ function RoutineItem({routine}) {
     
     function handleClick() {
         // addToMyRoutines(routine)
+        //NEED TO USE THIS TO CREATE SCHEDULED WORKOUT AND SEND TO STATE!
         console.log("SEND THIS TO STATE!! TO MY ROUTINES")
         console.log(routine)
     }

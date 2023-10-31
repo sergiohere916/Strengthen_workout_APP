@@ -23,18 +23,82 @@ def create_users():
         users.append(user)
     return users
 
+# def create_routines():
+#     routines = []
+#     workouts = ["biceps curls", "bench press", "leg press", "preacher curls", "lat raises", "lat pulldowns", "squats", "rdls", "jumprope"]
+#     for i in range(5):
+#         routine = Routine(
+#             name = "Routine " + str(i),
+#             workouts = f'{rc(workouts)},{rc(workouts)},{rc(workouts)}',
+#             likes = randint(0,20),
+#             shared = randint(0,1)
+#         )
+#         routines.append(routine)
+#     return routines
+
 def create_routines():
     routines = []
-    workouts = ["biceps curls", "bench press", "leg press", "preacher curls", "lat raises", "lat pulldowns", "squats", "rdls", "jumprope"]
-    for i in range(5):
-        routine = Routine(
-            name = "Routine " + str(i),
-            workouts = f'{rc(workouts)},{rc(workouts)},{rc(workouts)}',
-            likes = randint(0,20),
-            shared = randint(0,1)
-        )
-        routines.append(routine)
+    
+    routine1 = Routine(
+        name = "Routine01",
+        workouts = "dumbell arnold press, dumbell decline bench press, dumbbell incline twisted flyes",
+        likes = randint(0,20),
+        shared = 1
+    )
+    routine2 = Routine(
+        name = "Routine02",
+        workouts = "dumbell arnold press, dumbell decline bench press, dumbbell incline twisted flyes",
+        likes = randint(0,20),
+        shared = 1
+    )
+    routine3 = Routine(
+        name = "Routine03",
+        workouts = "dumbell arnold press, dumbell decline bench press, dumbbell incline twisted flyes",
+        likes = randint(0,20),
+        shared = 1
+    )
+    routine4 = Routine(
+        name = "Routine04",
+        workouts = "dumbbell one arm reverse grip press, dumbbell standing kickback, dumbbell decline hammer press",
+        likes = randint(0,20),
+        shared = 1
+    )
+    routine5 = Routine(
+        name = "Routine05",
+        workouts = "dumbbell one arm reverse grip press, dumbbell standing kickback, dumbbell decline hammer press",
+        likes = randint(0,20),
+        shared = 1
+    )
+    routine6 = Routine(
+        name = "Routine06",
+        workouts = "dumbbell one arm reverse grip press, dumbbell standing kickback, dumbbell decline hammer press",
+        likes = randint(0,20),
+        shared = 1
+    )
+    routine7 = Routine(
+        name = "Routine07",
+        workouts = "barbell speed squat, barbell split squat v. 2",
+        likes = randint(0,20),
+        shared = 1
+    )
+    routine8 = Routine(
+        name = "Routine08",
+        workouts = "barbell speed squat, barbell split squat v. 2",
+        likes = randint(0,20),
+        shared = 1
+    )
+    routine9 = Routine(
+        name = "Routine09",
+        workouts = "barbell speed squat, barbell split squat v. 2",
+        likes = randint(0,20),
+        shared = 1
+    )
+    routines.append(routine1, routine2, routine3, routine4, routine5, routine6, routine7, routine8, routine9)
     return routines
+
+
+
+
 def create_personal_goals(users):
     personal_goals = []
     for _ in range(5):
