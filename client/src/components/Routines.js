@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import RoutineItem from "./RoutineItem";
 
-function Routines() {
+
+
+function Routines({user}) {
+    
+    
     const [allRoutines, setAllRoutines] = useState([])
     //MAYBE REMOVE SCHEDULED WORKOUTS FROM GET?
     useEffect(() => {
@@ -15,7 +19,7 @@ function Routines() {
 
 
     const allRoutineCards = viewableRoutines.map((routine) => {
-        return <RoutineItem key={routine.id} routine={routine}/>
+        return <RoutineItem key={routine.id} routine={routine} user={user}/>
     })
 
     return (

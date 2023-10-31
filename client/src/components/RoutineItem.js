@@ -1,6 +1,7 @@
 import React from "react";
 
-function RoutineItem({routine}) {
+function RoutineItem({routine, user}) {
+    
 
     const excerciseList = routine.workouts.split(",");
     const excercises = excerciseList.map((excercise) => {
@@ -11,8 +12,24 @@ function RoutineItem({routine}) {
     function handleClick() {
         // addToMyRoutines(routine)
         //NEED TO USE THIS TO CREATE SCHEDULED WORKOUT AND SEND TO STATE!
-        console.log("SEND THIS TO STATE!! TO MY ROUTINES")
-        console.log(routine)
+        // console.log("SEND THIS TO STATE!! TO MY ROUTINES")
+        // console.log(user.id)
+        // console.log(routine)
+        const scheduledWorkout = {
+            day_of_week: "",
+            user_id: user.id,
+            routine_id: routine.id
+        }
+        // fetch("/scheduledworkouts", {
+        //     method: "POST",
+        //     headers: {"Content-Type": "application/json"},
+        //     body: JSON.stringify(scheduledWorkout)
+        // })
+        // .then(r => r.json())
+        // .then(createdScheduledWorkout => {
+        //     console.log(createdScheduledWorkout);
+        //     console.log("CREATES IT BUT NEED TO ADD TO STATE")
+        // })
     }
     return (
         <div className="allRoutinesCards">

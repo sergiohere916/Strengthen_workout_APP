@@ -265,7 +265,7 @@ class ScheduledWorkoutsByID(Resource):
             db.session.delete(scheduled_workout)
             db.session.commit()
 
-            return make_response({"message", "Workout successfully deleted"}, 204)
+            return make_response({"message": "Workout successfully deleted"}, 204)
         else:
             return make_response({"error": "Workout not found"}, 404)
 api.add_resource(ScheduledWorkoutsByID, '/scheduledworkouts/<int:id>')

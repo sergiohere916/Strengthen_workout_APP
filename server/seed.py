@@ -37,7 +37,7 @@ def create_users():
 #     return routines
 
 def create_routines():
-    routines = []
+    
     
     routine1 = Routine(
         name = "Routine01",
@@ -93,7 +93,7 @@ def create_routines():
         likes = randint(0,20),
         shared = 1
     )
-    routines.append(routine1, routine2, routine3, routine4, routine5, routine6, routine7, routine8, routine9)
+    routines = [routine1, routine2, routine3, routine4, routine5, routine6, routine7, routine8, routine9]
     return routines
 
 

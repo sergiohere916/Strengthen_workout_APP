@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, createContext } from "react";
 import { Switch, Route } from "react-router-dom";
 import Login from "./Login";
 import Home from "./Home";
@@ -9,10 +9,15 @@ import CurrentRoutine from "./CurrentRoutine";
 import Routines from "./Routines";
 import CreateAccount from "./CreateAccount";
 
-function App() {
-  const [user, setUser] = useState(null);
 
-  
+
+function App() {
+
+  const UsersContext = createContext();
+  //CURRENTLY SENDING USER AS STATE VARIABLE TO ROUTINES THEN TO ROUTINEITEM IF FIXED REMOVE THESE PROP DRILLED VARIABLES
+
+  const [user, setUser] = useState(null);
+ 
   const [myRoutines, setMyRoutines] = useState([])
   const [workouts, setWorkouts] = useState([
   {
@@ -123,8 +128,13 @@ function App() {
         response.json().then((user) => {
           setUser(user);
           fetch(`/scheduledworkouts/user/${user.id}`)
-          .then(r => r.json())
-          .then(myRoutines => setMyRoutines(myRoutines))
+          .then(r => {
+            if (r.ok) {
+              r.json().then((myRoutines) => {
+                setMyRoutines(myRoutines)
+              })
+            }
+          })
         
         });
       }
@@ -143,13 +153,17 @@ function App() {
   function onLogIn(currentUserLogin) {
     setUser(currentUserLogin)
     fetch(`/scheduledworkouts/user/${currentUserLogin.id}`)
-      .then(r => r.json())
-      .then(myRoutines => {
-        setMyRoutines(myRoutines)
+      .then(r => {
+        if (r.ok) {
+          r.json().then(myRoutines => {
+            setMyRoutines(myRoutines)
+          })
+        }
       })
 
     
   }
+  console.log(user)
   console.log(myRoutines)
   function updateTargetUserRoutine(id, value) {
     //USE MAP FUNCTION TO FIND TARGET ELEMENT AND ADJUST ON FRONT END STATE
@@ -167,7 +181,9 @@ function App() {
     setMyRoutines(updatedMyRoutines)
   }
 
-
+  // function addNewUserRoutine(userRoutine) {
+  //   setMyRoutines([...myRoutines, userRoutine]);
+  // }
   function removeUserRoutine(userRoutineId) {
     const updatedMyRoutines = myRoutines.filter((routine) => routine.id !== userRoutineId);
     setMyRoutines(updatedMyRoutines);
@@ -213,26 +229,28 @@ function App() {
 
   return (
     <div>
-    <Switch>
-      <Route path="/routines">
-        <Routines/>
-      </Route>
-      <Route path="/workouts">
-        <WorkoutsList workouts={workouts} user={user}/>
-      </Route>
-      <Route path = "/Home/MyRoutines">
-        <UserRoutines myRoutines={myRoutines} myWeeksRoutine={myWeeksRoutine} updateTargetUserRoutine={updateTargetUserRoutine} removeUserRoutine={removeUserRoutine}/>
-      </Route>
-      <Route path = "/Home">
-        <Home myWeeksRoutine={myWeeksRoutine} updateTargetUserRoutine={updateTargetUserRoutine}/>
-      </Route>
-      <Route path = "/createAccount">
-        <CreateAccount/>
-      </Route>
-      <Route exact path = "/">
-        <Login onLogIn={onLogIn}/>
-      </Route>
-    </Switch>
+      <UsersContext.Provider value={user}>
+        <Switch>
+          <Route path="/routines">
+            <Routines user={user}/>
+          </Route>
+          <Route path="/workouts">
+            <WorkoutsList workouts={workouts} user={user}/>
+          </Route>
+          <Route path = "/Home/MyRoutines">
+            <UserRoutines myRoutines={myRoutines} myWeeksRoutine={myWeeksRoutine} updateTargetUserRoutine={updateTargetUserRoutine} removeUserRoutine={removeUserRoutine}/>
+          </Route>
+          <Route path = "/Home">
+            <Home myWeeksRoutine={myWeeksRoutine} updateTargetUserRoutine={updateTargetUserRoutine}/>
+          </Route>
+          <Route path = "/createAccount">
+            <CreateAccount/>
+          </Route>
+          <Route exact path = "/">
+            <Login onLogIn={onLogIn}/>
+          </Route>
+        </Switch>
+      </UsersContext.Provider>
     </div>
   )
     

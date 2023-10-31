@@ -32,9 +32,7 @@ function UserRoutineItem({userRoutine, updateTargetUserRoutine, myWeeksRoutine, 
         fetch(`/scheduledworkouts/${userRoutine.id}`, {
             method: "DELETE"
         })
-        .then(r => {
-            removeUserRoutine(userRoutine.id);
-        })
+        .then(removeUserRoutine(userRoutine.id))
     }
  
     

@@ -15,7 +15,7 @@ import Stack from '@mui/material/Stack';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 function NavBar() {
-
+    
     const history = useHistory()
 
     const theme = createTheme({

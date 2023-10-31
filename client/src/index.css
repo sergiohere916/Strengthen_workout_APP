@@ -371,17 +371,32 @@
   height: 100px;
 }
 
+/* Flex wrap fixed issues with displaying */
+
 .allRoutinesContainer {
   display: flex;
-  border: 5px solid red;
-  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* border: 5px solid red; */
+  gap: 15px;
   margin-left: 10px;
   margin-right: 10px;
 }
 
+/* made padding from 15 to 20 to fit artistic background */
 .allRoutinesCards {
   border: 5px solid black;
   height: auto;
-  width: 33%;
-  padding: 10px;
+  width: 25%;
+  padding: 25px;
+  /* box-shadow: 0 0px 5px rgb(19, 18, 18); */
+  /* background-color: rgb(158, 82, 52); */
+  background-image: url("https://www.clipartbest.com/cliparts/nTB/B86/nTBB86Rkc.jpeg");
+  /* background-position: center; */
+  background-size: cover;
 }
+
+
+/*https://png.pngtree.com/png-clipart/20231001/original/pngtree-note-paper-and-pushpin-photo-png-image_13216429.png*/
+/*yellow paper with paaper clip image*/
+/*https://www.clipartbest.com/cliparts/nTB/B86/nTBB86Rkc.jpeg*/
