@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function RoutineCreating({currentWorkouts, onClickClearCurrentRoutine, user}) {
+function RoutineCreating({currentWorkouts, onClickClearCurrentRoutine, addNewUserRoutine, user}) {
     const [routineName, setRoutineName] = useState("")
     // const [sharedStatus, setSharedStatus] = useState(null)
 
@@ -41,7 +41,7 @@ function RoutineCreating({currentWorkouts, onClickClearCurrentRoutine, user}) {
                 })
                 .then(r => r.json())
                 .then(data => {
-                    console.log(data);
+                    addNewUserRoutine(data);
                     onClickClearCurrentRoutine();
                     setRoutineName("");
                 })

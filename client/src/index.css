@@ -90,8 +90,16 @@
   width: 100%;
 }
 
+/* #ads {
+  height: 15px;
+  background-color: rgb(223, 138, 64);
+} */
 #navbar {
   border-bottom: 10px solid red;
+}
+
+#navTitle1 {
+  color: red;
 }
 
 /* FOR HOME PAGE IMAGE DISPLAYS AND GENERAL HOME PAGE CSS */
@@ -381,11 +389,18 @@
   gap: 15px;
   margin-left: 10px;
   margin-right: 10px;
+  background-image: url("https://www.floorcity.com/cdn/shop/products/169316_2209.jpg?v=1640905240");
+  /* border: solid 10px rgb(129, 42, 36); */
+  border: 15px solid red;
+  border-image: url("https://www.psdgraphics.com/file/dark-wood-texture.jpg") 30 round;
+  
 }
 
 /* made padding from 15 to 20 to fit artistic background */
 .allRoutinesCards {
-  border: 5px solid black;
+  /* border: 5px solid black; */
+  margin-top: 10px;
+  margin-bottom: 10px;
   height: auto;
   width: 25%;
   padding: 25px;
@@ -400,3 +415,6 @@
 /*https://png.pngtree.com/png-clipart/20231001/original/pngtree-note-paper-and-pushpin-photo-png-image_13216429.png*/
 /*yellow paper with paaper clip image*/
 /*https://www.clipartbest.com/cliparts/nTB/B86/nTBB86Rkc.jpeg*/
+
+/*Coark Bulletin Board Background*/
+/*https://wallpapers.com/images/hd/cork-board-background-1920-x-1080-18sxh90mwp63t5av.jpg*/

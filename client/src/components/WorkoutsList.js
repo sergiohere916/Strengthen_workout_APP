@@ -4,7 +4,7 @@ import WorkoutListItem from "./WorkoutListItem";
 import RoutineCreating from "./RoutineCreating";
 
 
-function WorkoutsList({workouts, user}) {
+function WorkoutsList({workouts, user, addNewUserRoutine}) {
     const [currentWorkouts, setCurrentWorkouts] = useState([])
 
 
@@ -31,7 +31,7 @@ function WorkoutsList({workouts, user}) {
                     {allWorkOuts}
                 </div>
                 <div className="routineCreaterContainer">
-                    <RoutineCreating currentWorkouts={currentWorkouts} onClickClearCurrentRoutine={onClickClearCurrentRoutine} user={user}/>
+                    <RoutineCreating currentWorkouts={currentWorkouts} onClickClearCurrentRoutine={onClickClearCurrentRoutine} addNewUserRoutine={addNewUserRoutine} user={user}/>
                 </div>
             </div>
         </div>

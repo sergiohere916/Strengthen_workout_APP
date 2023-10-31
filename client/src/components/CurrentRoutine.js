@@ -1,6 +1,7 @@
 import React from "react";
 import Button from '@mui/material/Button';
 import DayRoutineItem from "./DayRoutineItem";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 function CurrentRoutine({myWeeksRoutine, updateTargetUserRoutine}) {
  
@@ -19,7 +20,8 @@ function CurrentRoutine({myWeeksRoutine, updateTargetUserRoutine}) {
     return (
         <div id="secondContent">
             <h1>Sergio's Current Routine: </h1>
-            <Button color = "error" variant="contained" href="/Home/MyRoutines">SHOW ALL SAVED ROUTINES</Button>
+            {/* <Button color = "error" variant="contained" href="/Home/MyRoutines">SHOW ALL SAVED ROUTINES</Button> */}
+            <NavLink to = "/Home/MyRoutines"><Button color="error" variant="contained">SHOW ALL SAVED ROUTINES</Button></NavLink>
             <div className="homeRoutineDaysOfWeek">
                     <h3>Monday</h3>
                     <h3>Tuesday</h3>

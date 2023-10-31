@@ -231,7 +231,7 @@ class ScheduledWorkouts(Resource):
             db.session.add(new_scheduled_workout)
             db.session.commit()
 
-            return make_response(new_scheduled_workout.to_dict(rules=('-routine', '-user',)), 202)
+            return make_response(new_scheduled_workout.to_dict(rules=('-routine_id', '-user',)), 202)
         except ValueError:
             return make_response({"errors": ["validation errors"]}, 400)
 api.add_resource(ScheduledWorkouts, '/scheduledworkouts')

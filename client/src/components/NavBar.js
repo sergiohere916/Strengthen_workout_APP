@@ -39,8 +39,9 @@ function NavBar() {
 
     return (
         <ThemeProvider theme={theme}>
+          {/* <div id="ads"></div> */}
         <Box id="navbar" sx={{ flexGrow: 1}}>
-            <AppBar elevation={15} position="static" color="primary" sx={{height: "200px", position: "relative;"}}>
+            <AppBar elevation={15} position="static" color="primary" sx={{height: "100px", position: "relative;"}}>
                 <Toolbar>
                     <IconButton
                     size="large"
@@ -52,7 +53,7 @@ function NavBar() {
                     <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    News
+                    WORK HARD <span id="navTitle1">GET STRONG</span>
                     </Typography>
                     <button onClick={handleClick}>LOG OUT</button>
                 </Toolbar>
@@ -61,11 +62,10 @@ function NavBar() {
                         <NavLink to = "/Workouts"><button>WORKOUTS</button></NavLink>
                         <NavLink to = "/Routines"><button>ROUTINES</button></NavLink> */}
                         <Stack direction="row" spacing={2}>
-                          <Button color = "error" variant="contained" href="/Home">HOME</Button>
-                          <Button color = "error" variant="contained" href="/Workouts">Excercises</Button>
-                          <Button color = "error" variant="contained" href="/routines">
-                            Routines
-                          </Button>
+                          {/* <Button color = "error" variant="contained" href="/Home">HOME</Button> */}
+                          <NavLink to = "/Home"><Button color="error" variant="contained">HOME</Button></NavLink>
+                          <NavLink to = "/Workouts"><Button color = "error" variant="contained">Excercises</Button></NavLink>
+                          <NavLink to = "/Routines"><Button color = "error" variant="contained">Routines</Button></NavLink>
                         </Stack>
                     </Box>
             </AppBar>
