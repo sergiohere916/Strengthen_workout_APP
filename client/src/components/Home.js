@@ -14,31 +14,16 @@ import { red } from "@mui/material/colors";
 import UserPersonalGoals from "./UserPersonalGoals";
 
 
+import glossy from "./glossy-red-push-pin-png.webp";
+import CompletedGoals from "./CompletedGoals";
 
-
-function Home({myWeeksRoutine, updateTargetUserRoutine, workouts}) {
+function Home({myWeeksRoutine, updateTargetUserRoutine, workouts, personalGoals, completedGoals, updateCompletedGoal}) {
     
     const user = useContext(UserContext);
-    const [personalGoals, setPersonalGoals] = useState([]);
-    const [completedGoals, setCompletedGoals] = useState([]);
-
-    useEffect(() => {
-        fetch(`/personalgoals/user/${user.id}`)
-        .then(r => {
-            if (r.ok) {
-                r.json().then(goals => {
-                    const goalsInProgress = goals.filter((goal) => goal.completed === false);
-                    const goalsCompleted = goals.filter((goal) => goal.completed === true);
-                    setPersonalGoals(goalsInProgress);
-                    setCompletedGoals(goalsCompleted);
-                })
-            } 
-        })
-    }, [])
-    
-    
-    
-    
+    console.log(completedGoals)
+    const displayCompletedGoals = completedGoals.map((goal) => {
+        return <CompletedGoals key={goal.id} goal={goal}/>
+    })
 
     const { Header, Footer, Sider, Content } = Layout;
     const headerStyle = {
@@ -114,10 +99,35 @@ function Home({myWeeksRoutine, updateTargetUserRoutine, workouts}) {
                         <div className="homeCont4Title"><h4>Hello</h4></div>
                     </div>
                     <div id="homeContent4Content">
-                        <UserPersonalGoals personalGoals={personalGoals} user={user}/>
+                        <UserPersonalGoals personalGoals={personalGoals} user={user} updateCompletedGoal={updateCompletedGoal}/>
                         <div id="goalsMet">
-
+                            <div className="goalsPins">
+                                <div className="goalsPin1">
+                                    <img src={glossy} alt="red_Pin"/>
+                                </div>
+                                <div className="goalsPin2">
+                                    <img src={glossy} alt="red_Pin"/>
+                                </div>
+                            </div>
+                            <div>
+                                <br/>
+                            </div>
+                             <div>
+                                <br/>
+                            </div>
+                            <div id="allPersonalInfo">
+                                <div className="infoItem">
+                                    <h4>Member since: {user.account_created} </h4>
+                                    <h4>Self goals met to date: {completedGoals.length}</h4>
+                                    <h4>Completed Goals History: </h4>
+                                </div>
+                                <div id="completedGoalsContainer">
+                                    {displayCompletedGoals}  
+                                </div>
+                            </div>
+                            
                         </div>
+                        
                     </div>
                 </div>
                 <Footer style={footerStyle}>Footer</Footer>

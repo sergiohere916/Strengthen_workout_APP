@@ -17,8 +17,11 @@ function App() {
   // const UsersContext = createContext();
   //CURRENTLY SENDING USER AS STATE VARIABLE TO ROUTINES THEN TO ROUTINEITEM IF FIXED REMOVE THESE PROP DRILLED VARIABLES
 
-  const [user, setUser] = useState({id: null, name: ""});
- 
+  const [user, setUser] = useState({id: null, name: "", personal_goals: []});
+  // const [personalGoals, setPersonalGoals] = useState([]);
+  // const [completedGoals, setCompletedGoals] = useState([]);
+  const [allGoals, setAllGoals] = useState([])
+
   const [myRoutines, setMyRoutines] = useState([])
   const [workouts, setWorkouts] = useState([
   {
@@ -128,6 +131,12 @@ function App() {
       if (response.ok) {
         response.json().then((user) => {
           setUser(user);
+          // const goalsInProgress = user.personal_goals.filter((goal) => goal.completed === false);
+          // const goalsCompleted = user.personal_goals.filter((goal) => goal.completed === true);
+          // setPersonalGoals(goalsInProgress);
+          // setCompletedGoals(goalsCompleted);
+
+          setAllGoals(user.personal_goals);
           fetch(`/scheduledworkouts/user/${user.id}`)
           .then(r => {
             if (r.ok) {
@@ -142,17 +151,16 @@ function App() {
     });
   }, []);
 
-  // useEffect(() => {
-  //     fetch("/scheduledworkouts/user/7")
-  //     .then(r => r.json())
-  //     .then(myRoutines => {
-  //       setMyRoutines(myRoutines)
-  //     })
-  // }, [])
+ 
 
 
   function onLogIn(currentUserLogin) {
-    setUser(currentUserLogin)
+    setUser(currentUserLogin);
+    // const goalsInProgress = currentUserLogin.personal_goals.filter((goal) => goal.completed === false);
+    // const goalsCompleted = currentUserLogin.personal_goals.filter((goal) => goal.completed === true);
+    // setPersonalGoals(goalsInProgress);
+    // setCompletedGoals(goalsCompleted);
+    setAllGoals(currentUserLogin.personal_goals);
     fetch(`/scheduledworkouts/user/${currentUserLogin.id}`)
       .then(r => {
         if (r.ok) {
@@ -166,6 +174,7 @@ function App() {
   }
   console.log("in app js this is myScheduledWorkouts")
   console.log(myRoutines)
+  
   function updateTargetUserRoutine(id, value) {
     //USE MAP FUNCTION TO FIND TARGET ELEMENT AND ADJUST ON FRONT END STATE
     
@@ -191,8 +200,23 @@ function App() {
     setMyRoutines(updatedMyRoutines);
   }
 
+  function updateCompletedGoal(id) {
+    console.log("hi");
+    const updatedGoals = allGoals.map((goal) => {
+      if (goal.id === id) {
+        goal["completed"] = true;
+        return goal;
+      } else {
+        return goal;
+      }
+    })
+
+    setAllGoals(updatedGoals);
+  }
+
   const myWeeksRoutine = myRoutines.filter((routine) => routine["day_of_week"] !== "")
-  
+  const personalGoals = allGoals.filter((goal) => goal.completed === false);
+  const completedGoals = allGoals.filter((goal) => goal.completed === true);
   
   
 
@@ -243,7 +267,7 @@ function App() {
             <UserRoutines myRoutines={myRoutines} myWeeksRoutine={myWeeksRoutine} updateTargetUserRoutine={updateTargetUserRoutine} removeUserRoutine={removeUserRoutine}/>
           </Route>
           <Route path = "/Home">
-            <Home myWeeksRoutine={myWeeksRoutine} updateTargetUserRoutine={updateTargetUserRoutine} workouts={workouts}/>
+            <Home myWeeksRoutine={myWeeksRoutine} updateTargetUserRoutine={updateTargetUserRoutine} workouts={workouts} personalGoals={personalGoals} completedGoals={completedGoals} updateCompletedGoal={updateCompletedGoal}/>
           </Route>
           <Route path = "/createAccount">
             <CreateAccount/>

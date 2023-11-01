@@ -190,17 +190,25 @@ class PersonalGoalsByID(Resource):
     def patch(self, id):
         personal_goal = PersonalGoal.query.filter_by(id=id).first()
         data = request.json
-        if data["target_date"]:
-            target_date = data["target_date"].split("-")
-            data["target_date"] = date(int(target_date[0]), int(target_date[1]), int(target_date[2]))
+        # if data["target_date"]:
+        #     target_date = data["target_date"].split("-")
+        #     fixed_date = date(int(target_date[0]), int(target_date[1]), int(target_date[2]))
         if personal_goal:
-            for attr in data:
-                setattr(personal_goal, attr, data[attr])
-            
-            db.session.add(personal_goal)
-            db.session.commit()
+            try: 
+                for attr in data:
+                    if attr == "target_date":
+                        target_date = data["target_date"].split("-")
+                        fixed_date = date(int(target_date[0]), int(target_date[1]), int(target_date[2]))
+                        setattr(personal_goal, attr, fixed_date)
+                    else:
+                        setattr(personal_goal, attr, data[attr])
+                
+                db.session.add(personal_goal)
+                db.session.commit()
 
-            return make_response(personal_goal.to_dict(), 202)
+                return make_response(personal_goal.to_dict(), 202)
+            except ValueError:
+                return make_response({"errors": ["validation errors"]}, 400)
         else:
             return make_response({"error": "Personal Goal not found"}, 404)
     def delete(self,id):
