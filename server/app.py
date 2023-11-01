@@ -214,6 +214,16 @@ class PersonalGoalsByID(Resource):
             return make_response({"error": "Personal Goal not found"}, 404)
 api.add_resource(PersonalGoalsByID, '/personalgoals/<int:id>')
 
+class PersonalGoalsByUserID(Resource):
+    def get(self, id):
+        personal_goals = [goal.to_dict(rules=('-user',)) for goal in PersonalGoal.query.filter_by(user_id = id).all()]
+        if personal_goals:
+            return make_response(personal_goals, 200)
+        else: 
+            return make_response({"error": "Goal was not found"}, 404)
+api.add_resource(PersonalGoalsByUserID, '/personalgoals/user/<int:id>')
+
+
 class ScheduledWorkouts(Resource):
     def get(self):
         scheduled_workouts = [workout.to_dict(rules=('-routine', '-user',)) for workout in ScheduledWorkout.query.all()]

@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import CurrentRoutine from "./CurrentRoutine";
+import { UserContext } from "./Context";
 
 import { Layout, Space } from 'antd';
 
@@ -9,8 +10,33 @@ import Button from '@mui/material/Button';
 
 import pic from './glossy-red-push-pin-png.webp'
 import DisplayExcercise from "./DisplayExcercise";
+import { red } from "@mui/material/colors";
+import UserPersonalGoals from "./UserPersonalGoals";
+
+
+
 
 function Home({myWeeksRoutine, updateTargetUserRoutine, workouts}) {
+    
+    const user = useContext(UserContext);
+    const [personalGoals, setPersonalGoals] = useState([]);
+    const [completedGoals, setCompletedGoals] = useState([]);
+
+    useEffect(() => {
+        fetch(`/personalgoals/user/${user.id}`)
+        .then(r => {
+            if (r.ok) {
+                r.json().then(goals => {
+                    const goalsInProgress = goals.filter((goal) => goal.completed === false);
+                    const goalsCompleted = goals.filter((goal) => goal.completed === true);
+                    setPersonalGoals(goalsInProgress);
+                    setCompletedGoals(goalsCompleted);
+                })
+            } 
+        })
+    }, [])
+    
+    
     
     
 
@@ -82,6 +108,18 @@ function Home({myWeeksRoutine, updateTargetUserRoutine, workouts}) {
                         </div>
                     </div>
                 </Layout>
+                <div id="homeContent4">
+                    <div id="homeContent4Titles">
+                        <div className="homeCont4Title"><h4>{user.name}'s Personal Goals</h4></div>
+                        <div className="homeCont4Title"><h4>Hello</h4></div>
+                    </div>
+                    <div id="homeContent4Content">
+                        <UserPersonalGoals personalGoals={personalGoals} user={user}/>
+                        <div id="goalsMet">
+
+                        </div>
+                    </div>
+                </div>
                 <Footer style={footerStyle}>Footer</Footer>
                 </Layout>
             </Space>

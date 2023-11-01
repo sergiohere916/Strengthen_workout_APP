@@ -242,6 +242,148 @@
   border: 5px solid darkgreen;
 }
 
+
+#homeContent4 {
+  /* display: flex;
+  border: 5px solid greenyellow;
+  margin-top: 40px;
+  gap: 50px; */
+  background-color:rgb(206, 247, 195);
+  border: 5px solid black;
+  margin-top: 40px;
+
+}
+
+#homeContent4Titles {
+  display: flex;
+  text-align: center;
+  gap: 50px;
+  
+}
+
+.homeCont4Title {
+  width: 50%;
+}
+
+#homeContent4Content {
+  display: flex;
+  border: 5px solid greenyellow;
+  /* margin-top: 40px; */
+  gap: 50px;
+  margin-bottom: 50px;
+}
+
+#setGoals {
+  border: 5px solid rgb(17, 12, 12);
+  background-color: rgb(152, 184, 184);
+  height: 500px;
+  width: 50%;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.goalsPins {
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.goalsPin1 {
+  height: 50px;
+  width: 60px;
+}
+
+.goalsPin1 img {
+  height: 100%;
+  width: 100%;
+}
+.goalsPin2 {
+  height: 50px;
+  width: 60px; 
+  position: absolute;
+  right: 0;
+}
+
+.goalsPin2 img {
+  height: 100%;
+  width: 100%;
+}
+
+.setNewGoal {
+  display: flex;
+  justify-content: center;
+  /* margin-top: -20px; */
+}
+
+#newGoalFormContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.newGoalForm {
+  /* width: 100%; */
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.goalInput1 {
+  display: flex;
+  flex-direction: column;
+  /* width: 33%; */
+  
+  
+}
+
+.goalInput2 {
+  display: flex;
+  flex-direction: column;
+  /* width: 33%; */
+  
+ 
+}
+
+.goalInput3 {
+  display: flex;
+  flex-direction: column;
+  /* width: 33%; */
+  
+}
+
+#allPersonalGoals {
+  margin-top: 10px;
+  border-top: 2px solid black;
+  overflow-y: scroll;
+}
+
+.personalGoal {
+  width: 100%;
+  display: flex;
+  /* margin-left: 20px; */
+  /* Remove left margin if causing issues*/
+}
+
+.personalGoalStructure {
+  width: 33%;
+  text-align: center;
+}
+
+.goalButtons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: -10px;
+  overflow: hidden;
+}
+
+#goalsMet {
+  border: 5px solid brown;
+  height: 500px;
+  width: 50%;
+  margin-right: 20px;
+}
 /* UserRoutines component */
 
 

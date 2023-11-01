@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+
 function DisplayExcercise({myWeeksRoutine, workouts}) {
     const [selectedRoutineName, setSelectedRoutineName] = useState("")
     const [selectedVisual, setSelectedVisual] = useState("")
@@ -55,6 +56,7 @@ function DisplayExcercise({myWeeksRoutine, workouts}) {
                         <option value="Thursday">Thursday</option>
                         <option value="Friday">Friday</option>
                         <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
                     </select>
                     <label>Instructions/ Clip </label>
                     <select name="display" required select={selectedVisual} onChange={(e) => setSelectedVisual(e.target.value)}>
