@@ -58,7 +58,7 @@ function CreateAccount() {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
-            name: values.fName + values.lName,
+            name: values.fName + " " + values.lName,
             email: values.email,
             password: values.password
         })

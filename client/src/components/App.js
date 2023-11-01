@@ -243,7 +243,7 @@ function App() {
             <UserRoutines myRoutines={myRoutines} myWeeksRoutine={myWeeksRoutine} updateTargetUserRoutine={updateTargetUserRoutine} removeUserRoutine={removeUserRoutine}/>
           </Route>
           <Route path = "/Home">
-            <Home myWeeksRoutine={myWeeksRoutine} updateTargetUserRoutine={updateTargetUserRoutine}/>
+            <Home myWeeksRoutine={myWeeksRoutine} updateTargetUserRoutine={updateTargetUserRoutine} workouts={workouts}/>
           </Route>
           <Route path = "/createAccount">
             <CreateAccount/>

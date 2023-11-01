@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { UserContext } from "./Context";
 
+import glossy from "./glossy-red-push-pin-png.webp";
+
 function RoutineItem({routine, addNewUserRoutine}) {
 
     const user = useContext(UserContext)
@@ -31,6 +33,11 @@ function RoutineItem({routine, addNewUserRoutine}) {
 
     return (
         <div className="allRoutinesCards">
+            <div id="pinHolder">
+            <div id="pin">
+                <img src={glossy}/>
+            </div>
+            </div>
             <h3>{routine.name}: Breakdown</h3>
             <h4>Targeted Muscles/Bodyparts: Chest</h4>
             <ul>Excercises:

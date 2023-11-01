@@ -41,55 +41,55 @@ def create_routines():
     
     routine1 = Routine(
         name = "Routine01",
-        workouts = "dumbell arnold press, dumbell decline bench press, dumbbell incline twisted flyes",
+        workouts = "dumbbell arnold press,dumbbell decline bench press,dumbbell incline twisted flyes",
         likes = randint(0,20),
         shared = 1
     )
     routine2 = Routine(
         name = "Routine02",
-        workouts = "dumbell arnold press, dumbell decline bench press, dumbbell incline twisted flyes",
+        workouts = "dumbbell arnold press,dumbbell decline bench press,dumbbell incline twisted flyes",
         likes = randint(0,20),
         shared = 1
     )
     routine3 = Routine(
         name = "Routine03",
-        workouts = "dumbell arnold press, dumbell decline bench press, dumbbell incline twisted flyes",
+        workouts = "dumbbell arnold press,dumbbell decline bench press,dumbbell incline twisted flyes",
         likes = randint(0,20),
         shared = 1
     )
     routine4 = Routine(
         name = "Routine04",
-        workouts = "dumbbell one arm reverse grip press, dumbbell standing kickback, dumbbell decline hammer press",
+        workouts = "dumbbell one arm reverse grip press,dumbbell standing kickback,dumbbell decline hammer press",
         likes = randint(0,20),
         shared = 1
     )
     routine5 = Routine(
         name = "Routine05",
-        workouts = "dumbbell one arm reverse grip press, dumbbell standing kickback, dumbbell decline hammer press",
+        workouts = "dumbbell one arm reverse grip press,dumbbell standing kickback,dumbbell decline hammer press",
         likes = randint(0,20),
         shared = 1
     )
     routine6 = Routine(
         name = "Routine06",
-        workouts = "dumbbell one arm reverse grip press, dumbbell standing kickback, dumbbell decline hammer press",
+        workouts = "dumbbell one arm reverse grip press,dumbbell standing kickback,dumbbell decline hammer press",
         likes = randint(0,20),
         shared = 1
     )
     routine7 = Routine(
         name = "Routine07",
-        workouts = "barbell speed squat, barbell split squat v. 2",
+        workouts = "barbell speed squat,barbell split squat v. 2",
         likes = randint(0,20),
         shared = 1
     )
     routine8 = Routine(
         name = "Routine08",
-        workouts = "barbell speed squat, barbell split squat v. 2",
+        workouts = "barbell speed squat,barbell split squat v. 2",
         likes = randint(0,20),
         shared = 1
     )
     routine9 = Routine(
         name = "Routine09",
-        workouts = "barbell speed squat, barbell split squat v. 2",
+        workouts = "barbell speed squat,barbell split squat v. 2",
         likes = randint(0,20),
         shared = 1
     )

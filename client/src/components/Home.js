@@ -8,8 +8,9 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 
 import pic from './glossy-red-push-pin-png.webp'
+import DisplayExcercise from "./DisplayExcercise";
 
-function Home({myWeeksRoutine, updateTargetUserRoutine}) {
+function Home({myWeeksRoutine, updateTargetUserRoutine, workouts}) {
     
     
 
@@ -72,19 +73,17 @@ function Home({myWeeksRoutine, updateTargetUserRoutine}) {
                 </div>
                 <CurrentRoutine myWeeksRoutine={myWeeksRoutine} updateTargetUserRoutine={updateTargetUserRoutine}/>
                 <Layout hasSider>
-                    <Content style={contentStyle}>Content</Content>
-                    <Sider style={siderStyle}>Sider</Sider>
+                    {/* <Content style={contentStyle}>Content</Content>
+                    <Sider style={siderStyle}>Sider</Sider> */}
+                    <div id="homeContent3">
+                        <DisplayExcercise myWeeksRoutine={myWeeksRoutine} workouts={workouts}/>
+                        <div id="displayBonus">
+
+                        </div>
+                    </div>
                 </Layout>
                 <Footer style={footerStyle}>Footer</Footer>
                 </Layout>
-                {/* <Layout>
-                <Sider style={siderStyle}>Sider</Sider>
-                <Layout>
-                    <Header style={headerStyle}>Header</Header>
-                    <Content style={contentStyle}>Content</Content>
-                    <Footer style={footerStyle}>Footer</Footer>
-                </Layout>
-                </Layout> */}
             </Space>
         </div>
     )

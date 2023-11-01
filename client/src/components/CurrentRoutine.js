@@ -4,6 +4,7 @@ import DayRoutineItem from "./DayRoutineItem";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 function CurrentRoutine({myWeeksRoutine, updateTargetUserRoutine}) {
+
  
     const Monday = myWeeksRoutine.filter((routine) => routine["day_of_week"] == "Monday")[0]
     const Tuesday = myWeeksRoutine.filter((routine) => routine["day_of_week"] == "Tuesday")[0]
