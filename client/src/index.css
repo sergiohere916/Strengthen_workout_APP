@@ -618,7 +618,7 @@
 
 .content ul {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   width: 50%;
 }
 
