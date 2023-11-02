@@ -11,9 +11,7 @@ function UserRoutines({myRoutines, myWeeksRoutine, updateTargetUserRoutine, remo
         return <UserRoutineItem key={userRoutine.id} userRoutine={userRoutine} updateTargetUserRoutine={updateTargetUserRoutine} myWeeksRoutine={myWeeksRoutine} removeUserRoutine={removeUserRoutine}/>
     })
 
-    // const currentRoutines = myWeeksRoutine.map((weekdayRoutine) => {
-    //     return <CurrentRoutine key={weekdayRoutine.id} weekdayRoutine={weekdayRoutine}/>
-    // })
+
 
     return (
         <div>
@@ -24,16 +22,16 @@ function UserRoutines({myRoutines, myWeeksRoutine, updateTargetUserRoutine, remo
                     </div>
             </div>
             <CurrentRoutine myWeeksRoutine={myWeeksRoutine} updateTargetUserRoutine={updateTargetUserRoutine}/>
-            <div id="userPage">
+            {/* <div id="userPage"> */}
                 <div id = "userRoutinesContainer">
                     {userRoutines}
                 </div>
-                <div id="userPageWeeklyRoutine">
+                {/* <div id="userPageWeeklyRoutine">
                     <h5>Assign your Weekly Workout Routine</h5>
                     <h4>Monday:</h4>
                     <h4>Tuesday: </h4>
-                </div>
-            </div>
+                </div> */}
+            {/* </div> */}
         </div>
     )
 }

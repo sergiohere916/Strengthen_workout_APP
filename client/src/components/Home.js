@@ -108,10 +108,16 @@ function Home({myWeeksRoutine, updateTargetUserRoutine, workouts, personalGoals,
                     <div id="homeContent3">
                         <DisplayExcercise myWeeksRoutine={myWeeksRoutine} workouts={workouts}/>
                         <div id="displayBonus">
-                            <h4>Stay Strong</h4>
+                            <h2>Your Fitness Journey Starts Today</h2>
+                            <h2>Things are accomplished one step at a time</h2>
                         </div>
                     </div>
                 </Layout>
+                <div id="homeContent4TitleContainer">
+                    <div id="homeContent4Title1">
+                        <h1>Set Up Some Goals For Yourself</h1>
+                    </div>
+                </div>
                 <div id="homeContent4">
                     <div id="homeContent4Titles">
                         <div className="homeCont4Title"><h4>{user.name}'s Personal Goals</h4></div>

@@ -3,9 +3,9 @@ import React, { useState } from "react";
 
 function DisplayExcercise({myWeeksRoutine, workouts}) {
     const [selectedRoutineName, setSelectedRoutineName] = useState("")
-    const [selectedVisual, setSelectedVisual] = useState("")
     // const [selectedExcercise, setSelectedExcercise] = useState("")
     const [currentGif, setCurrentGif] = useState([])
+    const [currentInstructions, setCurrentInstructions] = useState([])
     
     
 
@@ -21,27 +21,33 @@ function DisplayExcercise({myWeeksRoutine, workouts}) {
         })
     }
     
-    // console.log("in Current Routine")
-    // console.log(myWeeksRoutine)
-    // console.log(Array.isArray(excerciseOptions))
-    // console.log("LENGTH OF OPTIONS LIST");
-    // console.log(excerciseOptionsList[0].routine.workouts.split(","))
-    
     
 
     function handleSubmit(e) {
         e.preventDefault();
-        const excerciseName = e.target[2].value
-        console.log(excerciseName)
-        const visualType = selectedVisual
-        retrieveDisplay(visualType, excerciseName);
+        const excerciseName = e.target[1].value
+        // console.log(excerciseName)
+        retrieveDisplay(excerciseName);
     }
 
-    function retrieveDisplay(visualType, excerciseName) {
+    function retrieveDisplay(excerciseName) {
         const gif = workouts.filter((workout) => workout.name === excerciseName)[0].gifUrl
-        // console.log(gif)
-        setCurrentGif([<img src={gif} alt="workout_Gif"/>])
+        const instructions = workouts.filter((workout) => workout.name === excerciseName)[0].instructions
+        setCurrentInstructions(instructions);
+        setCurrentGif([<img src={gif} alt="workout_Gif"/>]);
     }
+
+
+    function clearClip() {
+        setCurrentGif([]);
+    }
+
+    function clearInstructions() {
+        setCurrentInstructions([]);
+    }
+    const instructionsDisplayed = currentInstructions.map((instructions) => {
+        return <li key={currentInstructions.indexOf(instructions)}>{instructions}</li>
+    })
 
     return (
         <div id="displayExcersiseInfo">
@@ -58,12 +64,6 @@ function DisplayExcercise({myWeeksRoutine, workouts}) {
                         <option value="Saturday">Saturday</option>
                         <option value="Sunday">Sunday</option>
                     </select>
-                    <label>Instructions/ Clip </label>
-                    <select name="display" required select={selectedVisual} onChange={(e) => setSelectedVisual(e.target.value)}>
-                        <option value=""></option>
-                        <option value="Instructions">Instructions</option>
-                        <option value="Example">Example Clip</option>
-                    </select>
                     <label>Which Excercise </label>
                     <select name="excercise" required>
                         <option value=""></option>
@@ -73,12 +73,18 @@ function DisplayExcercise({myWeeksRoutine, workouts}) {
                     <button type="submit">Go</button>
                 </form>
             </div>
+            <div>
+                <button onClick={clearClip}>Clear Clip</button>
+                <button onClick={clearInstructions}>Clear Instructions</button>
+            </div>
             <div id="excerciseInfoContainer">
                 <div id="exeriseInfo1">
                     {currentGif}
                 </div>
                 <div id="exerciseInfo2">
-                    
+                    <ol>
+                        {instructionsDisplayed}
+                    </ol>
                 </div>    
             </div>
             
