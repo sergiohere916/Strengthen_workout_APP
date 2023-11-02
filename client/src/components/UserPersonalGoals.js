@@ -3,12 +3,12 @@ import glossy from "./glossy-red-push-pin-png.webp";
 import UserPersonalGoalItem from "./UserPersonalGoalItem";
 import { UserContext } from "./Context";
 
-function UserPersonalGoals({personalGoals, user, updateCompletedGoal}) {
+function UserPersonalGoals({personalGoals, user, updateCompletedGoal, removeDeletedGoal, addNewGoal}) {
     const [goalDesc, setGoalDesc] = useState("");
     const [targetDate, setTargetDate] = useState("");
 
     const displayGoals = personalGoals.map((goal) => {
-        return <UserPersonalGoalItem key={goal.id} goal={goal} updateCompletedGoal={updateCompletedGoal}/>
+        return <UserPersonalGoalItem key={goal.id} goal={goal} updateCompletedGoal={updateCompletedGoal} removeDeletedGoal={removeDeletedGoal}/>
     })
 
 
@@ -33,7 +33,7 @@ function UserPersonalGoals({personalGoals, user, updateCompletedGoal}) {
             body: JSON.stringify(newGoal)
         })
         .then(r => r.json())
-        .then(newGoal => console.log(newGoal))
+        .then(newGoal => addNewGoal(newGoal))
         setGoalDesc("");
         setTargetDate("");
     }

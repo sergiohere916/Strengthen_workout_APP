@@ -130,37 +130,90 @@
   transform: scale(1.1);
 }
 
+#homeAppTitleContainer {
+  height: 150px;
+  margin-top: 5px;
+  background-color: rgb(230, 234, 238);
+  display: flex;
+  justify-content: center;
+  /* background: linear-gradient(180deg, red, rgb(241, 100, 44), rgb(218, 102, 49), rgb(211, 131, 55)); */
+}
+
+.homeAppTitles {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  overflow:hidden;
+  width: 33%;
+  color: rgb(167, 163, 163);
+}
+
+.homeAppTitles h1 {
+  font-size: 25pt;
+}
+.homeTitle2 {
+  /* color: red;
+  text-shadow: 0 1px 2px black; */
+}
+
+#secondContentUser {
+  color: red;
+  font-size: 30pt;
+}
+
 #secondContent {
-  border: 5px solid black;
-  margin-top: 50px;
+  /* border: 5px solid black; */
+  margin-top: 60px;
+  margin-left: 15px;
+  margin-right: 15px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 #homeRoutineContainer {
   display: flex;
   justify-content: center;
   gap: 50px;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 50px;
   margin-left: 20px;
   margin-right: 20px;
+  padding: 20px;
+  background-image: url("https://www.lifespanfitness.com.au/cdn/shop/products/CSAC-MATDD50-1_media-03_fb855911-0fa1-4d34-aed7-399c294ec01a.jpg?v=1619415308");
+  background-size: contain;
+
 }
 
 .homeRoutineHolders {
-  border: 5px solid black;
+  border-top: 3px solid rgb(217, 26, 26);
+  border-left: 2px solid black;
+  border-right: 2px solid black;
   height: 300px;
   width: 250px;
   text-align: center;
   /* background-color: rgb(255, 239, 148); */
-  background-color: rgb(134, 142, 151);
-  box-shadow: 0 5px 5px black;
+  background-color: rgb(46, 48, 51);
+  box-shadow: 0 5px 10px black;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  color: white
+  /* overflow-y: scroll; */
 }
+
+/* .homeRoutineHolders::-webkit-scrollbar {
+  display: none;
+} */
 
 .homeRoutineHolders img {
   height: 100%;
   width: 100%;
   object-fit: cover;
   opacity: .05;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .homeRoutineHolders:hover {
   animation: bounce 2s linear;
@@ -181,8 +234,6 @@
   } */
 }
 
-
-
 .homeRoutineDaysOfWeek {
   display: flex;
   justify-content: center;
@@ -195,6 +246,7 @@
   width: 250px;
   text-align: center;
   margin-top: 50px;
+
 }
 
 .dayRoutineUnassigner {
@@ -207,21 +259,81 @@
   font-weight: bolder;
 }
 
+.dayRoutineItem {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dailyExercisesContainer {
+  height: 100%;
+  border-top: 2px solid black;
+  overflow-y: auto;
+  
+}
+
+/* .dailyExercisesContainer ul {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+} */
+
+.dailyExercisesContainer::-webkit-scrollbar {
+  display: none;
+}
+
+#homeContent3TitleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+
+#homeContent3Title1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 15pt;
+  color: red;
+}
+
+
 
 #homeContent3 {
   display: flex;
   border: 5px solid rebeccapurple;
+  background-color: rgb(31, 30, 30);
   width: 100%;
   margin-top: 20px;
-  gap: 10px;
+  gap: 20px;
+  padding: 20px
 }
 
 #displayExcersiseInfo{
   height: 500px;
   width: 50%;
   border: 5px solid darkcyan;
+  background-color: #66686b;
 
 }
+
+#exerciseFormContainer {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(187, 61, 61);
+  padding-bottom: 20px;
+}
+
+#exerciseFormContainer form label {
+ color: white;
+ font-weight: bolder;
+ margin-right: 10px;
+ margin-left: 10px;
+ text-shadow: 0 1px 2px black;
+
+}
+
 
 #excerciseInfoContainer {
   display: flex;
@@ -229,17 +341,28 @@
   margin-top: 40px;
 }
 
-#exceriseInfo {
+#exeriseInfo1 {
   justify-content: center;
   height: 400px;
-  width: 90%;
+  width: 50%;
   border: 5px solid #000000;
+  background-color: white;
 }
 
+#exerciseInfo2 {
+  justify-content: center;
+  height: 400px;
+  width: 50%;
+  border: 5px solid black;
+  background-color: white;
+}
 #displayBonus{
   height: 500px;
   width: 50%;
   border: 5px solid darkgreen;
+  background-color: #66686b;
+  background-image: url("https://img.freepik.com/premium-photo/fitness-essentials-presentation_946657-2658.jpg");
+  background-size: cover;
 }
 
 

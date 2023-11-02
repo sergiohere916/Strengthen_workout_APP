@@ -3,7 +3,7 @@ import React from "react";
 
 
 
-function UserPersonalGoalItem({goal, updateCompletedGoal}) {
+function UserPersonalGoalItem({goal, updateCompletedGoal, removeDeletedGoal}) {
 
     function handleCompletedGoal() {
         fetch(`/personalgoals/${goal.id}`, {
@@ -16,6 +16,13 @@ function UserPersonalGoalItem({goal, updateCompletedGoal}) {
             updateCompletedGoal(updatedGoal.id);
         })
 
+    }
+
+    function handleDeletedGoal() {
+        fetch(`/personalgoals/${goal.id}`, {
+            method: "DELETE"
+        })
+        .then(removeDeletedGoal(goal.id))
     }
 
     return (
@@ -33,7 +40,7 @@ function UserPersonalGoalItem({goal, updateCompletedGoal}) {
                 <div className="goalButtons">
                     <button onClick={handleCompletedGoal}>Completed !</button>
                     <br/>
-                    <button>Delete</button> 
+                    <button onClick={handleDeletedGoal}>Delete</button> 
                 </div>
             </div>
         </div>

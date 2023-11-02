@@ -22,16 +22,17 @@ function DayRoutineItem({dayRoutine, updateTargetUserRoutine}) {
     }
 
     return (
-        <div>
+        <div className="dayRoutineItem">
             <div className="dayRoutineUnassigner">
                 <button onClick={handleClick}>X</button>
             </div>
             <h3>{routine.name}</h3>
-            <h4>Workouts:</h4>
-            <ul>
-                {excercises}
-            </ul>
-            <hr/>
+            <h4 style={{color: "rgb(160, 32, 32)", fontWeight: "bold"}}>Workouts:</h4>
+            <div className="dailyExercisesContainer">
+                <ul>
+                    {excercises}
+                </ul>
+            </div>
         </div>
     )
 }

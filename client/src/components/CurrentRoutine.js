@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from '@mui/material/Button';
 import DayRoutineItem from "./DayRoutineItem";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import { UserContext } from "./Context";
 
 function CurrentRoutine({myWeeksRoutine, updateTargetUserRoutine}) {
 
- 
+    const user = useContext(UserContext);
+
     const Monday = myWeeksRoutine.filter((routine) => routine["day_of_week"] == "Monday")[0]
     const Tuesday = myWeeksRoutine.filter((routine) => routine["day_of_week"] == "Tuesday")[0]
     const Wednesday = myWeeksRoutine.filter((routine) => routine["day_of_week"] == "Wednesday")[0]
@@ -20,9 +22,9 @@ function CurrentRoutine({myWeeksRoutine, updateTargetUserRoutine}) {
 
     return (
         <div id="secondContent">
-            <h1>Sergio's Current Routine: </h1>
+            <h1 id="secondContentUser">{user.name}'s Current Routine: </h1>
             {/* <Button color = "error" variant="contained" href="/Home/MyRoutines">SHOW ALL SAVED ROUTINES</Button> */}
-            <NavLink to = "/Home/MyRoutines"><Button color="error" variant="contained">SHOW ALL SAVED ROUTINES</Button></NavLink>
+            <NavLink to = "/Home/MyRoutines"><Button style={{color: "white", fontWeight: "bolder"}} color="error" variant="contained">SHOW ALL SAVED ROUTINES</Button></NavLink>
             <div className="homeRoutineDaysOfWeek">
                     <h3>Monday</h3>
                     <h3>Tuesday</h3>
@@ -34,26 +36,26 @@ function CurrentRoutine({myWeeksRoutine, updateTargetUserRoutine}) {
                 </div>
             <div id="homeRoutineContainer">
                 <div className="homeRoutineHolders">
-                    {Monday ? <DayRoutineItem dayRoutine={Monday} updateTargetUserRoutine={updateTargetUserRoutine}/> : <>false</>}
+                    {Monday ? <DayRoutineItem dayRoutine={Monday} updateTargetUserRoutine={updateTargetUserRoutine}/> : <h3>Rest Day</h3>}
                 </div>
                 <div className="homeRoutineHolders">
                     {/* <img src="https://dcassetcdn.com/design_img/3571610/515701/515701_19560887_3571610_166c5b12_image.jpg"></img> */}
-                    {Tuesday ? <DayRoutineItem dayRoutine={Tuesday} updateTargetUserRoutine={updateTargetUserRoutine}/> : <>false</>}
+                    {Tuesday ? <DayRoutineItem dayRoutine={Tuesday} updateTargetUserRoutine={updateTargetUserRoutine}/> : <h3>Rest Day</h3>}
                 </div>
                 <div className="homeRoutineHolders">
-                    {Wednesday ? <DayRoutineItem dayRoutine={Wednesday} updateTargetUserRoutine={updateTargetUserRoutine}/> : <>false</>}
+                    {Wednesday ? <DayRoutineItem dayRoutine={Wednesday} updateTargetUserRoutine={updateTargetUserRoutine}/> : <h3>Rest Day</h3>}
                 </div>
                 <div className="homeRoutineHolders">
-                    {Thursday ? <DayRoutineItem dayRoutine={Thursday} updateTargetUserRoutine={updateTargetUserRoutine}/> : <>false</>}
+                    {Thursday ? <DayRoutineItem dayRoutine={Thursday} updateTargetUserRoutine={updateTargetUserRoutine}/> : <h3>Rest Day</h3>}
                 </div>
                 <div className="homeRoutineHolders">
-                    {Friday ? <DayRoutineItem dayRoutine={Friday} updateTargetUserRoutine={updateTargetUserRoutine}/> : <>false</>}
+                    {Friday ? <DayRoutineItem dayRoutine={Friday} updateTargetUserRoutine={updateTargetUserRoutine}/> : <h3>Rest Day</h3>}
                 </div>
                 <div className="homeRoutineHolders">
-                    {Saturday ? <DayRoutineItem dayRoutine={Saturday} updateTargetUserRoutine={updateTargetUserRoutine}/> : <>false</>}
+                    {Saturday ? <DayRoutineItem dayRoutine={Saturday} updateTargetUserRoutine={updateTargetUserRoutine}/> : <h3>Rest Day</h3>}
                 </div>
                 <div className="homeRoutineHolders">
-                    {Sunday ? <DayRoutineItem dayRoutine={Sunday} updateTargetUserRoutine={updateTargetUserRoutine}/> : <>false</>}
+                    {Sunday ? <DayRoutineItem dayRoutine={Sunday} updateTargetUserRoutine={updateTargetUserRoutine}/> : <h3>Rest Day</h3>}
                 </div>
             </div>
         </div>

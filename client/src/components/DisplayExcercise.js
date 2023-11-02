@@ -45,7 +45,7 @@ function DisplayExcercise({myWeeksRoutine, workouts}) {
 
     return (
         <div id="displayExcersiseInfo">
-            <div>
+            <div id="exerciseFormContainer">
                 <form onSubmit={handleSubmit}>
                     <label>Select Your Routine </label>
                     <select name="routine" select={selectedRoutineName} required onChange={(e) => setSelectedRoutineName(e.target.value)}>
@@ -74,8 +74,11 @@ function DisplayExcercise({myWeeksRoutine, workouts}) {
                 </form>
             </div>
             <div id="excerciseInfoContainer">
-                <div id="exceriseInfo">
+                <div id="exeriseInfo1">
                     {currentGif}
+                </div>
+                <div id="exerciseInfo2">
+                    
                 </div>    
             </div>
             

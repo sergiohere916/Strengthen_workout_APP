@@ -17,7 +17,7 @@ import UserPersonalGoals from "./UserPersonalGoals";
 import glossy from "./glossy-red-push-pin-png.webp";
 import CompletedGoals from "./CompletedGoals";
 
-function Home({myWeeksRoutine, updateTargetUserRoutine, workouts, personalGoals, completedGoals, updateCompletedGoal}) {
+function Home({myWeeksRoutine, updateTargetUserRoutine, workouts, personalGoals, completedGoals, updateCompletedGoal, removeDeletedGoal, addNewGoal}) {
     
     const user = useContext(UserContext);
     console.log(completedGoals)
@@ -82,14 +82,33 @@ function Home({myWeeksRoutine, updateTargetUserRoutine, workouts, personalGoals,
                         elevation = {5}
                     /> */}
                 </div>
+                <div id="homeAppTitleContainer">
+                    <div className="homeAppTitles">
+                        <h1 className="homeTitle1">SET YOUR WORKOUTS</h1>
+                        <h3>Strive for consistency</h3>
+                   </div>
+                   <div className="homeAppTitles">
+                        <h1 className="homeTitle2">STRENGTHEN</h1>
+                        <h3>The only easy day was yesterday</h3>
+                   </div>
+                   <div className="homeAppTitles">
+                        <h1 className="homeTitle3">SET YOUR GOALS</h1>
+                        <h3>Seek to accomplish them</h3>
+                   </div>
+                </div>
                 <CurrentRoutine myWeeksRoutine={myWeeksRoutine} updateTargetUserRoutine={updateTargetUserRoutine}/>
+                <div id="homeContent3TitleContainer">
+                    <div id="homeContent3Title1">
+                        <h1>Look Up Your Excercises For Some Assistance</h1>
+                    </div>
+                </div>
                 <Layout hasSider>
                     {/* <Content style={contentStyle}>Content</Content>
                     <Sider style={siderStyle}>Sider</Sider> */}
                     <div id="homeContent3">
                         <DisplayExcercise myWeeksRoutine={myWeeksRoutine} workouts={workouts}/>
                         <div id="displayBonus">
-
+                            <h4>Stay Strong</h4>
                         </div>
                     </div>
                 </Layout>
@@ -99,7 +118,7 @@ function Home({myWeeksRoutine, updateTargetUserRoutine, workouts, personalGoals,
                         <div className="homeCont4Title"><h4>Hello</h4></div>
                     </div>
                     <div id="homeContent4Content">
-                        <UserPersonalGoals personalGoals={personalGoals} user={user} updateCompletedGoal={updateCompletedGoal}/>
+                        <UserPersonalGoals personalGoals={personalGoals} user={user} updateCompletedGoal={updateCompletedGoal} removeDeletedGoal={removeDeletedGoal} addNewGoal={addNewGoal}/>
                         <div id="goalsMet">
                             <div className="goalsPins">
                                 <div className="goalsPin1">
