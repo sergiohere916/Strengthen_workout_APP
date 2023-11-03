@@ -39,7 +39,7 @@ function RoutineItem({routine, addNewUserRoutine}) {
             </div>
             </div>
             <h3>{routine.name}: Breakdown</h3>
-            <h4>Targeted Muscles/Bodyparts: Chest</h4>
+            <h4>Targeted Muscles/Bodyparts: ____</h4>
             <ul>Excercises:
                 {excercises}
             </ul>

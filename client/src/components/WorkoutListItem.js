@@ -19,7 +19,7 @@ function WorkoutListItem({workout, onClickAddToRoutine}) {
     }
 
     return (
-        <Card className="ExerciseCard" style={{border: "3px solid black"}} sx={{ maxWidth: 345}} elevation={4}>
+        <Card className="ExerciseCard" style={{border: "3px solid black"}} sx={{ maxWidth: 345, height: "470px"}} elevation={4}>
         {/* <CardActionArea> */}
           <CardMedia
             component="img"

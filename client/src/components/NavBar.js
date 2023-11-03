@@ -43,7 +43,7 @@ function NavBar() {
         <Box id="navbar" sx={{ flexGrow: 1}}>
             <AppBar elevation={15} position="static" color="primary" sx={{height: "100px", position: "relative;"}}>
                 <Toolbar>
-                    <IconButton
+                    {/* <IconButton
                     size="large"
                     edge="start"
                     color="inherit"
@@ -51,7 +51,7 @@ function NavBar() {
                     sx={{ mr: 2 }}
                     >
                     <MenuIcon />
-                    </IconButton>
+                    </IconButton> */}
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                     WORK HARD <span id="navTitle1">GET STRONG</span>
                     </Typography>

@@ -354,7 +354,7 @@
 .exampleClip {
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 #exerciseInfo2 {
@@ -856,7 +856,7 @@
 }
 
 #freeRoutinesSorters {
-  border: 5px solid blue;
+  /* border: 5px solid blue; */
   height: 100px;
 }
 
