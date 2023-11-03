@@ -120,20 +120,20 @@ function Home({myWeeksRoutine, updateTargetUserRoutine, workouts, personalGoals,
                 </div>
                 <div id="homeContent4">
                     <div id="homeContent4Titles">
-                        <div className="homeCont4Title"><h4>{user.name}'s Personal Goals</h4></div>
-                        <div className="homeCont4Title"><h4>Hello</h4></div>
+                        <div className="homeCont4Title"><h4>{user.name}'s Personal Goals:</h4></div>
+                        <div className="homeCont4Title"><h4>Your Achievements:</h4></div>
                     </div>
                     <div id="homeContent4Content">
                         <UserPersonalGoals personalGoals={personalGoals} user={user} updateCompletedGoal={updateCompletedGoal} removeDeletedGoal={removeDeletedGoal} addNewGoal={addNewGoal}/>
                         <div id="goalsMet">
-                            <div className="goalsPins">
+                            {/* <div className="goalsPins">
                                 <div className="goalsPin1">
                                     <img src={glossy} alt="red_Pin"/>
                                 </div>
                                 <div className="goalsPin2">
                                     <img src={glossy} alt="red_Pin"/>
                                 </div>
-                            </div>
+                            </div> */}
                             <div>
                                 <br/>
                             </div>
@@ -155,7 +155,7 @@ function Home({myWeeksRoutine, updateTargetUserRoutine, workouts, personalGoals,
                         
                     </div>
                 </div>
-                <Footer style={footerStyle}>Footer</Footer>
+                {/* <Footer style={footerStyle}>Footer</Footer> */}
                 </Layout>
             </Space>
         </div>

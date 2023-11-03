@@ -46,14 +46,14 @@ function UserPersonalGoals({personalGoals, user, updateCompletedGoal, removeDele
 
     return (
         <div id="setGoals">
-            <div className="goalsPins">
+            {/* <div className="goalsPins">
                 <div className="goalsPin1">
                     <img src={glossy} alt="red_Pin"/>
                 </div>
                 <div className="goalsPin2">
                     <img src={glossy} alt="red_Pin"/>
                 </div>
-            </div>
+            </div> */}
             <div className="setNewGoal">
                 <button onClick={handleClick}>Set New Goal</button>
                 

@@ -390,8 +390,8 @@
   border: 5px solid greenyellow;
   margin-top: 40px;
   gap: 50px; */
-  background-color:rgb(206, 247, 195);
-  border: 5px solid black;
+  /* background-color:white; */
+  /* border: 5px solid rgb(51, 50, 50); */
   margin-top: 40px;
 
 }
@@ -405,24 +405,29 @@
 
 .homeCont4Title {
   width: 50%;
+  font-size: 15pt;
+  font-weight: bolder;
+  color: black;
 }
 
 #homeContent4Content {
   display: flex;
-  border: 5px solid greenyellow;
+  /* border: 5px solid greenyellow; */
   /* margin-top: 40px; */
   gap: 50px;
   margin-bottom: 50px;
+  /* background-color: #000000; */
 }
 
 #setGoals {
-  border: 5px solid rgb(17, 12, 12);
-  background-color: rgb(152, 184, 184);
+  /* border: 5px solid rgb(17, 12, 12); */
+  background-color: rgb(230, 234, 238);
   height: 500px;
   width: 50%;
   margin-left: 20px;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 2px 5px;
 }
 
 .goalsPins {
@@ -462,6 +467,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  /* background-color: rgb(187, 61, 61); */
 }
 
 .newGoalForm {
@@ -500,6 +506,9 @@
   overflow-y: scroll;
 }
 
+#allPersonalGoals::-webkit-scrollbar {
+  display: none;
+}
 .personalGoal {
   width: 100%;
   display: flex;
@@ -521,10 +530,12 @@
 }
 
 #goalsMet {
-  border: 5px solid brown;
+  /* border: 5px solid brown; */
+  background-color: rgb(230, 234, 238);
   height: 500px;
   width: 50%;
   margin-right: 20px;
+  box-shadow: 0 2px 5px;
 }
 
 
@@ -536,6 +547,9 @@
   text-align: center;
 }
 
+.infoItem {
+  font-size: 14pt;
+}
 #completedGoalsContainer {
   display: flex;
   flex-direction: column;
@@ -546,6 +560,19 @@
 .completedGoals {
   display: flex;
   justify-content: center;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+
+.trophies {
+  width: 50px;
+  height: 50px;
+}
+
+.trophies img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 
@@ -722,7 +749,12 @@
   /* position: fixed;
   right: 0; */
   margin-right: 20px;
-  background-color: rgba(36, 35, 35, 0.349);
+  background-color: rgba(36, 35, 35, 0.164);
+  overflow-y: scroll;
+}
+
+.routineCreaterContainer::-webkit-scrollbar {
+  display: none;
 }
 
 

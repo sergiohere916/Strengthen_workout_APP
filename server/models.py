@@ -40,7 +40,20 @@ class User(db.Model, SerializerMixin):
     def authenticate(self, password):
         return bcrypt.check_password_hash(
             self._password_hash, password.encode('utf-8'))
-
+    
+    @validates('name')
+    def validate_name(self, key, name):
+        if name and len(name) >= 2:
+            return name
+        else:
+            raise ValueError("Must insert name with at least 2 characters")
+    @validates('email')
+    def validate_email(self, key, email):
+        if email and '@' in email:
+            return email
+        else:
+            raise ValueError("Must include a valid email -- @")
+    
 
 class Routine(db.Model, SerializerMixin):
     __tablename__ = 'routines'
@@ -59,6 +72,20 @@ class Routine(db.Model, SerializerMixin):
 
     def __repr__(self):
         return f'<Routine: {self.name}, id: {self.id}, sharable: {self.shared} >'
+    
+    @validates('name')
+    def validate_name(self, key, name):
+        if name and len(name) >= 1:
+            return name
+        else:
+            raise ValueError("Routines must have a name")
+    
+    # @validates('workouts')
+    # def validate_workouts(self, key, workouts):
+    #     if workouts and len(workouts) >=1:
+    #         return workouts
+    #     else:
+    #         raise ValueError("A routine must have at least one workout")
 
 class PersonalGoal(db.Model, SerializerMixin):
     __tablename__ = 'personal_goals'
@@ -75,6 +102,20 @@ class PersonalGoal(db.Model, SerializerMixin):
 
     def __repr__(self):
         return f'<Personal Goal: {self.name}, id: {self.id}, owner: {self.user_id} >'
+    
+    @validates('name')
+    def validate_name(self, key, name):
+        if name and len(name) >=1:
+            return name
+        else:
+            raise ValueError("Personal goal cannot be blank must include at least one character")
+    @validates('target_date')
+    def validate_date(self, key, date):
+        if date:
+            return date
+        else:
+            raise ValueError("Must include a target date for a personal goal")
+        
 
 class ScheduledWorkout(db.Model, SerializerMixin):
     __tablename__ = 'scheduled_workouts'
@@ -90,3 +131,10 @@ class ScheduledWorkout(db.Model, SerializerMixin):
 
     def __repr__(self):
         return f'<Personal Scheduled Workout: {self.id}, owner: {self.user_id} routine pulled from: {self.routine_id} >'
+
+    # @validates('day_of_week')
+    # def validate_day_of_week(self, key, day):
+    #     if day and day in ["", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]:
+    #         return day
+    #     else:
+    #         raise ValueError("Day of week must either be unnassigned or a valid day of the week")
