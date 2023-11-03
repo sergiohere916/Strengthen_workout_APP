@@ -63,9 +63,9 @@ function NavBar() {
                         <NavLink to = "/Routines"><button>ROUTINES</button></NavLink> */}
                         <Stack direction="row" spacing={2}>
                           {/* <Button color = "error" variant="contained" href="/Home">HOME</Button> */}
-                          <NavLink to = "/Home"><Button color="warning" variant="contained">HOME</Button></NavLink>
-                          <NavLink to = "/Workouts"><Button color = "warning" variant="contained">Exercises</Button></NavLink>
-                          <NavLink to = "/Routines"><Button color = "warning" variant="contained">Routines</Button></NavLink>
+                          <NavLink to = "/Home"><Button size="small" color="warning" variant="contained">HOME</Button></NavLink>
+                          <NavLink to = "/Workouts"><Button size="small" color = "warning" variant="contained">Exercises</Button></NavLink>
+                          <NavLink to = "/Routines"><Button size="small" color = "warning" variant="contained">Routines</Button></NavLink>
                         </Stack>
                     </Box>
             </AppBar>

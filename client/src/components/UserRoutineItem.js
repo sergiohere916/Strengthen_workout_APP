@@ -41,11 +41,11 @@ function UserRoutineItem({userRoutine, updateTargetUserRoutine, myWeeksRoutine, 
         // <div className="userRoutineContentCards">
             <div className="content">
             <h4>{routine.name}</h4>
-            
-                <ul>
-                    {excercises}
-                </ul>
-        
+                <div className="userRoutineExerciseHolders">
+                    <ul>
+                        {excercises}
+                    </ul>
+                </div>
             <h4>Times Completed to date: {userRoutine.times_completed}</h4>
             {routine.shared? <h4>True</h4>: <h4>Share Routine With Others?</h4>}
 

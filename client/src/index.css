@@ -693,13 +693,23 @@
 .content {
   /* width: 400px; */
   flex-basis: 25%;
-  height: 400px;
+  height: 420px;
   display: flex;
   flex-direction: column;
   /* border: 5px solid blue; */
   text-align: center;
   background-image: url("https://www.clker.com/cliparts/d/v/Q/T/t/x/sticky-note-md.png");
   background-size: cover;
+}
+
+.userRoutineExerciseHolders {
+  margin-top: 10px;
+  height: 150px;
+  overflow-y: scroll;
+}
+
+.userRoutineExerciseHolders::-webkit-scrollbar {
+  display: none;
 }
 
 .content ul {
