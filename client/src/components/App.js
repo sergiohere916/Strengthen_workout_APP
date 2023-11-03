@@ -122,7 +122,107 @@ function App() {
     name: "barbell split squat v. 2",
     target: "quads",
     secondaryMuscles: ["glutes", "hamstrings", "calves"],
-  }])
+  },
+  {
+    bodyPart: "shoulders",
+    equipment: "dumbell",
+    gifUrl: "https://v2.exercisedb.io/image/gsi2JrOpM7opeB",
+    id: "2137",
+    instructions: ["Sit on a bench with your feet flat on the ground and your back straight.", "Hold a dumbbell in one hand with your palm facing inwards.", "Lean forward and place your free hand on the bench for support.",
+     "Keep your arm slightly bent and raise it out to the side until it is parallel to the ground.", "Pause for a moment at the top, then slowly lower your arm back down to the starting position.", "Repeat for the desired number of repetitions, then switch arms."],
+    name: "dumbbell arnold press",
+    target: "delts",
+    secondaryMuscles: ["triceps", "upper chest"]
+  }, 
+  {
+    bodyPart: "chest",
+    equipment: "dumbell",
+    gifUrl: "https://v2.exercisedb.io/image/FEtrmR-uhT870k",
+    id: "0288",
+    instructions: ["Sit on a flat bench with a dumbbell in one hand, palm facing towards your body.", "Place your feet flat on the ground and keep your back straight.", "Raise the dumbbell to shoulder height, keeping your elbow close to your body.", 
+    "Press the dumbbell upwards until your arm is fully extended.", "Pause for a moment at the top, then slowly lower the dumbbell back to the starting position.", "Repeat for the desired number of repetitions, then switch to the other arm."],
+    name: "dumbbell decline bench press",
+    target: "pectorals",
+    secondaryMuscles: ["triceps", "shoulders"]
+  },
+  {
+    bodyPart: "chest",
+    equipment: "dumbell",
+    gifUrl: "https://v2.exercisedb.io/image/LV4HBdINaWunn6",
+    id: "3",
+    instructions: ["Set an incline bench to a 45-degree angle and sit on it with a dumbbell in each hand, palms facing each other.", "Lie back on the bench and press the dumbbells up to the starting position, directly above your chest, with your arms extended.", "Lower the dumbbells out to the sides in a wide arc until you feel a stretch in your chest.", 
+    "As you lower the dumbbells, rotate your wrists so that your palms face forward at the bottom of the movement.", "Reverse the motion and bring the dumbbells back up to the starting position, squeezing your chest muscles together at the top.", "Repeat for the desired number of repetitions."],
+    name: "dumbbell incline twisted flyes",
+    target: "pectorals",
+    secondaryMuscles: ["shoulders", "triceps"]
+  },
+  {
+    bodyPart: "chest",
+    equipment: "dumbell",
+    gifUrl: "https://v2.exercisedb.io/image/LT5nn41xRiqLVL",
+    id: "4",
+    instructions: ["Sit on a flat bench with a dumbbell in one hand, palm facing towards your body.", "Place your feet flat on the ground and keep your back straight.", "Raise the dumbbell to shoulder height, keeping your elbow close to your body.", 
+    "Press the dumbbell upwards until your arm is fully extended.", "Pause for a moment at the top, then slowly lower the dumbbell back to the starting position.", "Repeat for the desired number of repetitions, then switch to the other arm."],
+    name: "dumbbell one arm reverse grip press",
+    target: "pectorals",
+    secondaryMuscles: ["triceps", "shoulders"]
+  },
+  {
+    bodyPart: "chest",
+    equipment: "leverage machine",
+    gifUrl: "https://v2.exercisedb.io/image/dUit9WsETwxuQI",
+    id: "5",
+    instructions: ["Sit on a flat bench with a dumbbell in one hand, palm facing towards your body.", "Place your feet flat on the ground and keep your back straight.", "Raise the dumbbell to shoulder height, keeping your elbow close to your body.", 
+    "Press the dumbbell upwards until your arm is fully extended.", "Pause for a moment at the top, then slowly lower the dumbbell back to the starting position.", "Repeat for the desired number of repetitions, then switch to the other arm."],
+    name: "lever incline chest press",
+    target: "pectorals",
+    secondaryMuscles: ["shoulders", "triceps"]
+  },
+  {
+    bodyPart: "chest",
+    equipment: "dumbell",
+    gifUrl: "https://v2.exercisedb.io/image/29gQ4g6rQ4uUMf",
+    id: "6",
+    instructions: ["Lie on a decline bench with your feet secured and your head lower than your hips.", "Hold a dumbbell in each hand with your palms facing each other and your arms extended above your chest.", "Lower the dumbbells to the sides of your chest, keeping your elbows slightly bent.", 
+    "Press the dumbbells back up to the starting position, fully extending your arms.", "Repeat for the desired number of repetitions."],
+    name: "dumbbell decline hammer press",
+    target: "pectorals",
+    secondaryMuscles: ["triceps", "shoulders"]
+  },
+  {
+    bodyPart: "upper arms",
+    equipment: "dumbell",
+    gifUrl: "https://v2.exercisedb.io/image/Jc52rMWNIQUgYS",
+    id: "7",
+    instructions: ["Stand with your feet shoulder-width apart and hold a dumbbell in each hand.", "Bend your knees slightly and hinge forward at the hips, keeping your back straight.", "Extend your arms straight back, squeezing your triceps at the top of the movement.", 
+    "Pause for a moment, then slowly lower the dumbbells back to the starting position.", "Repeat for the desired number of repetitions."],
+    name: "dumbbell standing kickback",
+    target: "triceps",
+    secondaryMuscles: ["shoulders"]
+  },
+  {
+    bodyPart: "upper legs",
+    equipment: "barbell",
+    gifUrl: "https://v2.exercisedb.io/image/dCoteoj6RcHrVG",
+    id: "8",
+    instructions: ["Stand with your feet shoulder-width apart, toes slightly turned out.", "Hold the barbell across your upper back, resting it on your traps or rear delts.", "Engage your core and keep your chest up as you lower your hips back and down, as if sitting into a chair.", 
+    "Lower until your thighs are parallel to the ground, or as low as you can comfortably go.", "Drive through your heels to stand back up, squeezing your glutes at the top.", "Repeat for the desired number of repetitions."],
+    name: "barbell speed squat",
+    target: "glutes",
+    secondaryMuscles: ["quadriceps", "hamstrings", "calves"]
+  },
+  {
+    bodyPart: "upper legs",
+    equipment: "barbell",
+    gifUrl: "https://v2.exercisedb.io/image/OpemWHGhq2Ufnj",
+    id: "9",
+    instructions: ["Start by standing with your feet shoulder-width apart, holding a barbell across your upper back.", "Take a large step forward with your right foot, keeping your torso upright.", "Lower your body by bending your knees and hips until your right thigh is parallel to the ground.", 
+    "Pause for a moment, then push through your right heel to return to the starting position."],
+    name: "barbell split squat v. 2",
+    target: "quads",
+    secondaryMuscles: ["glutes", "hamstrings", "calves"],
+  }
+])
 
 
   useEffect(() => {
@@ -231,38 +331,19 @@ function App() {
   
   
 
-  // useEffect(() => {
-  //   fetch("https://exercisedb.p.rapidapi.com/exercises?limit=1200",{
-  //     method: "GET",
-  //     headers: {
-  //       'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
-  //       'X-RapidAPI-Host': process.env.REACT_APP_API_HOST
-  //   }})
-  //   .then(res => res.json())
-  //   .then(data => console.log(data))
-  // }, [])
+  useEffect(() => {
+    fetch("https://exercisedb.p.rapidapi.com/exercises?limit=1200",{
+      method: "GET",
+      headers: {
+        'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
+        'X-RapidAPI-Host': process.env.REACT_APP_API_HOST
+    }})
+    .then(res => res.json())
+    .then(data => setWorkouts(data))
+  }, [])
 
 
 
-  // if (user) {
-  //   return (
-  //     <div className="page">
-  //       <NavBar/>
-  //       <Home/>
-  //       <Switch>
-  //         <Route path="/workouts">
-  //           <WorkoutsList/>
-  //         </Route>
-  //       </Switch>
-  //     </div>
-  //   )
-  // } else {
-  //   return (
-  //     <div className="login">
-  //       <Login onLogIn={onLogIn}/>
-  //     </div>
-  //   )
-  // }
 
   return (
     <div>

@@ -351,6 +351,12 @@
   background-color: white;
 }
 
+.exampleClip {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 #exerciseInfo2 {
   justify-content: center;
   height: 400px;
@@ -531,17 +537,26 @@
 
 #goalsMet {
   /* border: 5px solid brown; */
+  display: flex;
+  flex-direction: column;
   background-color: rgb(230, 234, 238);
   height: 500px;
   width: 50%;
   margin-right: 20px;
   box-shadow: 0 2px 5px;
+  overflow-y: scroll;
+}
+
+#goalsMet::-webkit-scrollbar {
+  display: none;
 }
 
 
 /* Personal Info divs*/
 
 #allPersonalInfo {
+  display: flex;
+  flex-direction: column;
   margin-top: 30px;
   border-top: 2px solid black;
   text-align: center;
@@ -557,11 +572,14 @@
   margin-left: 15px;
   margin-right: 15px;
 }
+
+
 .completedGoals {
   display: flex;
   justify-content: center;
   justify-content: space-evenly;
-  margin-top: 10px;
+  /* margin-top: 20px; */
+  /* height: auto; */
 }
 
 .trophies {
@@ -718,11 +736,11 @@
   margin-right: 10px;
   margin-left: 10px;
   background-color: rgb(230, 234, 238);
-  height: 800px;
+  height: 900px;
 }
 
 .workoutsContainer {
-  height: 700px;
+  height: 800px;
   width: 80%;
   display: flex;
   flex-wrap: wrap;

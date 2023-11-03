@@ -8,13 +8,13 @@ function CurrentRoutine({myWeeksRoutine, updateTargetUserRoutine}) {
 
     const user = useContext(UserContext);
 
-    const Monday = myWeeksRoutine.filter((routine) => routine["day_of_week"] == "Monday")[0]
-    const Tuesday = myWeeksRoutine.filter((routine) => routine["day_of_week"] == "Tuesday")[0]
-    const Wednesday = myWeeksRoutine.filter((routine) => routine["day_of_week"] == "Wednesday")[0]
-    const Thursday = myWeeksRoutine.filter((routine) => routine["day_of_week"] == "Thursday")[0]
-    const Friday = myWeeksRoutine.filter((routine) => routine["day_of_week"] == "Friday")[0]
-    const Saturday = myWeeksRoutine.filter((routine) => routine["day_of_week"] == "Saturday")[0]
-    const Sunday = myWeeksRoutine.filter((routine) => routine["day_of_week"] == "Sunday")[0]
+    const Monday = myWeeksRoutine.filter((routine) => routine["day_of_week"] === "Monday")[0]
+    const Tuesday = myWeeksRoutine.filter((routine) => routine["day_of_week"] === "Tuesday")[0]
+    const Wednesday = myWeeksRoutine.filter((routine) => routine["day_of_week"] === "Wednesday")[0]
+    const Thursday = myWeeksRoutine.filter((routine) => routine["day_of_week"] === "Thursday")[0]
+    const Friday = myWeeksRoutine.filter((routine) => routine["day_of_week"] === "Friday")[0]
+    const Saturday = myWeeksRoutine.filter((routine) => routine["day_of_week"] === "Saturday")[0]
+    const Sunday = myWeeksRoutine.filter((routine) => routine["day_of_week"] === "Sunday")[0]
     
     
 

@@ -34,7 +34,7 @@ function DisplayExcercise({myWeeksRoutine, workouts}) {
         const gif = workouts.filter((workout) => workout.name === excerciseName)[0].gifUrl
         const instructions = workouts.filter((workout) => workout.name === excerciseName)[0].instructions
         setCurrentInstructions(instructions);
-        setCurrentGif([<img src={gif} alt="workout_Gif"/>]);
+        setCurrentGif([<img className="exampleClip" src={gif} alt="workout_Gif"/>]);
     }
 
 
