@@ -62,7 +62,7 @@ function RoutineCreating({currentWorkouts, onClickClearCurrentRoutine, addNewUse
             <form onSubmit={handleSubmit}>
                 <label>Give Your Routine a Name: </label>
                 <br/>
-                <input type="text" placeholder="Name" value={routineName} onChange={(e) => setRoutineName(e.target.value) }/>
+                <input type="text" required placeholder="Name" value={routineName} onChange={(e) => setRoutineName(e.target.value) }/>
                 <br/>
                 <br/>
                 <div>

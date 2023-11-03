@@ -6,6 +6,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import Button from '@mui/material/Button';
+// import { Button } from "antd";
 
 
 function WorkoutListItem({workout, onClickAddToRoutine}) {
@@ -17,8 +19,8 @@ function WorkoutListItem({workout, onClickAddToRoutine}) {
     }
 
     return (
-        <Card sx={{ maxWidth: 345}} elevation={4}>
-        <CardActionArea>
+        <Card className="ExerciseCard" style={{border: "3px solid black"}} sx={{ maxWidth: 345}} elevation={4}>
+        {/* <CardActionArea> */}
           <CardMedia
             component="img"
             height="auto"
@@ -26,17 +28,17 @@ function WorkoutListItem({workout, onClickAddToRoutine}) {
             alt={workout.name}
             sx ={{objectFit: "cover"}}
           />
-          <CardContent className="cardContent">
+          <div className="cardContent">
             <Typography sx={{fontWeight: "bold", fontFamily: `'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif`}}gutterBottom variant="h6" align="center" component="div">
               {workoutName}
             </Typography>
-            {/* <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="text.secondary" align="center" component="div">
               {"Target Areas: " + workout.bodyPart + ", " + workout.target}
-            </Typography> */}
-            <div onClick={handleClick}>add</div>
-            {/* Button is giving problems... */}
-          </CardContent>
-        </CardActionArea>
+            </Typography>
+            <Button className="ExerciseCardButton" elevation={0} size="small" color="warning" variant="contained" onClick={handleClick}>Add</Button>
+            
+          </div>
+        {/* </CardActionArea> */}
         
         </Card>
     )

@@ -82,7 +82,7 @@ function Home({myWeeksRoutine, updateTargetUserRoutine, workouts, personalGoals,
                         elevation = {5}
                     /> */}
                 </div>
-                <div id="homeAppTitleContainer">
+                <div className="reusableHomeAppTitleContainer">
                     <div className="homeAppTitles">
                         <h1 className="homeTitle1">SET YOUR WORKOUTS</h1>
                         <h3>Strive for consistency</h3>

@@ -38,7 +38,7 @@ function UserRoutineItem({userRoutine, updateTargetUserRoutine, myWeeksRoutine, 
     
 
     return (
-        <div className="userRoutineContentCards">
+        // <div className="userRoutineContentCards">
             <div className="content">
             <h4>{routine.name}</h4>
             
@@ -72,7 +72,7 @@ function UserRoutineItem({userRoutine, updateTargetUserRoutine, myWeeksRoutine, 
             }
             
             </div>
-        </div>
+        // </div>
     )
 }
 

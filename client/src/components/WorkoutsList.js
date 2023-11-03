@@ -25,7 +25,7 @@ function WorkoutsList({workouts, user, addNewUserRoutine}) {
     return (
         <div>
             <NavBar/>
-            <h1 id="title">Excercises:</h1>
+            <h1 id="title">Exercises:</h1>
             <div id="mainWorkoutPage">
                 <div className="workoutsContainer">
                     {allWorkOuts}
