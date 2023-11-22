@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import NavBar from "./NavBar";
 import WorkoutListItem from "./WorkoutListItem";
 import RoutineCreating from "./RoutineCreating";
-import { Input, Space } from 'antd';
+import { Input, Layout, Space } from 'antd';
 
 
 
@@ -54,9 +54,23 @@ function WorkoutsList({workouts, user, addNewUserRoutine}) {
     return (
         <div>
             <NavBar/>
-            <div id="exercisePageImageContainer">
-            
-            </div>
+            <Layout>
+                <div id="exercisePageImageContainer"></div>
+                <div className="reusableHomeAppTitleContainer">
+                    <div className="homeAppTitles">
+                        <h1 className="homeTitle1">SET YOUR WORKOUTS</h1>
+                        <h3>Strive for consistency</h3>
+                   </div>
+                   <div className="homeAppTitles">
+                        <h1 className="homeTitle2">STRENGTHEN</h1>
+                        <h3>The only easy day was yesterday</h3>
+                   </div>
+                   <div className="homeAppTitles">
+                        <h1 className="homeTitle3">SET YOUR GOALS</h1>
+                        <h3>Seek to accomplish them</h3>
+                   </div>
+                </div>
+            </Layout>
             <h1 id="title">Exercises:</h1>
             <div style={{display: "flex", textAlign: "center", justifyContent: "center", width: "100%"}}>
             <Search style={{width: 500}}placeholder="input search text" onChange={handleChange}  enterButton />

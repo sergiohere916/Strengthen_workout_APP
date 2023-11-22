@@ -3,14 +3,23 @@ import { UserContext } from "./Context";
 
 import glossy from "./glossy-red-push-pin-png.webp";
 
-function RoutineItem({routine, addNewUserRoutine}) {
+function RoutineItem({routine, addNewUserRoutine, workouts}) {
 
     const user = useContext(UserContext)
     const excerciseList = routine.workouts.split(",");
-    const excercises = excerciseList.map((excercise) => {
-        return <li key={Math.random()*1000}>{excercise}: 3 x 10</li>
+    const sets_n_reps = routine.sets_n_reps.split(",");
+    
+    const excercises = excerciseList.map((excercise, index) => {
+        return <li key={Math.random()*1000}>{excercise}: {sets_n_reps[index]}</li>
     })
     //FIX THE DAMN KEYSSS ISSUE
+    const targetBodyParts = excerciseList.map((exercise, index) => {
+        const bodyPartName = (workouts.filter((workout) => workout.name === exercise))[0].bodyPart;
+        return bodyPartName + ", ";
+    })
+    const targetBodyPartsNonRepeating = [...new Set(targetBodyParts)];
+    //remove final comma
+    targetBodyPartsNonRepeating[targetBodyPartsNonRepeating.length - 1] = targetBodyPartsNonRepeating[targetBodyPartsNonRepeating.length -1].replace(",", "");
     
     function handleClick() {
        
@@ -38,9 +47,9 @@ function RoutineItem({routine, addNewUserRoutine}) {
                 <img src={glossy}/>
             </div>
             </div>
-            <h3>{routine.name}: Breakdown</h3>
-            <h4>Targeted Muscles/Bodyparts: ____</h4>
-            <ul>Excercises:
+            <h3>{routine.name} - Breakdown:</h3>
+            <h4>Target Muscles/Bodyparts: {targetBodyPartsNonRepeating}</h4>
+            <ul>Excercises: {"(Sets, Repetitions)"}
                 {excercises}
             </ul>
             <h4>Likes: {routine.likes}</h4>

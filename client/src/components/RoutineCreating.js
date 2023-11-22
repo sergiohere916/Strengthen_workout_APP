@@ -10,7 +10,10 @@ function RoutineCreating({currentWorkouts, onClickClearCurrentRoutine, addNewUse
     // const [sharedStatus, setSharedStatus] = useState(null)
 
 
-    const displayWorkoutNames = currentWorkouts.map((workout) => {return <li>{workout}</li>})
+    const displayWorkoutNames = currentWorkouts.map((workout) => {
+        return <li>{workout}
+        <span> <input name={workout} style={{width: 30}} type="number"/>sets -x- <input name={workout} style={{width: 30}} type="number"/>reps</span>
+        </li>})
     
 
     function handleClick() {
@@ -19,46 +22,47 @@ function RoutineCreating({currentWorkouts, onClickClearCurrentRoutine, addNewUse
     
     function handleSubmit(e) {
         e.preventDefault();
-        if (currentWorkouts.length >= 1) {
-            const newRoutine = {
-                name: routineName,
-                workouts: currentWorkouts.join(","),
-                likes: 0,
-                shared: 0
-            }
-            fetch("/routines", {
-                method: "POST",
-                headers: {"Content-Type":"application/json"},
-                body: JSON.stringify(newRoutine)
-            })
-            .then(r => r.json())
-            .then(data => {
-                console.log("new routine");
-                console.log(data);
-                fetch("/scheduledworkouts", {
-                    method: "POST",
-                    headers: {"Content-Type":"application/json"},
-                    body: JSON.stringify({
-                        day_of_week: "",
-                        user_id: user.id,
-                        routine_id: data["id"]
-                    })
-                })
-                .then(r => r.json())
-                .then(data => {
-                    addNewUserRoutine(data);
-                    onClickClearCurrentRoutine();
-                    setRoutineName("");
-                    setInvalidEntry(false);
-                    setSuccessfulSubmit(true);
-                })
-            })
-            //ADD THE NEW ROUTINE INTO STATE SO IT CAN BE SENT TO ROUTINES PAGE will need function
-            //ADD scheduledworkot into state as well and send up with function same as routine
-        } else {
-            console.log("SOME LOGIC TO DISPLAY ERROR");
-            setInvalidEntry(true)
-        }
+        console.log(e);
+        // if (currentWorkouts.length >= 1) {
+        //     const newRoutine = {
+        //         name: routineName,
+        //         workouts: currentWorkouts.join(","),
+        //         likes: 0,
+        //         shared: 0
+        //     }
+        //     fetch("/routines", {
+        //         method: "POST",
+        //         headers: {"Content-Type":"application/json"},
+        //         body: JSON.stringify(newRoutine)
+        //     })
+        //     .then(r => r.json())
+        //     .then(data => {
+        //         console.log("new routine");
+        //         console.log(data);
+        //         fetch("/scheduledworkouts", {
+        //             method: "POST",
+        //             headers: {"Content-Type":"application/json"},
+        //             body: JSON.stringify({
+        //                 day_of_week: "",
+        //                 user_id: user.id,
+        //                 routine_id: data["id"]
+        //             })
+        //         })
+        //         .then(r => r.json())
+        //         .then(data => {
+        //             addNewUserRoutine(data);
+        //             onClickClearCurrentRoutine();
+        //             setRoutineName("");
+        //             setInvalidEntry(false);
+        //             setSuccessfulSubmit(true);
+        //         })
+        //     })
+        //     //ADD THE NEW ROUTINE INTO STATE SO IT CAN BE SENT TO ROUTINES PAGE will need function
+        //     //ADD scheduledworkot into state as well and send up with function same as routine
+        // } else {
+        //     console.log("SOME LOGIC TO DISPLAY ERROR");
+        //     setInvalidEntry(true)
+        // }
     }
 
     function removePopUp() {

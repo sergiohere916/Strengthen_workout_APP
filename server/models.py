@@ -61,6 +61,7 @@ class Routine(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String)
     workouts = db.Column(db.String)
+    sets_n_reps = db.Column(db.String)
     likes = db.Column(db.Integer)
     shared = db.Column(db.Boolean)
 

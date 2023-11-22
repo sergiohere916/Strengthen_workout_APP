@@ -740,9 +740,14 @@
   height: 100%;
 } */
 
-#exercisePageImageContainer {
+#exercisePageImageContainer { 
   height: 400px;
-  background-color: blue;
+  width: 100%;
+  background-image: url("./components/curlBackground.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: gray;
 }
 
 #mainWorkoutPage {
@@ -796,6 +801,12 @@
   font-weight: 900;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: center;
+}
+
+.ExerciseCard {
+  /* height: 250px;
+  width: 250px;
+  object-fit: cover; */
 }
 
 .ExerciseCardButton {

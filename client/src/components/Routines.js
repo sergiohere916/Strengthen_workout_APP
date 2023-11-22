@@ -6,7 +6,7 @@ import { Layout } from "antd";
 import battleRope2 from "./battleRope3.jpg"
 
 
-function Routines({addNewUserRoutine}) {
+function Routines({addNewUserRoutine, workouts}) {
     
    
     
@@ -22,7 +22,7 @@ function Routines({addNewUserRoutine}) {
 
 
     const allRoutineCards = viewableRoutines.map((routine) => {
-        return <RoutineItem key={routine.id} routine={routine} addNewUserRoutine={addNewUserRoutine}/>
+        return <RoutineItem key={routine.id} routine={routine} addNewUserRoutine={addNewUserRoutine} workouts={workouts}/>
     })
 
     return (

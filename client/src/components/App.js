@@ -350,7 +350,7 @@ function App() {
       <UserContext.Provider value={user}>
         <Switch>
           <Route path="/routines">
-            <Routines addNewUserRoutine={addNewUserRoutine}/>
+            <Routines addNewUserRoutine={addNewUserRoutine} workouts={workouts}/>
           </Route>
           <Route path="/workouts">
             <WorkoutsList workouts={workouts} user={user} addNewUserRoutine={addNewUserRoutine}/>
