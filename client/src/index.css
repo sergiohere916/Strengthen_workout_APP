@@ -1,3 +1,4 @@
+
 :root {
   --bg: #282c34;
   --header: #fff;
@@ -739,6 +740,11 @@
   height: 100%;
 } */
 
+#exercisePageImageContainer {
+  height: 400px;
+  background-color: blue;
+}
+
 #mainWorkoutPage {
   display: flex;
   /* border-top: 10px solid black; */
@@ -825,14 +831,32 @@
 } */
 
 
-#freeRoutinesImage {
-  height: 650px;
-  background: url("https://www.eatthis.com/wp-content/uploads/sites/4/2022/09/man-intense-workout.jpg?quality=82&strip=1");
+#routinesPageImageContainer {
+  width: 100%;
+  height: auto;
+  /* background-image: url("./components/battleRope3.jpg");
+
   background-repeat: no-repeat;
-  background-position: center;
-  background-color: rgb(61, 61, 60);
+   */
+  background-color: rgb(61, 60, 60);
   box-shadow: 0 10px 10px black;
-  background-position-x: left;
+  
+  /* background-size: auto; */
+  
+  /* background-position-y:-2.9cm, -.4cm; */
+  overflow-y: hidden;
+
+}
+
+#routinesMainImage {
+  height: 100%;
+  width: 100%;
+}
+
+#routinesMainImage img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
 #freeRoutinesIntro {
@@ -887,9 +911,9 @@
   padding: 25px;
   /* box-shadow: 0 0px 5px rgb(19, 18, 18); */
   /* background-color: rgb(158, 82, 52); */
-  background-image: url("https://www.clipartbest.com/cliparts/nTB/B86/nTBB86Rkc.jpeg");
+  background-image: url("https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/31281/sticky-note-clipart-xl.png");
   /* background-position: center; */
-  background-size: cover;
+  background-size: 100% 100%;
   /* filter: grayscale(60%); */
 }
 

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 // import { UserContext } from "./Context";
 import NavBar from "./NavBar";
 import RoutineItem from "./RoutineItem";
-
+import { Layout } from "antd";
+import battleRope2 from "./battleRope3.jpg"
 
 
 function Routines({addNewUserRoutine}) {
@@ -27,10 +28,28 @@ function Routines({addNewUserRoutine}) {
     return (
         <div>
             <NavBar/>
-            <div id="freeRoutinesImage">
-                {/* <div className="freeRoutinesImageHolder"><img src="https://www.eatthis.com/wp-content/uploads/sites/4/2022/09/man-intense-workout.jpg?quality=82&strip=1" alt="battle_rope_workout"/></div>
-                <div className="freeRoutinesImageHolder"><img src = "https://shop.lifefitness.com/cdn/shop/products/battle-rope-training-female-1000x1000_740x.jpg?v=1660664778" alt="battle_rope_workout2"/></div> */}
+            <Layout>
+            <div id="routinesPageImageContainer">
+                <div id="routinesMainImage">
+                    <img src={battleRope2} alt="battleRopeWorkout"/>
+                </div>
             </div>
+            
+            <div className="reusableHomeAppTitleContainer">
+                    <div className="homeAppTitles">
+                        <h1 className="homeTitle1">SET YOUR WORKOUTS</h1>
+                        <h3>Strive for consistency</h3>
+                   </div>
+                   <div className="homeAppTitles">
+                        <h1 className="homeTitle2">STRENGTHEN</h1>
+                        <h3>The only easy day was yesterday</h3>
+                   </div>
+                   <div className="homeAppTitles">
+                        <h1 className="homeTitle3">SET YOUR GOALS</h1>
+                        <h3>Seek to accomplish them</h3>
+                   </div>
+            </div>
+            </Layout>
             <div id="freeRoutinesIntro">
             <h1 id="routinesBanner">Fitness Routines</h1>
             <p>Choose from a wide assortment the routines containing popular and effective excercises that best fit your fitness goals, use the </p>

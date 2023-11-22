@@ -9,8 +9,7 @@ import { Input, Space } from 'antd';
 function WorkoutsList({workouts, user, addNewUserRoutine}) {
     const { Search } = Input;
 
-    //NOTE SEARCH VALUE LOGIC IS FLAWED...SOME ITEMS WILL BE CUT OUT...OPTED TO CONTINUE SCROLL ONTO EMPTY PAGE
-    //GIVEN MORE TIME WILL FIND WAY TO HAVE ALL POSSIBLE ITEMS INCLUDED
+    
     const [currentWorkouts, setCurrentWorkouts] = useState([])
     const [slices, setSlices] = useState([0,6])
     const [searchValue, setSearchValue] = useState("")
@@ -55,6 +54,9 @@ function WorkoutsList({workouts, user, addNewUserRoutine}) {
     return (
         <div>
             <NavBar/>
+            <div id="exercisePageImageContainer">
+            
+            </div>
             <h1 id="title">Exercises:</h1>
             <div style={{display: "flex", textAlign: "center", justifyContent: "center", width: "100%"}}>
             <Search style={{width: 500}}placeholder="input search text" onChange={handleChange}  enterButton />
