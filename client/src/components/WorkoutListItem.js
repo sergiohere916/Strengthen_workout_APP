@@ -10,12 +10,13 @@ import Button from '@mui/material/Button';
 // import { Button } from "antd";
 
 
-function WorkoutListItem({workout, onClickAddToRoutine}) {
+function WorkoutListItem({workout, onClickAddToRoutine, onClickAddDefaultSetsNReps}) {
     // console.log(workout)
     const workoutName = workout.name[0].toUpperCase() + workout.name.slice(1)
 
     function handleClick() {
-        onClickAddToRoutine(workout.name)
+        onClickAddToRoutine(workout.name);
+        onClickAddDefaultSetsNReps();
     }
 
     return (

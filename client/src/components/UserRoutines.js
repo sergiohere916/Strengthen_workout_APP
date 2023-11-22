@@ -5,7 +5,8 @@ import CurrentRoutine from "./CurrentRoutine";
 
 
 function UserRoutines({myRoutines, myWeeksRoutine, updateTargetUserRoutine, removeUserRoutine}) {
-  
+    console.log("CHECKING HERE")
+    console.log(myRoutines);
 
     const userRoutines = myRoutines.map((userRoutine) => {
         return <UserRoutineItem key={userRoutine.id} userRoutine={userRoutine} updateTargetUserRoutine={updateTargetUserRoutine} myWeeksRoutine={myWeeksRoutine} removeUserRoutine={removeUserRoutine}/>

@@ -8,10 +8,15 @@ function UserRoutineItem({userRoutine, updateTargetUserRoutine, myWeeksRoutine, 
     
 
     const exceriseArr = routine.workouts.split(",");
+    const setsNRepsList = routine.sets_n_reps.split(",");
+    const setsNRepsPairings = setsNRepsList.map((pair) => {
+        return pair.split("x");
+    })
+    console.log(setsNRepsPairings);
 
     //FIND BETTER SOLUTION TO KEY in LIST OF LIs
-    const excercises = exceriseArr.map(excercise => {
-        return <li key={Math.random()*1000}>{excercise}</li>
+    const excercises = exceriseArr.map((excercise,index) => {
+        return <li key={Math.random()*1000}>{excercise}: {setsNRepsPairings[index][0]}x{setsNRepsPairings[index][1]}</li>
     })
 
     function handleSubmit(e) {

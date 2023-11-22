@@ -117,6 +117,7 @@ class Routines(Resource):
             new_routine = Routine(
                 name = data["name"],
                 workouts = data["workouts"],
+                sets_n_reps = data["sets_n_reps"],
                 likes = data["likes"],
                 shared = data["shared"]
             )

@@ -3,16 +3,27 @@ import { Alert, Button, Input, Space } from 'antd';
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 
-function RoutineCreating({currentWorkouts, onClickClearCurrentRoutine, addNewUserRoutine, user}) {
+function RoutineCreating({currentWorkouts, currentSetsNReps, onChangeUpdateSetsNReps, onClickClearCurrentRoutine, addNewUserRoutine, user}) {
     const [routineName, setRoutineName] = useState("")
     const [invalidEntry, setInvalidEntry] = useState(false)
     const [successfulSubmit, setSuccessfulSubmit] = useState(false)
     // const [sharedStatus, setSharedStatus] = useState(null)
 
+    function handleSetRepChange(e) {
+        const index = Number(e.target.name[0]) + 1;
+        console.log(e.target.name.split(",")[0]);
+        
+        
 
-    const displayWorkoutNames = currentWorkouts.map((workout) => {
-        return <li>{workout}
-        <span> <input name={workout} style={{width: 30}} type="number"/>sets -x- <input name={workout} style={{width: 30}} type="number"/>reps</span>
+    }
+
+
+    const displayWorkoutNames = currentWorkouts.map((workout, index) => {
+        return <li>{workout} {index}
+        <span> 
+            <input name={0} value={currentSetsNReps[index][0]} onChange={(e) => onChangeUpdateSetsNReps(Number(e.target.value), index, Number(e.target.name))} style={{width: 30}} type="number"/>
+            Sets x 
+            <input name={1} value={currentSetsNReps[index][1]} onChange={(e) => onChangeUpdateSetsNReps(Number(e.target.value), index, Number(e.target.name))} style={{width: 30}} type="number"/>Reps</span>
         </li>})
     
 
@@ -22,47 +33,52 @@ function RoutineCreating({currentWorkouts, onClickClearCurrentRoutine, addNewUse
     
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(e);
-        // if (currentWorkouts.length >= 1) {
-        //     const newRoutine = {
-        //         name: routineName,
-        //         workouts: currentWorkouts.join(","),
-        //         likes: 0,
-        //         shared: 0
-        //     }
-        //     fetch("/routines", {
-        //         method: "POST",
-        //         headers: {"Content-Type":"application/json"},
-        //         body: JSON.stringify(newRoutine)
-        //     })
-        //     .then(r => r.json())
-        //     .then(data => {
-        //         console.log("new routine");
-        //         console.log(data);
-        //         fetch("/scheduledworkouts", {
-        //             method: "POST",
-        //             headers: {"Content-Type":"application/json"},
-        //             body: JSON.stringify({
-        //                 day_of_week: "",
-        //                 user_id: user.id,
-        //                 routine_id: data["id"]
-        //             })
-        //         })
-        //         .then(r => r.json())
-        //         .then(data => {
-        //             addNewUserRoutine(data);
-        //             onClickClearCurrentRoutine();
-        //             setRoutineName("");
-        //             setInvalidEntry(false);
-        //             setSuccessfulSubmit(true);
-        //         })
-        //     })
-        //     //ADD THE NEW ROUTINE INTO STATE SO IT CAN BE SENT TO ROUTINES PAGE will need function
-        //     //ADD scheduledworkot into state as well and send up with function same as routine
-        // } else {
-        //     console.log("SOME LOGIC TO DISPLAY ERROR");
-        //     setInvalidEntry(true)
-        // }
+        const allSetsNReps = currentSetsNReps.map((setNRepPair) => {
+            return setNRepPair[0].toString() + "x" + setNRepPair[1].toString();
+        });
+        console.log(allSetsNReps.join(","));
+        
+        if (currentWorkouts.length >= 1) {
+            const newRoutine = {
+                name: routineName,
+                workouts: currentWorkouts.join(","),
+                sets_n_reps: allSetsNReps.join(","),
+                likes: 0,
+                shared: 0
+            }
+            fetch("/routines", {
+                method: "POST",
+                headers: {"Content-Type":"application/json"},
+                body: JSON.stringify(newRoutine)
+            })
+            .then(r => r.json())
+            .then(data => {
+                console.log("new routine");
+                console.log(data);
+                fetch("/scheduledworkouts", {
+                    method: "POST",
+                    headers: {"Content-Type":"application/json"},
+                    body: JSON.stringify({
+                        day_of_week: "",
+                        user_id: user.id,
+                        routine_id: data["id"]
+                    })
+                })
+                .then(r => r.json())
+                .then(data => {
+                    addNewUserRoutine(data);
+                    onClickClearCurrentRoutine();
+                    setRoutineName("");
+                    setInvalidEntry(false);
+                    setSuccessfulSubmit(true);
+                })
+            })
+            //ADD THE NEW ROUTINE INTO STATE SO IT CAN BE SENT TO ROUTINES PAGE will need function
+            //ADD scheduledworkot into state as well and send up with function same as routine
+        } else {
+            console.log("SOME LOGIC TO DISPLAY ERROR");
+            setInvalidEntry(true)
+        }
     }
 
     function removePopUp() {

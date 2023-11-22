@@ -13,13 +13,25 @@ function WorkoutsList({workouts, user, addNewUserRoutine}) {
     const [currentWorkouts, setCurrentWorkouts] = useState([])
     const [slices, setSlices] = useState([0,6])
     const [searchValue, setSearchValue] = useState("")
+    const [currentSetsNReps, setCurrentSetsNReps] = useState([])
 
     function onClickAddToRoutine(addedWorkout) {
         setCurrentWorkouts([...currentWorkouts, addedWorkout])
     }
 
+    function onClickAddDefaultSetsNReps() {
+        setCurrentSetsNReps([...currentSetsNReps, [1,1]])
+    }
+
+    function onChangeUpdateSetsNReps(newValue, index, valuePosition) {
+        currentSetsNReps[index][valuePosition] = newValue;
+        console.log(currentSetsNReps[index][valuePosition]);
+        setCurrentSetsNReps([...currentSetsNReps]) 
+    }
+
     function onClickClearCurrentRoutine() {
         setCurrentWorkouts([])
+        setCurrentSetsNReps([])
     }
 
     function showMoreExercises() {
@@ -47,7 +59,7 @@ function WorkoutsList({workouts, user, addNewUserRoutine}) {
 
     const filteredWorkouts = searchValueFilteredWorkouts.slice(slices[0], slices[1]);
     const allWorkOuts = filteredWorkouts.map((workout) => {
-        return <WorkoutListItem key={workout.id} workout={workout} onClickAddToRoutine={onClickAddToRoutine}/>
+        return <WorkoutListItem key={workout.id} workout={workout} onClickAddToRoutine={onClickAddToRoutine} onClickAddDefaultSetsNReps={onClickAddDefaultSetsNReps}/>
     })
 
 
@@ -84,7 +96,7 @@ function WorkoutsList({workouts, user, addNewUserRoutine}) {
                     {allWorkOuts}
                 </div>
                 <div className="routineCreaterContainer">
-                    <RoutineCreating currentWorkouts={currentWorkouts} onClickClearCurrentRoutine={onClickClearCurrentRoutine} addNewUserRoutine={addNewUserRoutine} user={user}/>
+                    <RoutineCreating currentWorkouts={currentWorkouts} currentSetsNReps={currentSetsNReps} onChangeUpdateSetsNReps={onChangeUpdateSetsNReps} onClickClearCurrentRoutine={onClickClearCurrentRoutine} addNewUserRoutine={addNewUserRoutine} user={user}/>
                 </div>
             </div>
         </div>
