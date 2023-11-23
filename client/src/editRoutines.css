@@ -1,0 +1,25 @@
+#heroImage {
+    height: 400px;
+    width: 100%;
+    background-image: url("./components/curlBackground.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: gray;
+}
+
+#exercisesSearchTitle {
+    font-weight: 900;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+
+#exercisesPage {
+    display: flex;
+    /* border-top: 10px solid black; */
+    border: 1px solid black;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-color: rgb(230, 234, 238);
+    height: 900px;
+}

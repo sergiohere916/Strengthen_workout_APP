@@ -1,5 +1,5 @@
-import { blue } from "@mui/material/colors";
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 function UserRoutineItem({userRoutine, updateTargetUserRoutine, myWeeksRoutine, removeUserRoutine}) {
     const {routine} = userRoutine
@@ -12,7 +12,7 @@ function UserRoutineItem({userRoutine, updateTargetUserRoutine, myWeeksRoutine, 
     const setsNRepsPairings = setsNRepsList.map((pair) => {
         return pair.split("x");
     })
-    console.log(setsNRepsPairings);
+    
 
     //FIND BETTER SOLUTION TO KEY in LIST OF LIs
     const excercises = exceriseArr.map((excercise,index) => {
@@ -74,6 +74,7 @@ function UserRoutineItem({userRoutine, updateTargetUserRoutine, myWeeksRoutine, 
             <button type="submit">Assign to Weekday</button>
             </form>
             <button onClick={handleDelete}>Delete Routine</button>
+            <NavLink to={`/editRoutines/${routine.id}`}><button>Edit Routine</button></NavLink>
             </div>
             }
             

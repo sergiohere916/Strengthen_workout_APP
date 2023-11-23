@@ -9,6 +9,7 @@ import UserRoutines from "./UserRoutines";
 import CurrentRoutine from "./CurrentRoutine";
 import Routines from "./Routines";
 import CreateAccount from "./CreateAccount";
+import EditRoutines from "./EditRoutines";
 
 
 
@@ -349,6 +350,9 @@ function App() {
     <div>
       <UserContext.Provider value={user}>
         <Switch>
+          <Route path="/editRoutines/:id">
+            <EditRoutines workouts={workouts} user={user}/>
+          </Route>
           <Route path="/routines">
             <Routines addNewUserRoutine={addNewUserRoutine} workouts={workouts}/>
           </Route>
