@@ -12,20 +12,30 @@ function EditRoutines({workouts, user, addNewUserRoutine}) {
     const { Search } = Input;
     const {id} = useParams();
 
-    console.log(user.id) //THIS CAN BE OBTAINED AND PASSED TO THE COMPONENT THAT WILL FETCH THE ID OF THE ROUTINE TO BE EXAMINED
     
     const [currentWorkouts, setCurrentWorkouts] = useState([])
     const [slices, setSlices] = useState([0,6])
     const [searchValue, setSearchValue] = useState("")
     const [currentSetsNReps, setCurrentSetsNReps] = useState([])
-
-    function onClickAddToRoutine(addedWorkout) {
+    
+    function onClickAddToRoutine(addedWorkout) { 
         setCurrentWorkouts([...currentWorkouts, addedWorkout])
     }
 
+    function addAllExercises(exerciseList) {
+        setCurrentWorkouts([...exerciseList]);
+    }
+    
     function onClickAddDefaultSetsNReps() {
         setCurrentSetsNReps([...currentSetsNReps, [1,1]])
     }
+
+    function addSetsNReps(addedSets) {
+        const pairs = addedSets.map((sets) => {
+            return sets.split("x");
+        });
+        setCurrentSetsNReps([...pairs]); 
+    }   
 
     function onChangeUpdateSetsNReps(newValue, index, valuePosition) {
         currentSetsNReps[index][valuePosition] = newValue;
@@ -36,6 +46,17 @@ function EditRoutines({workouts, user, addNewUserRoutine}) {
     function onClickClearCurrentRoutine() {
         setCurrentWorkouts([])
         setCurrentSetsNReps([])
+    }
+
+    function removeExerciseFromRoutine(targetIndex) {
+        const updatedRoutineExercises = currentWorkouts.filter((exercise, index) => index !== targetIndex );
+        const updatedRoutineSets = currentSetsNReps.filter((setNRep, index) => index !== targetIndex );
+        const exercises = updatedRoutineExercises.join(",");
+        const setsNRepsUpdated = updatedRoutineSets.join(",");
+        // const newRoutine = {...routine, workouts: exercises, sets_n_reps: setsNRepsUpdated};
+        // setRoutine(newRoutine);
+        setCurrentWorkouts([...updatedRoutineExercises]);
+        setCurrentSetsNReps([...updatedRoutineSets]);  
     }
 
     function showMoreExercises() {
@@ -99,9 +120,13 @@ function EditRoutines({workouts, user, addNewUserRoutine}) {
                 <div className="workoutsContainer">
                     {allWorkOuts}
                 </div>
-                <div className="routineCreaterContainer">
+                <div style={{width: "20%"}} >
+                    {/* className="routineCreaterContainer" */}
+                    {/* ClassName above is for this div and will match workoutlist create routine design...experimenting*/}
                     {/* <RoutineCreating currentWorkouts={currentWorkouts} currentSetsNReps={currentSetsNReps} onChangeUpdateSetsNReps={onChangeUpdateSetsNReps} onClickClearCurrentRoutine={onClickClearCurrentRoutine} addNewUserRoutine={addNewUserRoutine} user={user}/> */}
-                    <EditRoutineForm userId={user.id} routineId={id}/>
+                    <EditRoutineForm userId={user.id} routineId={id} addedWorkouts={currentWorkouts} 
+                    addedSetsNReps={currentSetsNReps} onChangeUpdateSetsNReps={onChangeUpdateSetsNReps}
+                     addToRoutine={addAllExercises} addSetsNReps={addSetsNReps} removeExerciseFromRoutine={removeExerciseFromRoutine}/>
                 </div>
             </div>
         </div>
