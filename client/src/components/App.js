@@ -301,6 +301,17 @@ function App() {
     setMyRoutines(updatedMyRoutines);
   }
 
+  function updateUserRoutine(editedRoutine, editedRoutineId) {
+    const updatedMyRoutines = myRoutines.map((scheduledRoutine) => {
+      if (scheduledRoutine.routine.id === editedRoutineId) {
+        scheduledRoutine.routine = {...editedRoutine};
+        return scheduledRoutine;
+      } else {
+        return scheduledRoutine;
+      }
+    })
+    setMyRoutines(updatedMyRoutines);
+  }
 
 
 
@@ -351,7 +362,7 @@ function App() {
       <UserContext.Provider value={user}>
         <Switch>
           <Route path="/editRoutines/:id">
-            <EditRoutines workouts={workouts} user={user}/>
+            <EditRoutines workouts={workouts} user={user} updateUserRoutine={updateUserRoutine}/>
           </Route>
           <Route path="/routines">
             <Routines addNewUserRoutine={addNewUserRoutine} workouts={workouts}/>

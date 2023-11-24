@@ -2,7 +2,7 @@ import { red } from "@mui/material/colors";
 import React, { useEffect, useState } from "react";
 
 
-function EditRoutineForm({userId, routineId, addedWorkouts, addedSetsNReps, onChangeUpdateSetsNReps, addToRoutine, addSetsNReps, removeExerciseFromRoutine}) {
+function EditRoutineForm({routineId, addedWorkouts, addedSetsNReps, onChangeUpdateSetsNReps, addToRoutine, addSetsNReps, removeExerciseFromRoutine, updateUserRoutine}) {
     const [routine, setRoutine] = useState({id:"", sets_n_reps: "1x1,1x1", name: "", workouts: "", likes: "", shared: "" })
     //Attempting to consolidate displaying of exercises to just one way, through the onChange method
     useEffect(() => {
@@ -46,14 +46,13 @@ function EditRoutineForm({userId, routineId, addedWorkouts, addedSetsNReps, onCh
 
     //rename this?
     const displayAddedExerciseNames = addedWorkouts.map((workout, index) => {
-        return <div className="exerciseToEdit">{capitalize(workout)} {index}
-        <br/>
+        return <div className="exerciseToEdit">
+        <div className="exerciseNames">{capitalize(workout)} :</div>
         <span> 
-            <input name={0} value={addedSetsNReps[index][0]} onChange={(e) => onChangeUpdateSetsNReps(Number(e.target.value), index, Number(e.target.name))} style={{width: 30}} type="number"/>
-            Sets x 
-            <input name={1} value={addedSetsNReps[index][1]} onChange={(e) => onChangeUpdateSetsNReps(Number(e.target.value), index, Number(e.target.name))} style={{width: 30}} type="number"/>Reps
+            <input className="exerciseSetNReps" name={0} value={addedSetsNReps[index][0]} onChange={(e) => onChangeUpdateSetsNReps(Number(e.target.value), index, Number(e.target.name))} style={{width: 30}} type="number"/> Sets x 
+            <input className="exerciseSetNReps" name={1} value={addedSetsNReps[index][1]} onChange={(e) => onChangeUpdateSetsNReps(Number(e.target.value), index, Number(e.target.name))} style={{width: 30}} type="number"/> Reps
         </span>
-        <h6 style={{color: "blue"}} onClick={() => removeExerciseFromRoutine(index)}>Remove</h6>
+        <h6 className="removeExercise" onClick={() => removeExerciseFromRoutine(index)}>Remove</h6>
         
         </div>
         })
@@ -64,23 +63,46 @@ function EditRoutineForm({userId, routineId, addedWorkouts, addedSetsNReps, onCh
         return firstLetterCap + remainingPhrase;
     }
     
+    function handleNameChange(e) {
+        const newName = e.target.value;
+        setRoutine({...routine, name: newName});
+    }
+
     function handleSubmit(e) {
         e.preventDefault();
         console.log(e);
+        const allSetsNReps = addedSetsNReps.map((setNRepPair) => {
+            return setNRepPair[0].toString() + "x" + setNRepPair[1].toString();
+        });
+        const editedRoutine = {...routine, sets_n_reps: allSetsNReps.join(","), workouts: addedWorkouts.join(",")}
+        console.log(editedRoutine);
         //grab data then fetch patch to update the routine
         //route back to userExercises display
+        fetch(`/routines/${routine.id}`, {
+            method: "PATCH",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({name: editedRoutine.name, sets_n_reps: editedRoutine.sets_n_reps, workouts: editedRoutine.workouts})
+        })
+        .then(res => res.json())
+        .then((fullyEditedRoutine) => {
+            updateUserRoutine(fullyEditedRoutine, fullyEditedRoutine.id);
+        })
+
     }
 
     return (
-        <div>
+        <div id="editRoutineForm">
             <form onSubmit={handleSubmit}>
-            <h3>{routine.name}</h3>
-            <input defaultValue={routine.name}/>
-            <h5>Current Exercises: </h5>
-            <div>
+            {/* <h3>{routine.name}</h3> */}
+            <div id="routineEditName">
+                <label id="editNameLabel">Routine Name: </label>
+                <input id="editNameInput" defaultValue={routine.name} value={routine.name} onChange={handleNameChange}/>
+            </div>
+            <h4>Current Exercises: </h4>
+            <div id="addedExercisesContainer">
                 {displayAddedExerciseNames}
             </div>
-            <button type="submit">Complete</button>
+            <button id="submitEditButton" type="submit">Complete</button>
             <h5>{routine.id}</h5>
             </form>
         </div>

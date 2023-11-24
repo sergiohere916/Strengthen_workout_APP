@@ -26,10 +26,91 @@
 
 .exerciseToEdit {
     background-color: rgba(255, 255, 255, 0.589);
-    border: solid 1px rgb(196, 193, 193);
+    border: solid 1px black;
     padding-bottom: 1px;
     margin-top: 10px;
     margin-right: 10px;
     padding-left: 5px;
     margin-right: 10px;
+}
+
+.exerciseNames {
+    margin-bottom: 5px;
+    background-color: rgba(216, 211, 211, 0.897);
+    margin-left: -5px;
+    padding-left: 5px;
+    border-bottom: 2px solid black;
+}
+
+.exerciseSetNReps {
+    margin-left: 5px;
+}
+
+#editRoutineForm {
+    width: 20%;
+}
+
+#routineEditName {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+#editNameLabel {
+    font-weight: bold;
+}
+
+#editNameInput {
+    display: flex;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.removeExercise {
+    color: rgb(255, 136, 0);
+    width: fit-content;
+}
+
+.removeExercise:hover {
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+
+}
+
+#addedExercisesContainer {
+    overflow-y: scroll;
+    max-height: 610px;
+}
+
+#addedExercisesContainer::-webkit-scrollbar {
+   width: 1em;
+}
+
+#addedExercisesContainer::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+#addedExercisesContainer::-webkit-scrollbar-thumb {
+    background-color: rgba(75, 75, 77, 0.685);
+    outline: 1px solid slategrey;
+  }
+
+#submitEditButton {
+    margin-top: 10px;
+    background-color: rgb(255, 123, 0);
+    color: white;
+    /* text-shadow: 1px 1px 1px black; */
+    font-size: 12pt;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid rgb(255, 123, 0);
+    box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.322);
+}
+
+#submitEditButton:hover {
+    cursor: pointer;
+    background-color: rgb(255, 81, 0);
 }

@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 
 
-function EditRoutines({workouts, user, addNewUserRoutine}) {
+function EditRoutines({workouts, user, updateUserRoutine}) {
     const { Search } = Input;
     const {id} = useParams();
 
@@ -120,14 +120,10 @@ function EditRoutines({workouts, user, addNewUserRoutine}) {
                 <div className="workoutsContainer">
                     {allWorkOuts}
                 </div>
-                <div style={{width: "20%"}} >
-                    {/* className="routineCreaterContainer" */}
-                    {/* ClassName above is for this div and will match workoutlist create routine design...experimenting*/}
-                    {/* <RoutineCreating currentWorkouts={currentWorkouts} currentSetsNReps={currentSetsNReps} onChangeUpdateSetsNReps={onChangeUpdateSetsNReps} onClickClearCurrentRoutine={onClickClearCurrentRoutine} addNewUserRoutine={addNewUserRoutine} user={user}/> */}
                     <EditRoutineForm userId={user.id} routineId={id} addedWorkouts={currentWorkouts} 
                     addedSetsNReps={currentSetsNReps} onChangeUpdateSetsNReps={onChangeUpdateSetsNReps}
-                     addToRoutine={addAllExercises} addSetsNReps={addSetsNReps} removeExerciseFromRoutine={removeExerciseFromRoutine}/>
-                </div>
+                     addToRoutine={addAllExercises} addSetsNReps={addSetsNReps} removeExerciseFromRoutine={removeExerciseFromRoutine}
+                     updateUserRoutine={updateUserRoutine}/>
             </div>
         </div>
     )
