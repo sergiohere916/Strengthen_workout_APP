@@ -1,0 +1,134 @@
+#introPage {
+    height: 100vh;
+    background-image: url("./components/mainPage.jpg");
+    background-size: cover;
+    position: relative;
+}
+
+#introPageTitle {
+    display: flex;
+    flex-direction: column;
+    /* background-color: rgba(128, 128, 128, 0.329); */
+    background-color: rgba(31, 30, 30, 0.726);
+    width: 100%;
+}
+
+#title1 {
+    color: white;
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+#title2 {
+    color: white;
+    font-size: 20pt;
+    font-weight: bold;
+    margin-left: 50px;
+    -webkit-text-stroke: .8px rgba(0, 0, 0, 0.507);
+}
+
+#introPageHeader {
+    position: absolute;
+    left: 0;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: fit-content;
+    margin-left: 50px;
+}
+
+#header1 {
+    color: white;
+    font-weight: 730;
+    font-size: 45pt;
+    -webkit-text-stroke: 2px rgba(0, 0, 0, 0.219);
+}
+
+#header2 {
+    color: rgb(255, 102, 0);
+    font-weight: 730;
+    font-size: 45pt;
+    -webkit-text-stroke: .8px rgba(0, 0, 0, 0.507);
+    margin-top: -35px;
+}
+
+#introPageDescription {
+    margin-top: 20px;
+    /* background-color: rgba(128, 128, 128, 0.267); */
+    height: 450px;
+    width: 550px;
+    background-color: rgba(0, 0, 0, 0.178);
+    
+}
+
+.descriptionContainers {
+    display: flex;
+    /* border: 1px solid black; */
+    height: 70px;
+    margin-top: 20px;
+}
+.bulletPoints {
+    display: flex;
+    height: 50px;
+    width: 50px;
+    background-color: rgb(255, 102, 0);
+    border-radius: 50%;
+}
+
+#descriptionContainer2 {
+    display: flex;
+    /* border: 1px solid black; */
+    height: 70px;
+}
+
+#bulletPoint2 {
+    display: flex;
+    height: 50px;
+    width: 50px;
+    background-color: rgb(255, 102, 0);
+    border-radius: 50%;
+}
+
+.weightsBulletPoint {
+    height: 45px;
+    width: 45px;
+    margin-left: 2px;
+    object-fit: contain;
+}
+
+.descriptions {
+    
+    color: white;
+    font-weight: 900;
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.445);
+    font-size: 18pt;
+}
+
+#descriptionContainer1 {
+    display: flex;
+}
+
+#getStartedButton {
+position: absolute;
+top: 80%;
+left: 50%;
+width: fit-content;
+box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.308);
+}
+
+#getStarted {
+    background-color: rgb(255, 102, 0);
+    color: white;
+    font-size: 25pt;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+#getStartedButton:hover {
+    cursor: pointer;
+    background-color: rgb(255, 51, 0);
+    border: 1px solid black;
+}

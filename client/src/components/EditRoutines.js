@@ -1,17 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "./NavBar";
 import WorkoutListItem from "./WorkoutListItem";
 import RoutineCreating from "./RoutineCreating";
-import { Input, Layout, Space } from 'antd';
+import { Input, Layout, Space, Typography } from 'antd';
 import EditRoutineForm from "./EditRoutineForm";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 
 
 function EditRoutines({workouts, user, updateUserRoutine}) {
     const { Search } = Input;
     const {id} = useParams();
+    const history = useHistory();
 
+
+    useEffect(() => {
+        fetch("/check_session")
+        .then((r) => {
+            if (!r.ok) {
+                history.push("/");
+            } 
+        } )
+    }, [])
     
     const [currentWorkouts, setCurrentWorkouts] = useState([])
     const [slices, setSlices] = useState([0,6])
@@ -108,22 +118,26 @@ function EditRoutines({workouts, user, updateUserRoutine}) {
                    </div>
                 </div>
             </Layout>
-            <h1 id="exercisesSearchTitle">Exercises:</h1>
+            <Typography id="exercisesSearchTitle">Find the Best Exercises : </Typography>
+            
+            <Typography className = "pageDescriptions">Search through an assortment of exercises to find the ones that best fit your needs</Typography>
+            <Typography className = "pageDescriptions">Edit your routine by adding new exercises or removing previous ones. When you're ready to finish editing hit complete. </Typography>
+            <Typography className = "pageDescriptions">You can search exercises by name, targeted muscles, or filter them by the equipment needed.</Typography>
             <div style={{display: "flex", textAlign: "center", justifyContent: "center", width: "100%"}}>
-            <Search style={{width: 500}}placeholder="input search text" onChange={handleChange}  enterButton />
-            </div>
-            <div>
-                <button onClick={showLessExercises}>Less</button>
-                <button onClick={showMoreExercises}>More</button>
+            <Search style={{width: 500, marginTop: "50px"}}placeholder="input search text" onChange={handleChange}  enterButton />
             </div>
             <div id="exercisesPage">
                 <div className="workoutsContainer">
                     {allWorkOuts}
+                    <div id="moreLessButtons">
+                        <button id="button3" onClick={showLessExercises}>{"<<"} Less</button>
+                        <button id="button4" onClick={showMoreExercises}>More {">>"}</button>
+                    </div>
                 </div>
-                    <EditRoutineForm userId={user.id} routineId={id} addedWorkouts={currentWorkouts} 
-                    addedSetsNReps={currentSetsNReps} onChangeUpdateSetsNReps={onChangeUpdateSetsNReps}
-                     addToRoutine={addAllExercises} addSetsNReps={addSetsNReps} removeExerciseFromRoutine={removeExerciseFromRoutine}
-                     updateUserRoutine={updateUserRoutine}/>
+                <EditRoutineForm userId={user.id} routineId={id} addedWorkouts={currentWorkouts} 
+                addedSetsNReps={currentSetsNReps} onChangeUpdateSetsNReps={onChangeUpdateSetsNReps}
+                addToRoutine={addAllExercises} addSetsNReps={addSetsNReps} removeExerciseFromRoutine={removeExerciseFromRoutine}
+                updateUserRoutine={updateUserRoutine}/>
             </div>
         </div>
     )

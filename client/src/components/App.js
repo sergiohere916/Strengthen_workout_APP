@@ -10,6 +10,8 @@ import CurrentRoutine from "./CurrentRoutine";
 import Routines from "./Routines";
 import CreateAccount from "./CreateAccount";
 import EditRoutines from "./EditRoutines";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import Strengthen from "./Strengthen";
 
 
 
@@ -17,7 +19,7 @@ function App() {
 
   // const UsersContext = createContext();
   //CURRENTLY SENDING USER AS STATE VARIABLE TO ROUTINES THEN TO ROUTINEITEM IF FIXED REMOVE THESE PROP DRILLED VARIABLES
-
+  const history = useHistory()
   const [user, setUser] = useState({id: null, name: "", personal_goals: []});
   // const [personalGoals, setPersonalGoals] = useState([]);
   // const [completedGoals, setCompletedGoals] = useState([]);
@@ -225,7 +227,7 @@ function App() {
   }
 ])
 
-
+  //FIGURE OUT HOW TO STILL ALLOW REFRESH BUT IF NO SESSION GO TO LOGIN 
   useEffect(() => {
     fetch("/check_session")
     .then((response) => {
@@ -276,12 +278,12 @@ function App() {
   console.log("in app js this is myScheduledWorkouts")
   console.log(myRoutines)
   
-  function updateTargetUserRoutine(id, value) {
+  function updateTargetUserRoutine(id,value, target) {
     //USE MAP FUNCTION TO FIND TARGET ELEMENT AND ADJUST ON FRONT END STATE
-    
+    alert(target);
     const updatedMyRoutines = myRoutines.map((scheduledRoutine) => {
       if (scheduledRoutine.id == id) {
-        scheduledRoutine["day_of_week"] = value
+        scheduledRoutine[target] = value
         return scheduledRoutine
       } else {
         return scheduledRoutine
@@ -378,6 +380,9 @@ function App() {
           </Route>
           <Route path = "/createAccount">
             <CreateAccount/>
+          </Route>
+          <Route path = "/Strengthen">
+            <Strengthen/>
           </Route>
           <Route exact path = "/">
             <Login onLogIn={onLogIn}/>

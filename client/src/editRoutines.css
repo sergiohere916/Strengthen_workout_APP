@@ -10,8 +10,12 @@
 
 #exercisesSearchTitle {
     font-weight: 900;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+  margin-top: 100px;
+  /* color: red; */
+  color: rgb(255, 81, 0);
+  font-size: 30pt;
 }
 
 #exercisesPage {
@@ -25,7 +29,7 @@
 }
 
 .exerciseToEdit {
-    background-color: rgba(255, 255, 255, 0.589);
+    background-color: rgba(255, 255, 255, 0.692);
     border: solid 1px black;
     padding-bottom: 1px;
     margin-top: 10px;
@@ -48,24 +52,41 @@
 
 #editRoutineForm {
     width: 20%;
+    padding-left: 15px;
+    border-left: solid 3px black;
+    background-color: #19191ad3;
+    /* background-image: url("https://images-na.ssl-images-amazon.com/images/I/71iukQrU+TL._AC_UL600_SR600,600_.jpg"); */
+    background-image: url("https://images.unsplash.com/photo-1580261450046-d0a30080dc9b?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGd5bXxlbnwwfHwwfHx8MA%3D%3D");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #routineEditName {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    
+    justify-content: center;   
 }
 
 #editNameLabel {
     font-weight: bold;
+    width: fit-content;
+    background-color: rgba(235, 227, 227, 0.64);
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 #editNameInput {
     display: flex;
     margin-top: 10px;
-    margin-right: 10px;
+    margin-right: 30px;
+}
+
+#routineEditExerciseLabel {
+    width: fit-content;
+    background-color: rgba(235, 227, 227, 0.64);
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .removeExercise {
@@ -96,7 +117,7 @@
 #addedExercisesContainer::-webkit-scrollbar-thumb {
     background-color: rgba(75, 75, 77, 0.685);
     outline: 1px solid slategrey;
-  }
+}
 
 #submitEditButton {
     margin-top: 10px;
@@ -114,3 +135,29 @@
     cursor: pointer;
     background-color: rgb(255, 81, 0);
 }
+
+.pageDescriptions {
+    text-align: center;
+    font-size: 14pt;
+    color: rgb(117, 116, 116);
+  }
+
+  #moreLessButtons {
+    display: flex;
+    /* background-color: blue; */
+    width: 30%;
+    padding-left: 15px;
+    padding-right: 15px;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  #button3 {
+    background-color: black;
+    color: white;
+  }
+  
+  #button4 {
+    background-color: black;
+    color: white;
+  }

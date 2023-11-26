@@ -1,13 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "./NavBar";
 import WorkoutListItem from "./WorkoutListItem";
 import RoutineCreating from "./RoutineCreating";
-import { Input, Layout, Space } from 'antd';
+import { Input, Layout, Space, Typography } from 'antd';
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 
 function WorkoutsList({workouts, user, addNewUserRoutine}) {
     const { Search } = Input;
+
+    const history = useHistory()
+
+    useEffect(() => {
+        fetch("/check_session")
+        .then((r) => {
+            if (!r.ok) {
+                history.push("/");
+            } 
+        } )
+    }, [])
 
     
     const [currentWorkouts, setCurrentWorkouts] = useState([])
@@ -32,6 +44,15 @@ function WorkoutsList({workouts, user, addNewUserRoutine}) {
     function onClickClearCurrentRoutine() {
         setCurrentWorkouts([])
         setCurrentSetsNReps([])
+    }
+
+    function removeExerciseFromRoutine(targetIndex) {
+        const updatedRoutineExercises = currentWorkouts.filter((exercise, index) => index !== targetIndex );
+        const updatedRoutineSets = currentSetsNReps.filter((setNRep, index) => index !== targetIndex );
+        const exercises = updatedRoutineExercises.join(",");
+        const setsNRepsUpdated = updatedRoutineSets.join(",");
+        setCurrentWorkouts([...updatedRoutineExercises]);
+        setCurrentSetsNReps([...updatedRoutineSets]);  
     }
 
     function showMoreExercises() {
@@ -83,21 +104,32 @@ function WorkoutsList({workouts, user, addNewUserRoutine}) {
                    </div>
                 </div>
             </Layout>
-            <h1 id="title">Exercises:</h1>
+                {/* <h1 id="title">Exercises:</h1> */}
+                <Typography id="title">Find the Best Exercises : </Typography>
+                <Typography className = "pageDescriptions">Search through an assortment of exercises to find the ones that best fit your needs</Typography>
+                <Typography className = "pageDescriptions">Save your favorite exercises by creating a routine and saving it to your profile. Create as many as you like.</Typography>
+                <Typography className = "pageDescriptions">You can search exercises by name, targeted muscles, or filter them by the equipment needed.</Typography>
             <div style={{display: "flex", textAlign: "center", justifyContent: "center", width: "100%"}}>
-            <Search style={{width: 500}}placeholder="input search text" onChange={handleChange}  enterButton />
+                <Search style={{width: 500, marginTop: "50px"}}placeholder="Search" onChange={handleChange}  enterButton />
             </div>
-            <div>
+            {/* <div>
                 <button onClick={showLessExercises}>Less</button>
                 <button onClick={showMoreExercises}>More</button>
-            </div>
+            </div> */}
             <div id="mainWorkoutPage">
                 <div className="workoutsContainer">
                     {allWorkOuts}
+                <div id="moreButtons">
+                    <button id="button1" onClick={showLessExercises}>{"<<"} Less</button>
+                    <button id="button2" onClick={showMoreExercises}>More {">>"}</button>
+                </div>
                 </div>
                 <div className="routineCreaterContainer">
-                    <RoutineCreating currentWorkouts={currentWorkouts} currentSetsNReps={currentSetsNReps} onChangeUpdateSetsNReps={onChangeUpdateSetsNReps} onClickClearCurrentRoutine={onClickClearCurrentRoutine} addNewUserRoutine={addNewUserRoutine} user={user}/>
+                    <RoutineCreating currentWorkouts={currentWorkouts} currentSetsNReps={currentSetsNReps} 
+                    onChangeUpdateSetsNReps={onChangeUpdateSetsNReps} onClickClearCurrentRoutine={onClickClearCurrentRoutine} 
+                    addNewUserRoutine={addNewUserRoutine} user={user} removeExerciseFromRoutine={removeExerciseFromRoutine}/>
                 </div>
+                
             </div>
         </div>
     )

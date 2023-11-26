@@ -1,12 +1,12 @@
 import React from "react";
 
 
-function DayRoutineItem({dayRoutine, updateTargetUserRoutine}) {
+function DayRoutineItem({dayRoutine, updateTargetUserRoutine, handleClickedRoutine, inHome}) {
     const {routine} = dayRoutine
     
     const excercisesList = routine.workouts.split(",");
     //TEMPORARY SOLUTION TO KEY ISSUE
-    const excercises = excercisesList.map((excercise) => <li key={Math.random()*1000}>{excercise}</li>)
+    const excercises = excercisesList.map((excercise, index) => <li key={excercise + index}>{capitalize(excercise)}</li>)
 
     function handleClick() {
         console.log(dayRoutine.id)
@@ -17,12 +17,24 @@ function DayRoutineItem({dayRoutine, updateTargetUserRoutine}) {
         })
         .then(r => r.json())
         .then(unassignedRoutine => {
-            updateTargetUserRoutine(unassignedRoutine.id, unassignedRoutine["day_of_week"])
+            updateTargetUserRoutine(unassignedRoutine.id, unassignedRoutine["day_of_week"], "day_of_week");
         })
     }
 
+    function capitalize(phrase) {
+        const firstLetterCap = phrase.slice(0,1).toUpperCase();
+        const remainingPhrase = phrase.slice(1, phrase.length);
+        return firstLetterCap + remainingPhrase;
+    }
+
+    function checkInHome() {
+        if (inHome === 1) {
+            handleClickedRoutine(dayRoutine);
+        }
+    }
+
     return (
-        <div className="dayRoutineItem">
+        <div className="dayRoutineItem" onClick={checkInHome}>
             <div className="dayRoutineUnassigner">
                 <button onClick={handleClick}>X</button>
             </div>

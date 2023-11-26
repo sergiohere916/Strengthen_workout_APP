@@ -16,15 +16,33 @@ import UserPersonalGoals from "./UserPersonalGoals";
 
 import glossy from "./glossy-red-push-pin-png.webp";
 import CompletedGoals from "./CompletedGoals";
+import ExtendedScheduledRoutine from "./ExtendedScheduledRoutine";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function Home({myWeeksRoutine, updateTargetUserRoutine, workouts, personalGoals, completedGoals, updateCompletedGoal, removeDeletedGoal, addNewGoal}) {
     
+    const history = useHistory()
     const user = useContext(UserContext);
+    const [extendedRoutine, setExtendedRoutine] = useState({day_of_week: "", id: "", routine: [], times_completed: 0, user_id: 0});
+    const [showExtendedRoutine, setShowExtendedRoutine] = useState(false);
+    const [visibility, setVisibility] = useState("100%")
+
+
+    const inHome = 1;
     console.log(completedGoals)
     const displayCompletedGoals = completedGoals.map((goal) => {
         return <CompletedGoals key={goal.id} goal={goal}/>
     })
 
+    useEffect(() => {
+        fetch("/check_session")
+        .then((r) => {
+            if (!r.ok) {
+                history.push("/");
+            } 
+        } )
+    }, [])
+    
     const { Header, Footer, Sider, Content } = Layout;
     const headerStyle = {
       textAlign: 'center',
@@ -52,9 +70,20 @@ function Home({myWeeksRoutine, updateTargetUserRoutine, workouts, personalGoals,
       color: '#fff',
       backgroundColor: '#7dbcea',
     };
+
+    function displayExtendedRoutine(selectedRoutine) {
+        setExtendedRoutine(selectedRoutine);
+        setShowExtendedRoutine(true);
+        setVisibility("50%");
+    }
+
+    function hideExtendedRoutine() {
+        setShowExtendedRoutine(false);
+        setVisibility("100%");
+    }
     
     return (
-        <div>
+        <div id="homePage">
             <NavBar/>
             <Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
                 <Layout>
@@ -74,13 +103,6 @@ function Home({myWeeksRoutine, updateTargetUserRoutine, workouts, personalGoals,
                     <div className="homeImageHolders">
                         <img className="homeImages" src="https://miro.medium.com/v2/resize:fit:839/0*YXGhd8vuuZNGAHG0.jpg" alt="WomanWorkout"/>
                     </div>
-                    {/* <CardMedia
-                        component="img"
-                        height="400"
-                        image="https://www.orbitfitness.com.au/modules/prestablog/views/img/grid-for-1-7/up-img/thumb_6281.jpg?fa76d5fdcf40fa4cd56045f46c20c786"
-                        alt="green iguana"
-                        elevation = {5}
-                    /> */}
                 </div>
                 <div className="reusableHomeAppTitleContainer">
                     <div className="homeAppTitles">
@@ -96,15 +118,15 @@ function Home({myWeeksRoutine, updateTargetUserRoutine, workouts, personalGoals,
                         <h3>Seek to accomplish them</h3>
                    </div>
                 </div>
-                <CurrentRoutine myWeeksRoutine={myWeeksRoutine} updateTargetUserRoutine={updateTargetUserRoutine}/>
+                <div id="routineAndDisplay">
+                <CurrentRoutine myWeeksRoutine={myWeeksRoutine} updateTargetUserRoutine={updateTargetUserRoutine} displayExtendedRoutine={displayExtendedRoutine} inHome ={inHome} visibility={visibility}/>
+                    {showExtendedRoutine? (<ExtendedScheduledRoutine extendedRoutine={extendedRoutine} updateTargetUserRoutine={updateTargetUserRoutine} hideExtendedRoutine={hideExtendedRoutine}/>): (<></>)}
+                </div>
                 <div id="homeContent3TitleContainer">
                     <div id="homeContent3Title1">
                         <h1>Look Up Your Excercises For Some Assistance</h1>
                     </div>
                 </div>
-                <Layout hasSider>
-                    {/* <Content style={contentStyle}>Content</Content>
-                    <Sider style={siderStyle}>Sider</Sider> */}
                     <div id="homeContent3">
                         <DisplayExcercise myWeeksRoutine={myWeeksRoutine} workouts={workouts}/>
                         <div id="displayBonus">
@@ -112,7 +134,6 @@ function Home({myWeeksRoutine, updateTargetUserRoutine, workouts, personalGoals,
                             <h2>Things are accomplished one step at a time</h2>
                         </div>
                     </div>
-                </Layout>
                 <div id="homeContent4TitleContainer">
                     <div id="homeContent4Title1">
                         <h1>Set Up Some Goals For Yourself</h1>
@@ -154,8 +175,7 @@ function Home({myWeeksRoutine, updateTargetUserRoutine, workouts, personalGoals,
                         </div>
                         
                     </div>
-                </div>
-                {/* <Footer style={footerStyle}>Footer</Footer> */}
+                </div>  
                 </Layout>
             </Space>
         </div>

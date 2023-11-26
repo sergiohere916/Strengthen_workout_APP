@@ -3,7 +3,7 @@ import { Alert, Button, Input, Space } from 'antd';
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 
-function RoutineCreating({currentWorkouts, currentSetsNReps, onChangeUpdateSetsNReps, onClickClearCurrentRoutine, addNewUserRoutine, user}) {
+function RoutineCreating({currentWorkouts, currentSetsNReps, onChangeUpdateSetsNReps, onClickClearCurrentRoutine, addNewUserRoutine, user, removeExerciseFromRoutine}) {
     const [routineName, setRoutineName] = useState("")
     const [invalidEntry, setInvalidEntry] = useState(false)
     const [successfulSubmit, setSuccessfulSubmit] = useState(false)
@@ -17,14 +17,23 @@ function RoutineCreating({currentWorkouts, currentSetsNReps, onChangeUpdateSetsN
 
     }
 
+function capitalize(phrase) {
+    const firstLetterCap = phrase.slice(0,1).toUpperCase();
+    const remainingPhrase = phrase.slice(1, phrase.length);
+    return firstLetterCap + remainingPhrase;
+}
 
     const displayWorkoutNames = currentWorkouts.map((workout, index) => {
-        return <li>{workout} {index}
-        <span> 
-            <input name={0} value={currentSetsNReps[index][0]} onChange={(e) => onChangeUpdateSetsNReps(Number(e.target.value), index, Number(e.target.name))} style={{width: 30}} type="number"/>
-            Sets x 
-            <input name={1} value={currentSetsNReps[index][1]} onChange={(e) => onChangeUpdateSetsNReps(Number(e.target.value), index, Number(e.target.name))} style={{width: 30}} type="number"/>Reps</span>
-        </li>})
+        return <div className="addedExercises">
+        <div className="addedExerciseNames">{capitalize(workout)} {index} :</div>
+            <span> 
+                <input name={0} value={currentSetsNReps[index][0]} onChange={(e) => onChangeUpdateSetsNReps(Number(e.target.value), index, Number(e.target.name))} style={{width: 30}} type="number"/>
+                Sets x 
+                <input name={1} value={currentSetsNReps[index][1]} onChange={(e) => onChangeUpdateSetsNReps(Number(e.target.value), index, Number(e.target.name))} style={{width: 30}} type="number"/>Reps
+            </span>
+            <h6 className="removeAddedExercise" onClick={() => removeExerciseFromRoutine(index)}>Remove</h6>
+        </div>
+        })
     
 
     function handleClick() {
@@ -85,35 +94,29 @@ function RoutineCreating({currentWorkouts, currentSetsNReps, onChangeUpdateSetsN
         setSuccessfulSubmit(false);
         
     }
-
+    //RETURN TO START POINT
     return (
-        <div>
+        <>
             <div>
-            <Button size="small" style={{backgroundColor: "red", color: "white", border: "1px solid black"}} onClick={handleClick}>CLEAR ALL</Button>
-            
             </div>
             <form style = {{marginTop: "15px"}}onSubmit={handleSubmit}>
-                <label style={{fontWeight: "bold", fontSize: "13pt"}}>Give Your Routine a Name: </label>
-                <br/>
-                <input style={{marginTop: "5px"}}type="text" required placeholder="Name" value={routineName} onChange={(e) => setRoutineName(e.target.value) }/>
-                <br/>
-                <br/>
-                <div>
-                    <h4>Add</h4>
-                    <h4>Excercises: </h4>
-                    <ul style={{fontSize: "13pt"}}>
-                        {displayWorkoutNames}
-                    </ul>
+                <div id="routineName">
+                    <label id="routineNameLabel" style={{fontWeight: "bold"}}>Give Your Routine a Name: </label>
+                    <input id = "routineNameInput"type="text" required placeholder="Name" value={routineName} onChange={(e) => setRoutineName(e.target.value) }/>
                 </div>
-                {/* <label>Would you like to Post this routine for others?</label>
-                <br/> */}
-                {/* <input type="text"/> */}
-                <button type="submit">Submit</button>
+                <h4 id="addExercisesLabel">Add Exercises: </h4>
+                <div id="exercisesContainer">
+                    {displayWorkoutNames}
+                </div>
+                <div id="submitAndClearButtons">
+                    <button id = "submitRoutineButton" type="submit">Submit</button>
+                    <button id="clearRoutineButton" onClick={handleClick} type="reset">Clear Routine</button>
+                </div>
             </form>
-            {invalidEntry? <h5 style={{color: "red"}}>Error: Need to include at least one exercise</h5>  : <h5></h5>}
+            {invalidEntry? <h5 id="errorMessage" style={{color: "red"}}>Error: Need to include at least one exercise</h5>  : <h5></h5>}
             {successfulSubmit? 
                 // <Space direction="vertical" style={{ width: '100%' }}>
-                <div style={{marginLeft: "15px", marginRight: "15px"}}>
+                <div style={{marginRight: "20px"}}>
                     <Alert
                         style={{backgroundColor: "white"}}
                         message="New routine created, view in saved routines?"
@@ -137,7 +140,7 @@ function RoutineCreating({currentWorkouts, currentSetsNReps, onChangeUpdateSetsN
             : 
             
             <></>}
-        </div>
+        </>
     )
 }
 
