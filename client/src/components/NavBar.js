@@ -34,7 +34,7 @@ function NavBar() {
         fetch("/logout", {
             method: "DELETE",
         })
-        .then(history.push("/"))
+        .then(history.push("/Login"))
       }
 
     return (

@@ -280,7 +280,6 @@ function App() {
   
   function updateTargetUserRoutine(id,value, target) {
     //USE MAP FUNCTION TO FIND TARGET ELEMENT AND ADJUST ON FRONT END STATE
-    alert(target);
     const updatedMyRoutines = myRoutines.map((scheduledRoutine) => {
       if (scheduledRoutine.id == id) {
         scheduledRoutine[target] = value
@@ -381,11 +380,11 @@ function App() {
           <Route path = "/createAccount">
             <CreateAccount/>
           </Route>
-          <Route path = "/Strengthen">
-            <Strengthen/>
+          <Route path = "/Login">
+            <Login onLogIn={onLogIn}/>
           </Route>
           <Route exact path = "/">
-            <Login onLogIn={onLogIn}/>
+            <Strengthen/>
           </Route>
         </Switch>
       </UserContext.Provider>

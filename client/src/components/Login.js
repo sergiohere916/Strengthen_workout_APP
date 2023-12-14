@@ -53,7 +53,7 @@ function Login({onLogIn}) {
                     alignItems: 'center',
                 }}
                 >
-                <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+                <Avatar style = {{backgroundColor: "rgb(255, 102, 0)"}}sx={{ m: 1}}>
                     <LockOutlinedIcon />
                 </Avatar>
                 <Typography component="h1" variant="h5">
@@ -80,10 +80,10 @@ function Login({onLogIn}) {
                     id="password"
                     autoComplete="current-password"
                     />
-                    <FormControlLabel
+                    {/* <FormControlLabel
                     control={<Checkbox value="remember" color="primary" />}
                     label="Remember me"
-                    />
+                    /> */}
                     <Button
                     type="submit"
                     fullWidth

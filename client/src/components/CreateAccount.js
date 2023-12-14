@@ -66,7 +66,7 @@ function CreateAccount() {
     .then(res => {
         if (res.ok) {
             res.json().then(() => {
-                history.push("/")
+                history.push("/Login");
             })
         }
     })

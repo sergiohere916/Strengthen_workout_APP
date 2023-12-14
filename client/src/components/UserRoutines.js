@@ -3,6 +3,7 @@ import NavBar from "./NavBar";
 import UserRoutineItem from "./UserRoutineItem";
 import CurrentRoutine from "./CurrentRoutine";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import Layout from "antd/es/layout/layout";
 
 
 function UserRoutines({myRoutines, myWeeksRoutine, updateTargetUserRoutine, removeUserRoutine}) {
@@ -13,7 +14,7 @@ function UserRoutines({myRoutines, myWeeksRoutine, updateTargetUserRoutine, remo
         fetch("/check_session")
         .then((r) => {
             if (!r.ok) {
-                history.push("/");
+                history.push("/Login");
             } 
         } )
     }, [])
@@ -29,6 +30,7 @@ function UserRoutines({myRoutines, myWeeksRoutine, updateTargetUserRoutine, remo
     return (
         <div>
             <NavBar/>
+            <Layout>
             <div id="userPageImageContainer" >
                     <div className="userPageImageHolders">
                         <img className="userPageImage" src="https://www.losangelespropertymanagementgroup.com/wp-content/uploads/2020/09/alicgym.jpeg" alt="Weight-Lifting-Equipment"/>
@@ -60,6 +62,7 @@ function UserRoutines({myRoutines, myWeeksRoutine, updateTargetUserRoutine, remo
                     {userRoutines}
                 </div>
             </div>
+            </Layout>
         </div>
     )
 }

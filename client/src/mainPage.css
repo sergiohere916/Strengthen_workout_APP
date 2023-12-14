@@ -1,6 +1,6 @@
 #introPage {
     height: 100vh;
-    background-image: url("./components/mainPage.jpg");
+    background-image: url("./components/1_arm_curl_grey.jpg");
     background-size: cover;
     position: relative;
 }
@@ -9,21 +9,26 @@
     display: flex;
     flex-direction: column;
     /* background-color: rgba(128, 128, 128, 0.329); */
-    background-color: rgba(31, 30, 30, 0.726);
+    /* background-color: rgba(31, 30, 30, 0.726); */
     width: 100%;
+    background-color: rgba(0, 0, 0, 0.527);
+    
 }
 
 #title1 {
-    color: white;
+    /* color: white; */
     font-size: 20pt;
     font-weight: bold;
 }
 
 #title2 {
+    /* color: white; */
+    /* width: fit-content; */
+    /* background-color: rgba(139, 134, 134, 0.582); */
     color: white;
     font-size: 20pt;
     font-weight: bold;
-    margin-left: 50px;
+    margin-left: 200px;
     -webkit-text-stroke: .8px rgba(0, 0, 0, 0.507);
 }
 
@@ -58,7 +63,7 @@
     /* background-color: rgba(128, 128, 128, 0.267); */
     height: 450px;
     width: 550px;
-    background-color: rgba(0, 0, 0, 0.178);
+    /* background-color: rgba(0, 0, 0, 0.562); */
     
 }
 

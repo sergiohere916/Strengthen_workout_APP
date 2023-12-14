@@ -30,8 +30,8 @@ function EditRoutineForm({routineId, addedWorkouts, addedSetsNReps, onChangeUpda
         return <div key={workout + index} className="exerciseToEdit">
         <div className="exerciseNames">{capitalize(workout)} :</div>
             <span> 
-                <input className="exerciseSetNReps" name={0} value={addedSetsNReps[index][0]} onChange={(e) => onChangeUpdateSetsNReps(Number(e.target.value), index, Number(e.target.name))} style={{width: 30}} type="number"/> Sets x 
-                <input className="exerciseSetNReps" name={1} value={addedSetsNReps[index][1]} onChange={(e) => onChangeUpdateSetsNReps(Number(e.target.value), index, Number(e.target.name))} style={{width: 30}} type="number"/> Reps
+                <input className="exerciseSetNReps" min="1" name={0} value={addedSetsNReps[index][0]} onChange={(e) => onChangeUpdateSetsNReps(Number(e.target.value), index, Number(e.target.name))} style={{width: 30}} type="number"/> Sets x 
+                <input className="exerciseSetNReps" min="1" name={1} value={addedSetsNReps[index][1]} onChange={(e) => onChangeUpdateSetsNReps(Number(e.target.value), index, Number(e.target.name))} style={{width: 30}} type="number"/> Reps
             </span>
             <h6 className="removeExercise" onClick={() => removeExerciseFromRoutine(index)}>Remove</h6>
         </div>
