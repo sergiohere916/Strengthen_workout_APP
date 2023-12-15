@@ -5,8 +5,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -27,20 +25,27 @@ function Login({onLogIn}) {
         const email = event.target[0].value
         const password = event.target[2].value
         const userLogin = {
-        email: email,
-        password: password
+            email: email,
+            password: password
+        }
+        fetch('/login', {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify(userLogin)
+        })
+        .then(r => {
+            if (r.ok) {
+                r.json()
+                .then(verifiedUserLogin => {
+                    onLogIn(verifiedUserLogin)
+                    history.push("/Home")
+                })
+            } else {
+                alert("Login Failed. Incorrect Username or Password. Please try again.")
+            }
+        }) 
     }
-    fetch('/login', {
-      method: "POST",
-      headers: {"Content-Type":"application/json"},
-      body: JSON.stringify(userLogin)
-    })
-    .then(r => r.json())
-    .then(verifiedUserLogin => {
-        onLogIn(verifiedUserLogin);
-        history.push("/Home")
-    })
-  };
+
     return (
         <ThemeProvider theme={defaultTheme}>
             <Container component="main" maxWidth="xs">

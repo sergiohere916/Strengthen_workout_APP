@@ -68,6 +68,8 @@ function CreateAccount() {
             res.json().then(() => {
                 history.push("/Login");
             })
+        } else {
+            alert("Invalid. Email is already in use. Please use a different email")
         }
     })
   };
@@ -135,8 +137,9 @@ function CreateAccount() {
                 label="Password"
                 rules={[
                 {
+                    min: 5,
                     required: true,
-                    message: 'Please input your password!',
+                    message: 'Please create a password with at least 5 characters!',
                 },
                 ]}
                 hasFeedback
@@ -151,6 +154,7 @@ function CreateAccount() {
                 hasFeedback
                 rules={[
                 {
+                    min: 5,
                     required: true,
                     message: 'Please confirm your password!',
                 },
@@ -158,8 +162,8 @@ function CreateAccount() {
                     validator(_, value) {
                     if (!value || getFieldValue('password') === value) {
                         return Promise.resolve();
-                    }
-                    return Promise.reject(new Error('The new password that you entered do not match!'));
+                    } 
+                    return Promise.reject(new Error('The new password that you entered do not match!'))
                     },
                 }),
                 ]}
