@@ -73,11 +73,11 @@ function DisplayExcercise({myWeeksRoutine, workouts}) {
                     <button type="submit">Go</button>
                 </form>
             </div>
-            <div>
+            {/* <div>
                 <button onClick={clearClip}>Clear Clip</button>
                 <button onClick={clearInstructions}>Clear Instructions</button>
-            </div>
-            <div id="excerciseInfoContainer">
+            </div> */}
+            <div id="exerciseInfoContainer">
                 <div id="exeriseInfo1">
                     {currentGif}
                 </div>
@@ -87,7 +87,14 @@ function DisplayExcercise({myWeeksRoutine, workouts}) {
                     </ol>
                 </div>    
             </div>
-            
+            <div style={{display: "flex", textAlign: "center"}}>
+                <div style={{width: "50%", marginTop: "5px"}}>
+                    <button onClick={clearClip}>Clear Clip</button>
+                </div>
+                <div style={{width: "50%", marginTop: "5px"}}>
+                    <button onClick={clearInstructions}>Clear Instructions</button>
+                </div>
+            </div>
         </div>
     )
 }

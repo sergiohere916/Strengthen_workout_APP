@@ -1,10 +1,16 @@
 import { colors } from "@mui/material";
 import { Typography } from "antd";
 import React from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 function Strengthen() {
 
+    const history = useHistory();
+
+    function handleClick() {
+        history.push("/Login");
+    }
 
     return (
         <div id="introPage">
@@ -52,7 +58,7 @@ function Strengthen() {
                     </div>
                 </div>
             </div> 
-            <div id="getStartedButton">
+            <div id="getStartedButton" onClick={handleClick}>
                 <Typography id="getStarted"> GET STARTED </Typography>
             </div>
         </div>

@@ -23,7 +23,6 @@ function ExtendedScheduledRoutine({extendedRoutine, updateTargetUserRoutine, hid
 
     function handleClick() {
         const completedTotal = extendedRoutine.times_completed + 1;
-        alert(completedTotal);
         fetch(`/scheduledworkouts/${extendedRoutine.id}`, {
             method: "PATCH",
             headers: {"Content-Type": "application/json"},
@@ -36,13 +35,15 @@ function ExtendedScheduledRoutine({extendedRoutine, updateTargetUserRoutine, hid
     return (
         <div id="extendedRoutineDisplay">
             <div id="header" style={{color: "white"}}>
-                <Typography style={{color: "white", fontSize: "15pt", textAlign: "center"}}>{"| " + routine.name + " |" }</Typography>
+                <Typography style={{color: "white", fontSize: "15pt", textAlign: "center"}}>{routine.name}</Typography>
                 <Typography id="headerCloser" onClick={hideExtendedRoutine}>Close</Typography>
             </div>
             <div id="body">
                 <h3 style={{marginLeft: "5px", color: "white", fontSize: "13pt"}}>Workouts:</h3>
                 <hr style={{color: "black"}}/>
+                <div id="extendedDisplayExercises">
                 {excercises}
+                </div>
             </div>
             <div id="footer">
                 <div id="footerContent1">

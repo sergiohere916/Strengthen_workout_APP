@@ -31,6 +31,9 @@ Check out a wide variety of excercises and create workout routines for yourself 
 # Wireframe:
 ![Screenshot 2023-10-24 163725](https://github.com/sergiohere916/Strengthen_workout_APP/assets/137942550/1a3faf82-cd4e-467f-856a-5207a5d47086)
 
+# APP Preview:
+
+
 # API Routes:
 * GET/users/<int:id>
 * GET/routines
@@ -100,6 +103,8 @@ Account
 # Stretch Goals:
 *  Have button feature that sends user a motivational video when requested
 *  Have videos of workouts available for display in addition to animations
+*  Allow for editing of routines
+*  ALlow user to add in sets and reps to their saved workouts
 
 
 

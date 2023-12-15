@@ -38,38 +38,11 @@ function Home({myWeeksRoutine, updateTargetUserRoutine, workouts, personalGoals,
         fetch("/check_session")
         .then((r) => {
             if (!r.ok) {
-                history.push("/");
+                history.push("/Login");
             } 
         } )
     }, [])
     
-    const { Header, Footer, Sider, Content } = Layout;
-    const headerStyle = {
-      textAlign: 'center',
-      color: '#fff',
-      height: 100,
-      paddingInline: 50,
-      lineHeight: '64px',
-      backgroundColor: '#7dbcea',
-    };
-    const contentStyle = {
-      textAlign: 'center',
-      minHeight: 120,
-      lineHeight: '120px',
-      color: '#fff',
-      backgroundColor: '#108ee9',
-    };
-    const siderStyle = {
-      textAlign: 'center',
-      lineHeight: '120px',
-      color: '#fff',
-      backgroundColor: '#3ba0e9',
-    };
-    const footerStyle = {
-      textAlign: 'center',
-      color: '#fff',
-      backgroundColor: '#7dbcea',
-    };
 
     function displayExtendedRoutine(selectedRoutine) {
         setExtendedRoutine(selectedRoutine);
@@ -141,20 +114,12 @@ function Home({myWeeksRoutine, updateTargetUserRoutine, workouts, personalGoals,
                 </div>
                 <div id="homeContent4">
                     <div id="homeContent4Titles">
-                        <div className="homeCont4Title"><h4>{user.name}'s Personal Goals:</h4></div>
+                        <div className="homeCont4Title"><h4>Your Personal Goals:</h4></div>
                         <div className="homeCont4Title"><h4>Your Achievements:</h4></div>
                     </div>
                     <div id="homeContent4Content">
                         <UserPersonalGoals personalGoals={personalGoals} user={user} updateCompletedGoal={updateCompletedGoal} removeDeletedGoal={removeDeletedGoal} addNewGoal={addNewGoal}/>
                         <div id="goalsMet">
-                            {/* <div className="goalsPins">
-                                <div className="goalsPin1">
-                                    <img src={glossy} alt="red_Pin"/>
-                                </div>
-                                <div className="goalsPin2">
-                                    <img src={glossy} alt="red_Pin"/>
-                                </div>
-                            </div> */}
                             <div>
                                 <br/>
                             </div>

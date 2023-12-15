@@ -3,7 +3,7 @@ import React from "react";
 
 
 
-function UserPersonalGoalItem({goal, updateCompletedGoal, removeDeletedGoal}) {
+function UserPersonalGoalItem({goal, updateCompletedGoal, removeDeletedGoal, user}) {
 
     function handleCompletedGoal() {
         fetch(`/personalgoals/${goal.id}`, {
@@ -14,6 +14,7 @@ function UserPersonalGoalItem({goal, updateCompletedGoal, removeDeletedGoal}) {
         .then(r => r.json())
         .then(updatedGoal => {
             updateCompletedGoal(updatedGoal.id);
+            alert(`Congratulations ${user.name} on achieving your goal!!`)
         })
 
     }
@@ -23,6 +24,7 @@ function UserPersonalGoalItem({goal, updateCompletedGoal, removeDeletedGoal}) {
             method: "DELETE"
         })
         .then(removeDeletedGoal(goal.id))
+        alert("Deleted but not forgotten. Never give up!")
     }
 
     return (
@@ -38,7 +40,7 @@ function UserPersonalGoalItem({goal, updateCompletedGoal, removeDeletedGoal}) {
             <div className="personalGoalStructure">
                 <h4>Status:</h4>
                 <div className="goalButtons">
-                    <button onClick={handleCompletedGoal}>Completed !</button>
+                    <button onClick={handleCompletedGoal}>Completed</button>
                     <br/>
                     <button onClick={handleDeletedGoal}>Delete</button> 
                 </div>

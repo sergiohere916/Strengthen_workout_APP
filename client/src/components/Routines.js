@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 // import { UserContext } from "./Context";
 import NavBar from "./NavBar";
 import RoutineItem from "./RoutineItem";
-import { Layout } from "antd";
+import { Layout, Typography } from "antd";
 import battleRope2 from "./battleRope3.jpg"
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { NavLink, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 function Routines({addNewUserRoutine, workouts}) {
@@ -17,7 +17,7 @@ function Routines({addNewUserRoutine, workouts}) {
         fetch("/check_session")
         .then((r) => {
             if (!r.ok) {
-                history.push("/");
+                history.push("/Login");
             } 
         } )
     }, [])
@@ -61,12 +61,14 @@ function Routines({addNewUserRoutine, workouts}) {
             </div>
             </Layout>
             <div id="freeRoutinesIntro">
-            <h1 id="routinesBanner">Fitness Routines</h1>
-            <p>Choose from a wide assortment the routines containing popular and effective excercises that best fit your fitness goals, use the </p>
-            <p>available options to save them to your homepage and store them for personal review and use</p>
+            <Typography id="routinesBanner">Fitness Routines</Typography>
+            <Typography className="bannerDescriptions">Choose from a wide assortment of fitness routines containing popular and effective excercises that best fit your fitness goals.</Typography>
+            <Typography className="bannerDescriptions">Use the available options to save routines to your homepage and store them for personal use.</Typography>
             </div>
             <div id="freeRoutinesSorters">
-
+                <NavLink to="/Home/MyRoutines">
+                    <button id="viewSavedButton"style={{backgroundColor: "rgba(248, 48, 48, 0.785)", color: "white"}}>View Your Saved Routines</button>
+                </NavLink>
             </div>
             <div className="allRoutinesContainer">
                 {allRoutineCards}
@@ -76,7 +78,3 @@ function Routines({addNewUserRoutine, workouts}) {
 }
 
 export default Routines
-
-// https://img.freepik.com/premium-photo/battle-ropes-exercise-during-crossfit-training-gym-athlete-wear-red-shorts-working-out-with-rope-sport-motivation-concept-copy-space_403156-207.jpg
-
-// https://www.eatthis.com/wp-content/uploads/sites/4/2022/09/man-intense-workout.jpg?quality=82&strip=1

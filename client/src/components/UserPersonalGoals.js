@@ -8,7 +8,7 @@ function UserPersonalGoals({personalGoals, user, updateCompletedGoal, removeDele
     const [targetDate, setTargetDate] = useState("");
 
     const displayGoals = personalGoals.map((goal) => {
-        return <UserPersonalGoalItem key={goal.id} goal={goal} updateCompletedGoal={updateCompletedGoal} removeDeletedGoal={removeDeletedGoal}/>
+        return <UserPersonalGoalItem key={goal.id} goal={goal} updateCompletedGoal={updateCompletedGoal} removeDeletedGoal={removeDeletedGoal} user={user}/>
     })
 
 
@@ -46,14 +46,6 @@ function UserPersonalGoals({personalGoals, user, updateCompletedGoal, removeDele
 
     return (
         <div id="setGoals">
-            {/* <div className="goalsPins">
-                <div className="goalsPin1">
-                    <img src={glossy} alt="red_Pin"/>
-                </div>
-                <div className="goalsPin2">
-                    <img src={glossy} alt="red_Pin"/>
-                </div>
-            </div> */}
             <div className="setNewGoal">
                 <button onClick={handleClick}>Set New Goal</button>
                 

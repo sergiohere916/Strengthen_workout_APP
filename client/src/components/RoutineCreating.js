@@ -25,11 +25,11 @@ function capitalize(phrase) {
 
     const displayWorkoutNames = currentWorkouts.map((workout, index) => {
         return <div className="addedExercises">
-        <div className="addedExerciseNames">{capitalize(workout)} {index} :</div>
+        <div className="addedExerciseNames">{capitalize(workout)} :</div>
             <span> 
-                <input name={0} value={currentSetsNReps[index][0]} onChange={(e) => onChangeUpdateSetsNReps(Number(e.target.value), index, Number(e.target.name))} style={{width: 30}} type="number"/>
+                <input name={0} min="1" value={currentSetsNReps[index][0]} onChange={(e) => onChangeUpdateSetsNReps(Number(e.target.value), index, Number(e.target.name))} style={{width: 30}} type="number"/>
                 Sets x 
-                <input name={1} value={currentSetsNReps[index][1]} onChange={(e) => onChangeUpdateSetsNReps(Number(e.target.value), index, Number(e.target.name))} style={{width: 30}} type="number"/>Reps
+                <input name={1} min="1" value={currentSetsNReps[index][1]} onChange={(e) => onChangeUpdateSetsNReps(Number(e.target.value), index, Number(e.target.name))} style={{width: 30}} type="number"/>Reps
             </span>
             <h6 className="removeAddedExercise" onClick={() => removeExerciseFromRoutine(index)}>Remove</h6>
         </div>

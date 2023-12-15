@@ -16,7 +16,7 @@ function WorkoutsList({workouts, user, addNewUserRoutine}) {
         fetch("/check_session")
         .then((r) => {
             if (!r.ok) {
-                history.push("/");
+                history.push("/Login");
             } 
         } )
     }, [])
