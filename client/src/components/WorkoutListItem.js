@@ -10,29 +10,30 @@ import Button from '@mui/material/Button';
 // import { Button } from "antd";
 
 
-function WorkoutListItem({workout, onClickAddToRoutine}) {
+function WorkoutListItem({workout, onClickAddToRoutine, onClickAddDefaultSetsNReps}) {
     // console.log(workout)
     const workoutName = workout.name[0].toUpperCase() + workout.name.slice(1)
 
     function handleClick() {
-        onClickAddToRoutine(workout.name)
+        onClickAddToRoutine(workout.name);
+        onClickAddDefaultSetsNReps();
     }
 
     return (
-        <Card className="ExerciseCard" style={{border: "3px solid black"}} sx={{ maxWidth: 345, height: "470px"}} elevation={4}>
+        <Card className="ExerciseCard" style={{}} sx={{ width: "350px", height: "370px"}} elevation={6} onClick={handleClick}>
         {/* <CardActionArea> */}
           <CardMedia
             component="img"
-            height="auto"
+            height="240px"
             image={workout.gifUrl}
             alt={workout.name}
-            sx ={{objectFit: "cover"}}
+            sx ={{objectFit: "contain"}}
           />
-          <div className="cardContent">
-            <Typography sx={{fontWeight: "bold", fontFamily: `'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif`}}gutterBottom variant="h6" align="center" component="div">
+          <div className="cardContent" style={{height: "130px"}}>
+            <Typography sx={{height: "64px", fontWeight: "bold", fontFamily: `'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif`}}gutterBottom variant="h6" align="center" component="div">
               {workoutName}
             </Typography>
-            <Typography variant="body2" color="text.secondary" align="center" component="div">
+            <Typography sx= {{height: "28px"}}variant="body2" color="text.secondary" align="center" component="div">
               {"Target Areas: " + workout.bodyPart + ", " + workout.target}
             </Typography>
             <Button className="ExerciseCardButton" elevation={0} size="small" color="warning" variant="contained" onClick={handleClick}>Add</Button>

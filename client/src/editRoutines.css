@@ -1,0 +1,163 @@
+#heroImage {
+    height: 400px;
+    width: 100%;
+    background-image: url("./components/curlBackground.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: gray;
+}
+
+#exercisesSearchTitle {
+    font-weight: 900;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+  margin-top: 100px;
+  /* color: red; */
+  color: rgb(255, 81, 0);
+  font-size: 30pt;
+}
+
+#exercisesPage {
+    display: flex;
+    /* border-top: 10px solid black; */
+    border: 1px solid black;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-color: rgb(230, 234, 238);
+    height: 900px;
+}
+
+.exerciseToEdit {
+    background-color: rgba(255, 255, 255, 0.692);
+    border: solid 1px black;
+    padding-bottom: 1px;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding-left: 5px;
+    margin-right: 10px;
+}
+
+.exerciseNames {
+    margin-bottom: 5px;
+    background-color: rgba(216, 211, 211, 0.897);
+    margin-left: -5px;
+    padding-left: 5px;
+    border-bottom: 2px solid black;
+}
+
+.exerciseSetNReps {
+    margin-left: 5px;
+}
+
+#editRoutineForm {
+    width: 20%;
+    padding-left: 15px;
+    border-left: solid 3px black;
+    background-color: #19191ad3;
+    /* background-image: url("https://images-na.ssl-images-amazon.com/images/I/71iukQrU+TL._AC_UL600_SR600,600_.jpg"); */
+    background-image: url("https://images.unsplash.com/photo-1580261450046-d0a30080dc9b?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGd5bXxlbnwwfHwwfHx8MA%3D%3D");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#routineEditName {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   
+}
+
+#editNameLabel {
+    font-weight: bold;
+    width: fit-content;
+    background-color: rgba(235, 227, 227, 0.64);
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#editNameInput {
+    display: flex;
+    margin-top: 10px;
+    margin-right: 30px;
+}
+
+#routineEditExerciseLabel {
+    width: fit-content;
+    background-color: rgba(235, 227, 227, 0.64);
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.removeExercise {
+    color: rgb(255, 136, 0);
+    width: fit-content;
+}
+
+.removeExercise:hover {
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+
+}
+
+#addedExercisesContainer {
+    overflow-y: scroll;
+    max-height: 610px;
+}
+
+#addedExercisesContainer::-webkit-scrollbar {
+   width: 1em;
+}
+
+#addedExercisesContainer::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+#addedExercisesContainer::-webkit-scrollbar-thumb {
+    background-color: rgba(75, 75, 77, 0.685);
+    outline: 1px solid slategrey;
+}
+
+#submitEditButton {
+    margin-top: 10px;
+    background-color: rgb(255, 123, 0);
+    color: white;
+    /* text-shadow: 1px 1px 1px black; */
+    font-size: 12pt;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid rgb(255, 123, 0);
+    box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.322);
+}
+
+#submitEditButton:hover {
+    cursor: pointer;
+    background-color: rgb(255, 81, 0);
+}
+
+.pageDescriptions {
+    text-align: center;
+    font-size: 14pt;
+    color: rgb(117, 116, 116);
+  }
+
+  #moreLessButtons {
+    display: flex;
+    /* background-color: blue; */
+    width: 30%;
+    padding-left: 15px;
+    padding-right: 15px;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  #button3 {
+    background-color: black;
+    color: white;
+  }
+  
+  #button4 {
+    background-color: black;
+    color: white;
+  }

@@ -1,16 +1,29 @@
-import React from "react";
+import React, {useEffect} from "react";
 import NavBar from "./NavBar";
 import UserRoutineItem from "./UserRoutineItem";
 import CurrentRoutine from "./CurrentRoutine";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 function UserRoutines({myRoutines, myWeeksRoutine, updateTargetUserRoutine, removeUserRoutine}) {
-  
+    
+    const history = useHistory()
+    
+    useEffect(() => {
+        fetch("/check_session")
+        .then((r) => {
+            if (!r.ok) {
+                history.push("/");
+            } 
+        } )
+    }, [])
+
+
 
     const userRoutines = myRoutines.map((userRoutine) => {
         return <UserRoutineItem key={userRoutine.id} userRoutine={userRoutine} updateTargetUserRoutine={updateTargetUserRoutine} myWeeksRoutine={myWeeksRoutine} removeUserRoutine={removeUserRoutine}/>
     })
-
+    const inHome = 0;
 
 
     return (
@@ -35,7 +48,7 @@ function UserRoutines({myRoutines, myWeeksRoutine, updateTargetUserRoutine, remo
                     <h3>Seek to accomplish them</h3>
                 </div>
             </div>
-            <CurrentRoutine myWeeksRoutine={myWeeksRoutine} updateTargetUserRoutine={updateTargetUserRoutine}/>
+            <CurrentRoutine myWeeksRoutine={myWeeksRoutine} updateTargetUserRoutine={updateTargetUserRoutine} inHome={inHome}/>
             <div id="userRoutinesTitleContainer">
                 <div id="userRoutinesTitle1">
                     <h1>Set Up Your Week's Routine</h1>
@@ -46,17 +59,9 @@ function UserRoutines({myRoutines, myWeeksRoutine, updateTargetUserRoutine, remo
                 <div id = "userRoutinesContainer">
                     {userRoutines}
                 </div>
-                {/* <div id="userPageWeeklyRoutine">
-                    <h5>Assign your Weekly Workout Routine</h5>
-                    <h4>Monday:</h4>
-                    <h4>Tuesday: </h4>
-                </div> */}
             </div>
         </div>
     )
 }
 
 export default UserRoutines
-// https://www.losangelespropertymanagementgroup.com/wp-content/uploads/2020/09/alicgym.jpeg
-
-// https://static.toiimg.com/thumb/msid-67925826/67925826.jpg?width=500&resizemode=4

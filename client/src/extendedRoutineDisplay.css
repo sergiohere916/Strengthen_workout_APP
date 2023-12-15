@@ -1,0 +1,114 @@
+
+
+#extendedRoutineDisplay {
+    position: absolute;
+    height: 730px;
+    width: 560px;
+    background-color: rgba(121, 121, 241, 0.986);
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: url("https://static.vecteezy.com/system/resources/previews/031/596/743/non_2x/an-array-of-dumbbells-in-precise-rows-essential-equipment-in-any-gym-vertical-mobile-wallpaper-ai-generated-free-photo.jpg");
+    background-size: cover;
+    opacity: 100%;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.164);
+  }
+
+#header {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+  background-color: rgba(128, 128, 128, 0.700);
+  /* margin-left: 20px;
+  margin-right: 20px; */
+  border: 1px solid black;
+  background-color: rgb(228, 99, 39);
+}
+
+#body {
+  padding: 5px;
+  margin-top: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 500px;
+  background-color: rgba(128, 128, 128, 0.750);
+  border-radius: 15px;
+  /* background-color: rgb(236, 121, 44); */
+  border: 1px solid black;
+}
+
+.exercises {
+  margin-left: 5px;
+}
+.setNRep {
+  margin-left: 20px;
+}
+
+#footer {
+  padding: 5px;
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 15px;
+  height: 100px;
+  background-color: rgba(128, 128, 128, 0.750);
+}
+
+#footerContent1 {
+  display: flex;
+  margin-left: 5px;
+  position: relative;
+}
+
+
+#button {
+  margin-top: 10px;
+  width: fit-content;
+  display: flex;
+  background-color: rgba(228, 219, 219, 0.979);
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid black;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.199);
+}
+
+#button:hover {
+  cursor: pointer;
+  background-color: rgba(250, 243, 243, 0.979) ;
+  border: 1px solid blue;
+}
+
+#checkBox {
+  margin-left: 5px;
+  display: flex;
+  height: 20px;
+  width: fit-content
+}
+
+#checkBoxPic {
+  height: auto;
+  width: auto;
+  object-fit: contain;
+}
+
+#timesCompleted {
+  position: absolute;
+  right: 0;
+}
+
+#headerCloser {
+  position: absolute;
+  left: 0;
+  margin-left: 10px;
+  font-weight: bold;
+  color: white;
+  text-decoration: underline;
+}
+
+#headerCloser:hover {
+  
+  color: blue;
+  cursor: pointer;
+}

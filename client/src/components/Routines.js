@@ -4,14 +4,24 @@ import NavBar from "./NavBar";
 import RoutineItem from "./RoutineItem";
 import { Layout } from "antd";
 import battleRope2 from "./battleRope3.jpg"
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
-function Routines({addNewUserRoutine}) {
+function Routines({addNewUserRoutine, workouts}) {
     
    
-    
+    const history = useHistory()
     const [allRoutines, setAllRoutines] = useState([])
     //MAYBE REMOVE SCHEDULED WORKOUTS FROM GET?
+    useEffect(() => {
+        fetch("/check_session")
+        .then((r) => {
+            if (!r.ok) {
+                history.push("/");
+            } 
+        } )
+    }, [])
+
     useEffect(() => {
         fetch('/routines')
         .then(r => r.json())
@@ -22,7 +32,7 @@ function Routines({addNewUserRoutine}) {
 
 
     const allRoutineCards = viewableRoutines.map((routine) => {
-        return <RoutineItem key={routine.id} routine={routine} addNewUserRoutine={addNewUserRoutine}/>
+        return <RoutineItem key={routine.id} routine={routine} addNewUserRoutine={addNewUserRoutine} workouts={workouts}/>
     })
 
     return (

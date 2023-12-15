@@ -45,8 +45,8 @@ function DisplayExcercise({myWeeksRoutine, workouts}) {
     function clearInstructions() {
         setCurrentInstructions([]);
     }
-    const instructionsDisplayed = currentInstructions.map((instructions) => {
-        return <li key={currentInstructions.indexOf(instructions)}>{instructions}</li>
+    const instructionsDisplayed = currentInstructions.map((instructions, index) => {
+        return <li key={instructions + index}>{instructions}</li>
     })
 
     return (

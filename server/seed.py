@@ -23,73 +23,82 @@ def create_users():
         users.append(user)
     return users
 
-# def create_routines():
-#     routines = []
-#     workouts = ["biceps curls", "bench press", "leg press", "preacher curls", "lat raises", "lat pulldowns", "squats", "rdls", "jumprope"]
-#     for i in range(5):
-#         routine = Routine(
-#             name = "Routine " + str(i),
-#             workouts = f'{rc(workouts)},{rc(workouts)},{rc(workouts)}',
-#             likes = randint(0,20),
-#             shared = randint(0,1)
-#         )
-#         routines.append(routine)
-#     return routines
+#return point 2
 
+#3/4 sit-up,alternate heel touchers,air bike,barbell sitted alternate leg raise,bottoms-up
+#3x30,3x15,3x20,3x15,3x10
+
+#cable pushdown (with rope attachment),cable overhead triceps extension (rope attachment),cable pushdown,cable standing one arm triceps extension,bench dip on floor
+#4x10,3x10,3x10,3x8,3x10
+
+#
+#
+
+#burpee,mountain climber,jump rope,run (equipment)
+#5x10,3x30,5x50,1x1
 def create_routines():
     
     
     routine1 = Routine(
         name = "Routine01",
-        workouts = "dumbbell arnold press,dumbbell decline bench press,dumbbell incline twisted flyes",
-        likes = randint(0,20),
+        workouts = "barbell bench press,barbell incline bench press,barbell decline bench press,cable low fly,cable middle fly,lever chest press,dumbbell biceps curl,dumbbell incline biceps curl,barbell preacher curl",
+        sets_n_reps = "4x8,4x8,3x10,3x10,3x10,3x10,4x8,2x8,2x10",
+        likes = randint(200,500),
         shared = 1
     )
     routine2 = Routine(
         name = "Routine02",
-        workouts = "dumbbell arnold press,dumbbell decline bench press,dumbbell incline twisted flyes",
-        likes = randint(0,20),
+        workouts = "barbell upright row,barbell wide-grip upright row,band standing rear delt row,dumbbell rear lateral raise,dumbbell lying rear delt row,dumbbell lateral raise,cable one arm lateral raise,dumbbell seated shoulder press,lever shoulder press v. 3",
+        sets_n_reps = "2x10,2x8,4x10,3x8,3x8,3x8,2x8,4x8,3x10",
+        likes = randint(50,500),
         shared = 1
     )
     routine3 = Routine(
         name = "Routine03",
-        workouts = "dumbbell arnold press,dumbbell decline bench press,dumbbell incline twisted flyes",
-        likes = randint(0,20),
+        workouts = "cable pulldown,cable underhand pulldown,cable lateral pulldown with v-bar,lever alternating narrow grip seated row,cable straight back seated row,cable seated wide-grip row,lever alternating narrow grip seated row,lever high row,dumbbell shrug",
+        sets_n_reps = "4x8,3x8,3x8,3x10,4x10,4x8,3x10,4x10,4x8,3x10",
+        likes = randint(50,500),
         shared = 1
     )
     routine4 = Routine(
         name = "Routine04",
-        workouts = "dumbbell one arm reverse grip press,dumbbell standing kickback,dumbbell decline hammer press",
-        likes = randint(0,20),
+        workouts = "lever leg extension,barbell full squat,barbell romanian deadlift,barbell deadlift,lever lying leg curl,dumbbell single leg split squat,lever seated calf raise",
+        sets_n_reps = "5x10,5x10,2x10,3x10,3x10,3x10,3x10",
+        likes = randint(50,500),
         shared = 1
     )
     routine5 = Routine(
         name = "Routine05",
-        workouts = "dumbbell one arm reverse grip press,dumbbell standing kickback,dumbbell decline hammer press",
-        likes = randint(0,20),
+        workouts = "cable pushdown (with rope attachment),cable overhead triceps extension (rope attachment),cable pushdown,cable standing one arm triceps extension,bench dip on floor",
+        sets_n_reps = "4x10,3x10,3x10,3x8,3x10",
+        likes = randint(50,500),
         shared = 1
     )
     routine6 = Routine(
         name = "Routine06",
-        workouts = "dumbbell one arm reverse grip press,dumbbell standing kickback,dumbbell decline hammer press",
-        likes = randint(0,20),
+        workouts = "burpee,mountain climber,jump rope,run (equipment)",
+        sets_n_reps = "5x10,3x30,5x50,1x1",
+        likes = randint(50,500),
         shared = 1
     )
     routine7 = Routine(
         name = "Routine07",
-        workouts = "barbell speed squat,barbell split squat v. 2",
-        likes = randint(0,20),
+        workouts = "3/4 sit-up,alternate heel touchers,air bike,barbell sitted alternate leg raise,bottoms-up",
+        sets_n_reps = "3x30,3x15,3x20,3x15,3x10",
+        likes = randint(50,500),
         shared = 1
     )
     routine8 = Routine(
         name = "Routine08",
         workouts = "barbell speed squat,barbell split squat v. 2",
+        sets_n_reps = "3x10,3x10",
         likes = randint(0,20),
         shared = 1
     )
     routine9 = Routine(
         name = "Routine09",
         workouts = "barbell speed squat,barbell split squat v. 2",
+        sets_n_reps = "3x10,3x10",
         likes = randint(0,20),
         shared = 1
     )
