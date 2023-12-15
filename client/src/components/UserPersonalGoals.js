@@ -1,24 +1,17 @@
-import React, { useContext, useEffect, useState } from "react";
-import glossy from "./glossy-red-push-pin-png.webp";
+import React, { useState } from "react";
 import UserPersonalGoalItem from "./UserPersonalGoalItem";
-import { UserContext } from "./Context";
 
 function UserPersonalGoals({personalGoals, user, updateCompletedGoal, removeDeletedGoal, addNewGoal}) {
     const [goalDesc, setGoalDesc] = useState("");
     const [targetDate, setTargetDate] = useState("");
 
     const displayGoals = personalGoals.map((goal) => {
-        return <UserPersonalGoalItem key={goal.id} goal={goal} updateCompletedGoal={updateCompletedGoal} removeDeletedGoal={removeDeletedGoal} user={user}/>
+        return <UserPersonalGoalItem key={goal.id} goal={goal} updateCompletedGoal={updateCompletedGoal} removeDeletedGoal={removeDeletedGoal} user/>
     })
 
 
     const today = new Date().toISOString().split("T")[0];
-    function handleClick() {
-       
-        console.log("NEED TO INSERT INFORMATION");
-        console.log(goalDesc);
-        console.log(targetDate);
-    }
+    
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -47,7 +40,7 @@ function UserPersonalGoals({personalGoals, user, updateCompletedGoal, removeDele
     return (
         <div id="setGoals">
             <div className="setNewGoal">
-                <button onClick={handleClick}>Set New Goal</button>
+                <button>Set New Goal</button>
                 
             </div>
             <div id="newGoalFormContainer">

@@ -5,11 +5,10 @@ function DayRoutineItem({dayRoutine, updateTargetUserRoutine, handleClickedRouti
     const {routine} = dayRoutine
     
     const excercisesList = routine.workouts.split(",");
-    //TEMPORARY SOLUTION TO KEY ISSUE
+    
     const excercises = excercisesList.map((excercise, index) => <li key={excercise + index}>{capitalize(excercise)}</li>)
 
     function handleClick() {
-        console.log(dayRoutine.id)
         fetch(`/scheduledworkouts/${dayRoutine.id}`, {
             method: "PATCH",
             headers: {"Content-Type": "application/json"},

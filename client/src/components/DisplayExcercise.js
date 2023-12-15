@@ -14,8 +14,6 @@ function DisplayExcercise({myWeeksRoutine, workouts}) {
     const excerciseOptionsList = myWeeksRoutine.filter((scheduledRoutine) => scheduledRoutine["day_of_week"] === selectedRoutineName);
     let excerciseOptions;
     if (excerciseOptionsList.length > 0) {
-        // console.log("THIS FUNCTION CAN NOW RUN")
-        // console.log(excerciseOptionsList[0].routine.workouts)
         excerciseOptions = excerciseOptionsList[0].routine.workouts.split(",").map((excercise) => {
         return <option key={Math.random()*1000} value={excercise}>{excercise}</option>
         })
@@ -26,7 +24,6 @@ function DisplayExcercise({myWeeksRoutine, workouts}) {
     function handleSubmit(e) {
         e.preventDefault();
         const excerciseName = e.target[1].value
-        // console.log(excerciseName)
         retrieveDisplay(excerciseName);
     }
 
@@ -67,16 +64,11 @@ function DisplayExcercise({myWeeksRoutine, workouts}) {
                     <label>Which Excercise </label>
                     <select name="excercise" required>
                         <option value=""></option>
-                        {/* {Array.isArray(excerciseOptions)? excerciseOptions : <></>} */}
                         {excerciseOptions}
                     </select>
                     <button type="submit">Go</button>
                 </form>
             </div>
-            {/* <div>
-                <button onClick={clearClip}>Clear Clip</button>
-                <button onClick={clearInstructions}>Clear Instructions</button>
-            </div> */}
             <div id="exerciseInfoContainer">
                 <div id="exeriseInfo1">
                     {currentGif}

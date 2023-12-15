@@ -1,4 +1,3 @@
-import { red } from "@mui/material/colors";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -22,10 +21,10 @@ function EditRoutineForm({routineId, addedWorkouts, addedSetsNReps, onChangeUpda
         })
     }, [])
 
-    const routineExercises = routine.workouts.split(",");
-    const setsNReps = routine.sets_n_reps.split(",");
+    // const routineExercises = routine.workouts.split(",");
+    // const setsNReps = routine.sets_n_reps.split(",");
 
-    //rename this?
+   
     const displayAddedExerciseNames = addedWorkouts.map((workout, index) => {
         return <div key={workout + index} className="exerciseToEdit">
         <div className="exerciseNames">{capitalize(workout)} :</div>
@@ -50,12 +49,10 @@ function EditRoutineForm({routineId, addedWorkouts, addedSetsNReps, onChangeUpda
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(e);
         const allSetsNReps = addedSetsNReps.map((setNRepPair) => {
             return setNRepPair[0].toString() + "x" + setNRepPair[1].toString();
         });
         const editedRoutine = {...routine, sets_n_reps: allSetsNReps.join(","), workouts: addedWorkouts.join(",")}
-        console.log(editedRoutine);
         //grab data then fetch patch to update the routine
         //route back to userExercises display
         fetch(`/routines/${routine.id}`, {

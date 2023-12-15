@@ -3,14 +3,11 @@ import { Switch, Route } from "react-router-dom";
 import { UserContext } from "./Context";
 import Login from "./Login";
 import Home from "./Home";
-import NavBar from "./NavBar";
 import WorkoutsList from "./WorkoutsList";
 import UserRoutines from "./UserRoutines";
-import CurrentRoutine from "./CurrentRoutine";
 import Routines from "./Routines";
 import CreateAccount from "./CreateAccount";
 import EditRoutines from "./EditRoutines";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import Strengthen from "./Strengthen";
 
 
@@ -19,7 +16,7 @@ function App() {
 
   // const UsersContext = createContext();
   //CURRENTLY SENDING USER AS STATE VARIABLE TO ROUTINES THEN TO ROUTINEITEM IF FIXED REMOVE THESE PROP DRILLED VARIABLES
-  const history = useHistory()
+  
   const [user, setUser] = useState({id: null, name: "", personal_goals: []});
   // const [personalGoals, setPersonalGoals] = useState([]);
   // const [completedGoals, setCompletedGoals] = useState([]);
@@ -275,13 +272,12 @@ function App() {
 
     
   }
-  console.log("in app js this is myScheduledWorkouts")
-  console.log(myRoutines)
+
   
   function updateTargetUserRoutine(id,value, target) {
     //USE MAP FUNCTION TO FIND TARGET ELEMENT AND ADJUST ON FRONT END STATE
     const updatedMyRoutines = myRoutines.map((scheduledRoutine) => {
-      if (scheduledRoutine.id == id) {
+      if (scheduledRoutine.id === id) {
         scheduledRoutine[target] = value
         return scheduledRoutine
       } else {
@@ -320,7 +316,6 @@ function App() {
     setAllGoals([...allGoals, newGoal]);
   }
   function updateCompletedGoal(id) {
-    console.log("hi");
     const updatedGoals = allGoals.map((goal) => {
       if (goal.id === id) {
         goal["completed"] = true;
