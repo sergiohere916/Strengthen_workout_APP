@@ -16,10 +16,12 @@ from flask_bcrypt import Bcrypt
 load_dotenv()
 
 # Instantiate app, set attributes
-app = Flask(__name__,
-            static_folder=".../client/build",
-            static_url_path="",
-            template_folder="../client/build",)
+app = Flask(
+    __name__,
+    static_folder="../client/build",
+    static_url_path="",
+    template_folder="../client/build",
+)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URI")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
