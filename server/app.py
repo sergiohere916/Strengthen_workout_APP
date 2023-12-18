@@ -3,7 +3,7 @@
 # Standard library imports
 
 # Remote library imports
-from flask import request, make_response, jsonify, session
+from flask import request, make_response, jsonify, session, render_template
 from flask_restful import Resource
 
 # Local imports
@@ -15,6 +15,13 @@ from models import User, Routine, PersonalGoal, ScheduledWorkout
 from datetime import date,datetime
 
 # Views go here!
+
+@app.route("/")
+@app.route("/<int:id>")
+def index(id=0):
+    return render_template("index.html")
+
+
 class Login(Resource):
 
     def post(self):
@@ -299,9 +306,7 @@ class ScheduledWorkoutsByUserID(Resource):
 api.add_resource(ScheduledWorkoutsByUserID, '/scheduledworkouts/user/<int:id>')
 
 
-@app.route('/')
-def index():
-    return '<h1>Project Server</h1>'
+
 
 
 if __name__ == '__main__':
