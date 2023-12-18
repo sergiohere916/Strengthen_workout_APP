@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { NavLink, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -103,9 +103,10 @@ function Login({onLogIn}) {
                      
                     </Grid>
                     <Grid item>
-                        <Link href="/createAccount" variant="body2">
+                        {/* <Link href="/createAccount" variant="body2">
                         {"Don't have an account? Sign Up"}
-                        </Link>
+                        </Link> */}
+                        <NavLink to="/createAccount">{"Don't have an account? Sign Up"}</NavLink>
                     </Grid>
                     </Grid>
                 </Box>

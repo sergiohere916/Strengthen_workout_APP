@@ -1,5 +1,7 @@
 #introPage {
     height: 100vh;
+    /* added this into to see if it would help with phone css */
+    width: 100vw;
     background-image: url("./components/1_arm_curl_grey.jpg");
     background-size: cover;
     position: relative;
