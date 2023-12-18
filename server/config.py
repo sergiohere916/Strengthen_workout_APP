@@ -1,25 +1,27 @@
 # Standard library imports
+import os
 
 # Remote library imports
+from dotenv import load_dotenv
 from flask import Flask
 from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
-
 #ADDED FOR BCRYPT DELETE IF NOT WORKING 10-26
 from flask_bcrypt import Bcrypt
 
 # Local imports
+load_dotenv()
 
 # Instantiate app, set attributes
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URI")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
 
-app.secret_key = b'Sergio_key'
+app.secret_key = os.environ.get("SECRET_KEY")
 
 # Define metadata, instantiate db
 metadata = MetaData(naming_convention={
