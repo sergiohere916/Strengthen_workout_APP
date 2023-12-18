@@ -12,7 +12,7 @@ function RoutineItem({routine, addNewUserRoutine, workouts}) {
     const excercises = excerciseList.map((excercise, index) => {
         return <li key={excercise + index}>{capitalize(excercise)}: {sets_n_reps[index]}</li>
     })
-    //FIX THE DAMN KEYSSS ISSUE
+    
     const targetBodyParts = excerciseList.map((exercise, index) => {
         const bodyPartName = (workouts.filter((workout) => workout.name === exercise))[0].bodyPart;
         return bodyPartName + ", ";

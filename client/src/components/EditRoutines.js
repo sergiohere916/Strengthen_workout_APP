@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "./NavBar";
 import WorkoutListItem from "./WorkoutListItem";
-import RoutineCreating from "./RoutineCreating";
 import { Input, Layout, Space, Typography } from 'antd';
 import EditRoutineForm from "./EditRoutineForm";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
@@ -49,7 +48,6 @@ function EditRoutines({workouts, user, updateUserRoutine}) {
 
     function onChangeUpdateSetsNReps(newValue, index, valuePosition) {
         currentSetsNReps[index][valuePosition] = newValue;
-        console.log(currentSetsNReps[index][valuePosition]);
         setCurrentSetsNReps([...currentSetsNReps]) 
     }
 
@@ -63,8 +61,6 @@ function EditRoutines({workouts, user, updateUserRoutine}) {
         const updatedRoutineSets = currentSetsNReps.filter((setNRep, index) => index !== targetIndex );
         const exercises = updatedRoutineExercises.join(",");
         const setsNRepsUpdated = updatedRoutineSets.join(",");
-        // const newRoutine = {...routine, workouts: exercises, sets_n_reps: setsNRepsUpdated};
-        // setRoutine(newRoutine);
         setCurrentWorkouts([...updatedRoutineExercises]);
         setCurrentSetsNReps([...updatedRoutineSets]);  
     }
@@ -82,7 +78,6 @@ function EditRoutines({workouts, user, updateUserRoutine}) {
     }
 
     function handleChange(e) {
-        console.log(e.target.value);
         setSlices([0,6]);
         setSearchValue(e.target.value);
     }

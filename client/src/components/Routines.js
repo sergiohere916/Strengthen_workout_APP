@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import { UserContext } from "./Context";
 import NavBar from "./NavBar";
 import RoutineItem from "./RoutineItem";
 import { Layout, Typography } from "antd";

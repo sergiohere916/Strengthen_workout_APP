@@ -3,9 +3,8 @@ import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 function UserRoutineItem({userRoutine, updateTargetUserRoutine, myWeeksRoutine, removeUserRoutine}) {
     const {routine} = userRoutine
-    const [assignedUserRoutines, setAssignedUserRoutines] = useState([])
     const [day, setDay] = useState("")
-    console.log("These are assigned");
+    
     
     const exceriseArr = routine.workouts.split(",");
     const setsNRepsList = routine.sets_n_reps.split(",");
@@ -16,10 +15,10 @@ function UserRoutineItem({userRoutine, updateTargetUserRoutine, myWeeksRoutine, 
     const assignedDays = myWeeksRoutine.map((routine) => {
         return routine["day_of_week"];
     })
-    console.log(assignedDays);
-    //FIND BETTER SOLUTION TO KEY in LIST OF LIs
+    
+    
     const excercises = exceriseArr.map((excercise,index) => {
-        return <li key={Math.random()*1000}>{capitalize(excercise)}: {setsNRepsPairings[index][0]}x{setsNRepsPairings[index][1]}</li>
+        return <li key={excercise + index}>{capitalize(excercise)}: {setsNRepsPairings[index][0]}x{setsNRepsPairings[index][1]}</li>
     })
 
     function handleSubmit(e) {

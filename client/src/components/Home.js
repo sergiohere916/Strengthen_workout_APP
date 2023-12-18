@@ -5,16 +5,10 @@ import { UserContext } from "./Context";
 
 import { Layout, Space } from 'antd';
 
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-
-import pic from './glossy-red-push-pin-png.webp'
 import DisplayExcercise from "./DisplayExcercise";
-import { red } from "@mui/material/colors";
 import UserPersonalGoals from "./UserPersonalGoals";
 
 
-import glossy from "./glossy-red-push-pin-png.webp";
 import CompletedGoals from "./CompletedGoals";
 import ExtendedScheduledRoutine from "./ExtendedScheduledRoutine";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
@@ -29,7 +23,6 @@ function Home({myWeeksRoutine, updateTargetUserRoutine, workouts, personalGoals,
 
 
     const inHome = 1;
-    console.log(completedGoals)
     const displayCompletedGoals = completedGoals.map((goal) => {
         return <CompletedGoals key={goal.id} goal={goal}/>
     })

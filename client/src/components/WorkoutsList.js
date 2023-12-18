@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import NavBar from "./NavBar";
 import WorkoutListItem from "./WorkoutListItem";
 import RoutineCreating from "./RoutineCreating";
-import { Input, Layout, Space, Typography } from 'antd';
+import { Input, Layout, Typography } from 'antd';
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
@@ -37,7 +37,6 @@ function WorkoutsList({workouts, user, addNewUserRoutine}) {
 
     function onChangeUpdateSetsNReps(newValue, index, valuePosition) {
         currentSetsNReps[index][valuePosition] = newValue;
-        console.log(currentSetsNReps[index][valuePosition]);
         setCurrentSetsNReps([...currentSetsNReps]) 
     }
 
@@ -68,7 +67,6 @@ function WorkoutsList({workouts, user, addNewUserRoutine}) {
     }
 
     function handleChange(e) {
-        console.log(e.target.value);
         setSlices([0,6]);
         setSearchValue(e.target.value);
     }

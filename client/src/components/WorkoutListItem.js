@@ -2,16 +2,14 @@ import React from "react";
 
 
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
 import Button from '@mui/material/Button';
 // import { Button } from "antd";
 
 
 function WorkoutListItem({workout, onClickAddToRoutine, onClickAddDefaultSetsNReps}) {
-    // console.log(workout)
+  
     const workoutName = workout.name[0].toUpperCase() + workout.name.slice(1)
 
     function handleClick() {

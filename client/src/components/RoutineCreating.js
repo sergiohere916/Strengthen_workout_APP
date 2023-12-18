@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, Button, Input, Space } from 'antd';
+import { Alert, Button, Space } from 'antd';
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 
@@ -11,10 +11,6 @@ function RoutineCreating({currentWorkouts, currentSetsNReps, onChangeUpdateSetsN
 
     function handleSetRepChange(e) {
         const index = Number(e.target.name[0]) + 1;
-        console.log(e.target.name.split(",")[0]);
-        
-        
-
     }
 
 function capitalize(phrase) {
@@ -24,7 +20,7 @@ function capitalize(phrase) {
 }
 
     const displayWorkoutNames = currentWorkouts.map((workout, index) => {
-        return <div className="addedExercises">
+        return <div key={workout + index} className="addedExercises">
         <div className="addedExerciseNames">{capitalize(workout)} :</div>
             <span> 
                 <input name={0} min="1" value={currentSetsNReps[index][0]} onChange={(e) => onChangeUpdateSetsNReps(Number(e.target.value), index, Number(e.target.name))} style={{width: 30}} type="number"/>
@@ -45,8 +41,6 @@ function capitalize(phrase) {
         const allSetsNReps = currentSetsNReps.map((setNRepPair) => {
             return setNRepPair[0].toString() + "x" + setNRepPair[1].toString();
         });
-        console.log(allSetsNReps.join(","));
-        
         if (currentWorkouts.length >= 1) {
             const newRoutine = {
                 name: routineName,
@@ -62,8 +56,6 @@ function capitalize(phrase) {
             })
             .then(r => r.json())
             .then(data => {
-                console.log("new routine");
-                console.log(data);
                 fetch("/scheduledworkouts", {
                     method: "POST",
                     headers: {"Content-Type":"application/json"},
@@ -85,7 +77,6 @@ function capitalize(phrase) {
             //ADD THE NEW ROUTINE INTO STATE SO IT CAN BE SENT TO ROUTINES PAGE will need function
             //ADD scheduledworkot into state as well and send up with function same as routine
         } else {
-            console.log("SOME LOGIC TO DISPLAY ERROR");
             setInvalidEntry(true)
         }
     }

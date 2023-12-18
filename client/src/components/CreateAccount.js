@@ -6,7 +6,6 @@ import {
     Form,
     Input,
   } from 'antd';
-import Password from "antd/es/input/Password";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
   //DELETE SUFFIX SELECTOR AND PREFIX SELECTOR, Website options, website change
