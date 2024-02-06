@@ -1,5 +1,4 @@
 
-https://github.com/sergiohere916/Strengthen_workout_APP/assets/137942550/bedc566f-e88c-43b1-bc66-3df1284c525d
 # Strengthen_Workout_APP
 
 ## One sentence description:
@@ -34,7 +33,6 @@ Check out a wide variety of excercises and create workout routines for yourself 
 ![Screenshot 2023-10-24 163725](https://github.com/sergiohere916/Strengthen_workout_APP/assets/137942550/1a3faf82-cd4e-467f-856a-5207a5d47086)
 
 # APP Preview:
-https://github.com/sergiohere916/Strengthen_workout_APP/assets/137942550/a0720537-5099-450e-a516-97efea1ba86c
 
 # API Routes:
 * GET/users/<int:id>
