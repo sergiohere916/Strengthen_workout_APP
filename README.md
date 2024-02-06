@@ -32,7 +32,12 @@ Check out a wide variety of excercises and create workout routines for yourself 
 # Wireframe:
 ![Screenshot 2023-10-24 163725](https://github.com/sergiohere916/Strengthen_workout_APP/assets/137942550/1a3faf82-cd4e-467f-856a-5207a5d47086)
 
-# APP Preview:
+# Completed APP Preview:
+https://github.com/sergiohere916/Strengthen_workout_APP/assets/137942550/70e5f936-3f92-4d45-b16f-073d606e97d5
+
+https://github.com/sergiohere916/Strengthen_workout_APP/assets/137942550/129235d6-7e89-4b13-b5b5-5b4eb3ccc22a
+
+
 
 # API Routes:
 * GET/users/<int:id>
